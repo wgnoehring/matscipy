@@ -1,0 +1,1478 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>matscipy package &mdash; matscipy devel documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     'devel',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="matscipy devel documentation" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="index.html">matscipy devel documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="matscipy-package">
+<h1>matscipy package<a class="headerlink" href="#matscipy-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="matscipy.contact_mechanics.html">matscipy.contact_mechanics package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="matscipy.contact_mechanics.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="matscipy.contact_mechanics.html#module-matscipy.contact_mechanics.DMT">matscipy.contact_mechanics.DMT module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="matscipy.contact_mechanics.html#module-matscipy.contact_mechanics.Hertz">matscipy.contact_mechanics.Hertz module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="matscipy.contact_mechanics.html#module-matscipy.contact_mechanics.JKR">matscipy.contact_mechanics.JKR module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="matscipy.contact_mechanics.html#module-matscipy.contact_mechanics.greens_function">matscipy.contact_mechanics.greens_function module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="matscipy.contact_mechanics.html#module-matscipy.contact_mechanics">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="matscipy.fracture_mechanics.html">matscipy.fracture_mechanics package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="matscipy.fracture_mechanics.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="matscipy.fracture_mechanics.html#module-matscipy.fracture_mechanics.clusters">matscipy.fracture_mechanics.clusters module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="matscipy.fracture_mechanics.html#module-matscipy.fracture_mechanics.crack">matscipy.fracture_mechanics.crack module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="matscipy.fracture_mechanics.html#module-matscipy.fracture_mechanics.crackpathsel">matscipy.fracture_mechanics.crackpathsel module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="matscipy.fracture_mechanics.html#module-matscipy.fracture_mechanics.energy_release">matscipy.fracture_mechanics.energy_release module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="matscipy.fracture_mechanics.html#module-matscipy.fracture_mechanics.idealbrittlesolid">matscipy.fracture_mechanics.idealbrittlesolid module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="matscipy.fracture_mechanics.html#module-matscipy.fracture_mechanics">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-matscipy.angle_distribution">
+<span id="matscipy-angle-distribution-module"></span><h2>matscipy.angle_distribution module<a class="headerlink" href="#module-matscipy.angle_distribution" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="matscipy.angle_distribution.angle_distribution">
+<tt class="descclassname">matscipy.angle_distribution.</tt><tt class="descname">angle_distribution</tt><big>(</big><em>i</em>, <em>j</em>, <em>dr</em>, <em>nbins</em>, <em>*args</em><big>)</big><a class="headerlink" href="#matscipy.angle_distribution.angle_distribution" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute a bond angle distribution from a neighbour list.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>i, j, dr</strong> : array_like</p>
+<blockquote>
+<div><p>Neighbour list, including list of distance vectors.</p>
+</div></blockquote>
+<p><strong>nbins</strong> : int</p>
+<blockquote>
+<div><p>Number of bins for bond angle histogram.</p>
+</div></blockquote>
+<p><strong>cutoff</strong> : float, optional</p>
+<blockquote class="last">
+<div><p>Bond length cutoff, i.e. consider only bonds shorter than this length.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-matscipy.atomic_strain">
+<span id="matscipy-atomic-strain-module"></span><h2>matscipy.atomic_strain module<a class="headerlink" href="#module-matscipy.atomic_strain" title="Permalink to this headline">¶</a></h2>
+<p>Compute deformation gradient tensor and D^2_min measure for non-affine
+displacements.
+See: Falk, Langer, Phys. Rev. B 57, 7192 (1998)</p>
+<dl class="function">
+<dt id="matscipy.atomic_strain.array_inverse">
+<tt class="descclassname">matscipy.atomic_strain.</tt><tt class="descname">array_inverse</tt><big>(</big><em>A</em><big>)</big><a class="headerlink" href="#matscipy.atomic_strain.array_inverse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute inverse for each matrix in a list of matrices.
+This is faster than calling numpy.linalg.inv for each matrix.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="matscipy.atomic_strain.atomic_strain">
+<tt class="descclassname">matscipy.atomic_strain.</tt><tt class="descname">atomic_strain</tt><big>(</big><em>atoms_now</em>, <em>atoms_old</em>, <em>cutoff=None</em>, <em>neighbours=None</em><big>)</big><a class="headerlink" href="#matscipy.atomic_strain.atomic_strain" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate deformation gradient tensor and D^2_min measure for non-affine
+displacements.
+See: Falk, Langer, Phys. Rev. B 57, 7192 (1998)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="matscipy.atomic_strain.get_D_square_min">
+<tt class="descclassname">matscipy.atomic_strain.</tt><tt class="descname">get_D_square_min</tt><big>(</big><em>atoms_now</em>, <em>atoms_old</em>, <em>i_now</em>, <em>j_now</em>, <em>delta_plus_epsilon=None</em><big>)</big><a class="headerlink" href="#matscipy.atomic_strain.get_D_square_min" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the D^2_min norm of Falk and Langer</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="matscipy.atomic_strain.get_XIJ">
+<tt class="descclassname">matscipy.atomic_strain.</tt><tt class="descname">get_XIJ</tt><big>(</big><em>nat</em>, <em>i_now</em>, <em>dr_now</em>, <em>dr_old</em><big>)</big><a class="headerlink" href="#matscipy.atomic_strain.get_XIJ" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the X_{ij} matrix</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="matscipy.atomic_strain.get_YIJ">
+<tt class="descclassname">matscipy.atomic_strain.</tt><tt class="descname">get_YIJ</tt><big>(</big><em>nat</em>, <em>i_now</em>, <em>dr_old</em><big>)</big><a class="headerlink" href="#matscipy.atomic_strain.get_YIJ" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the Y_{ij} matrix</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="matscipy.atomic_strain.get_delta_plus_epsilon">
+<tt class="descclassname">matscipy.atomic_strain.</tt><tt class="descname">get_delta_plus_epsilon</tt><big>(</big><em>nat</em>, <em>i_now</em>, <em>dr_now</em>, <em>dr_old</em><big>)</big><a class="headerlink" href="#matscipy.atomic_strain.get_delta_plus_epsilon" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate delta_ij+epsilon_ij, i.e. the deformation gradient matrix</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="matscipy.atomic_strain.get_delta_plus_epsilon_dgesv">
+<tt class="descclassname">matscipy.atomic_strain.</tt><tt class="descname">get_delta_plus_epsilon_dgesv</tt><big>(</big><em>nat</em>, <em>i_now</em>, <em>dr_now</em>, <em>dr_old</em><big>)</big><a class="headerlink" href="#matscipy.atomic_strain.get_delta_plus_epsilon_dgesv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate delta_ij+epsilon_ij, i.e. the deformation gradient matrix</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-matscipy.checkpoint">
+<span id="matscipy-checkpoint-module"></span><h2>matscipy.checkpoint module<a class="headerlink" href="#module-matscipy.checkpoint" title="Permalink to this headline">¶</a></h2>
+<p>Checkpointing and restart functionality for Python scripts use ASE Atoms
+objects.</p>
+<p>Initialize checkpoint object:</p>
+<p>CP = Checkpoint(&#8216;checkpoints.db&#8217;)</p>
+<p>Checkpointed code block in try ... except notation:</p>
+<dl class="docutils">
+<dt>try:</dt>
+<dd>a, C, C_err = CP.load()</dd>
+<dt>except NoCheckpoint:</dt>
+<dd>C, C_err = fit_elastic_constants(a)
+CP.save(a, C, C_err)</dd>
+</dl>
+<p>Checkpoint code block, shorthand notation:</p>
+<p>C, C_err = CP(fit_elastic_constants)(a)</p>
+<p>Example for checkpointing within an iterative loop, e.g. for searching crack
+tip position:</p>
+<dl class="docutils">
+<dt>try:</dt>
+<dd>a, converged, tip_x, tip_y = CP.load()</dd>
+<dt>except NoCheckpoint:</dt>
+<dd>converged = False
+tip_x = tip_x0
+tip_y = tip_y0</dd>
+<dt>while not converged:</dt>
+<dd>... do something to find better crack tip position ...
+converged = ...
+CP.flush(a, converged, tip_x, tip_y)</dd>
+</dl>
+<p>The simplest way to use checkpointing is through the CheckpointCalculator. It
+wraps any calculator object and</p>
+<dl class="class">
+<dt id="matscipy.checkpoint.Checkpoint">
+<em class="property">class </em><tt class="descclassname">matscipy.checkpoint.</tt><tt class="descname">Checkpoint</tt><big>(</big><em>db='checkpoints.db'</em>, <em>logger=&lt;matscipy.logger.Logger object at 0x6fffe040950&gt;</em><big>)</big><a class="headerlink" href="#matscipy.checkpoint.Checkpoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p class="rubric">Methods</p>
+<dl class="method">
+<dt id="matscipy.checkpoint.Checkpoint.flush">
+<tt class="descname">flush</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#matscipy.checkpoint.Checkpoint.flush" title="Permalink to this definition">¶</a></dt>
+<dd><p>Store data to a checkpoint without increasing the checkpoint id. This
+is useful to continously update the checkpoint state in an iterative
+loop.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="matscipy.checkpoint.Checkpoint.load">
+<tt class="descname">load</tt><big>(</big><em>atoms=None</em><big>)</big><a class="headerlink" href="#matscipy.checkpoint.Checkpoint.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve checkpoint data from file. If atoms object is specified, then
+the calculator connected to that object is copied to all returning
+atoms object.</p>
+<p>Returns tuple of values as passed to flush or save during checkpoint
+write.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="matscipy.checkpoint.Checkpoint.save">
+<tt class="descname">save</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#matscipy.checkpoint.Checkpoint.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Store data to a checkpoint and increase the checkpoint id. This closes
+the checkpoint.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="matscipy.checkpoint.CheckpointCalculator">
+<em class="property">class </em><tt class="descclassname">matscipy.checkpoint.</tt><tt class="descname">CheckpointCalculator</tt><big>(</big><em>calculator</em>, <em>db='checkpoints.db'</em>, <em>logger=&lt;matscipy.logger.Logger object at 0x6fffe040950&gt;</em><big>)</big><a class="headerlink" href="#matscipy.checkpoint.CheckpointCalculator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">ase.calculators.calculator.Calculator</span></tt></p>
+<p class="rubric">Methods</p>
+<dl class="method">
+<dt id="matscipy.checkpoint.CheckpointCalculator.calculate">
+<tt class="descname">calculate</tt><big>(</big><em>atoms</em>, <em>properties</em>, <em>system_changes</em><big>)</big><a class="headerlink" href="#matscipy.checkpoint.CheckpointCalculator.calculate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="matscipy.checkpoint.CheckpointCalculator.implemented_properties">
+<tt class="descname">implemented_properties</tt><em class="property"> = ['energy', 'forces', 'stress', 'dipole', 'charges', 'magmom', 'magmoms']</em><a class="headerlink" href="#matscipy.checkpoint.CheckpointCalculator.implemented_properties" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="matscipy.checkpoint.CheckpointCalculator.property_to_method_name">
+<tt class="descname">property_to_method_name</tt><em class="property"> = {'energies': 'get_potential_energies', 'stresses': 'get_stresses', 'energy': 'get_potential_energy', 'stress': 'get_stress', 'forces': 'get_forces'}</em><a class="headerlink" href="#matscipy.checkpoint.CheckpointCalculator.property_to_method_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="exception">
+<dt id="matscipy.checkpoint.NoCheckpoint">
+<em class="property">exception </em><tt class="descclassname">matscipy.checkpoint.</tt><tt class="descname">NoCheckpoint</tt><a class="headerlink" href="#matscipy.checkpoint.NoCheckpoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">exceptions.Exception</span></tt></p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-matscipy.elasticity">
+<span id="matscipy-elasticity-module"></span><h2>matscipy.elasticity module<a class="headerlink" href="#module-matscipy.elasticity" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="matscipy.elasticity.CubicElasticModuli">
+<em class="property">class </em><tt class="descclassname">matscipy.elasticity.</tt><tt class="descname">CubicElasticModuli</tt><big>(</big><em>C11</em>, <em>C12</em>, <em>C44</em><big>)</big><a class="headerlink" href="#matscipy.elasticity.CubicElasticModuli" title="Permalink to this definition">¶</a></dt>
+<dd><p class="rubric">Methods</p>
+<dl class="method">
+<dt id="matscipy.elasticity.CubicElasticModuli.compliance">
+<tt class="descname">compliance</tt><big>(</big><big>)</big><a class="headerlink" href="#matscipy.elasticity.CubicElasticModuli.compliance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the compliance coefficients</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="matscipy.elasticity.CubicElasticModuli.rotate">
+<tt class="descname">rotate</tt><big>(</big><em>A</em><big>)</big><a class="headerlink" href="#matscipy.elasticity.CubicElasticModuli.rotate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the rotated stiffness matrix</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="matscipy.elasticity.CubicElasticModuli.stiffness">
+<tt class="descname">stiffness</tt><big>(</big><big>)</big><a class="headerlink" href="#matscipy.elasticity.CubicElasticModuli.stiffness" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the elastic constants</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="matscipy.elasticity.CubicElasticModuli.tol">
+<tt class="descname">tol</tt><em class="property"> = 1e-06</em><a class="headerlink" href="#matscipy.elasticity.CubicElasticModuli.tol" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="matscipy.elasticity.Voigt_6_to_full_3x3_strain">
+<tt class="descclassname">matscipy.elasticity.</tt><tt class="descname">Voigt_6_to_full_3x3_strain</tt><big>(</big><em>strain_vector</em><big>)</big><a class="headerlink" href="#matscipy.elasticity.Voigt_6_to_full_3x3_strain" title="Permalink to this definition">¶</a></dt>
+<dd><p>Form a 3x3 strain matrix from a 6 component vector in Voigt notation</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="matscipy.elasticity.Voigt_6_to_full_3x3_stress">
+<tt class="descclassname">matscipy.elasticity.</tt><tt class="descname">Voigt_6_to_full_3x3_stress</tt><big>(</big><em>stress_vector</em><big>)</big><a class="headerlink" href="#matscipy.elasticity.Voigt_6_to_full_3x3_stress" title="Permalink to this definition">¶</a></dt>
+<dd><p>Form a 3x3 stress matrix from a 6 component vector in Voigt notation</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="matscipy.elasticity.Voigt_6x6_to_cubic">
+<tt class="descclassname">matscipy.elasticity.</tt><tt class="descname">Voigt_6x6_to_cubic</tt><big>(</big><em>C</em><big>)</big><a class="headerlink" href="#matscipy.elasticity.Voigt_6x6_to_cubic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert the Voigt 6x6 representation into the cubic elastic constants
+C11, C12 and C44.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="matscipy.elasticity.Voigt_6x6_to_full_3x3x3x3">
+<tt class="descclassname">matscipy.elasticity.</tt><tt class="descname">Voigt_6x6_to_full_3x3x3x3</tt><big>(</big><em>C</em><big>)</big><a class="headerlink" href="#matscipy.elasticity.Voigt_6x6_to_full_3x3x3x3" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert from the Voigt representation of the stiffness matrix to the full
+3x3x3x3 representation.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>C</strong> : array_like</p>
+<blockquote>
+<div><p>6x6 stiffness matrix (Voigt notation).</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>C</strong> : array_like</p>
+<blockquote class="last">
+<div><p>3x3x3x3 stiffness matrix.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="matscipy.elasticity.cubic_to_Voigt_6x6">
+<tt class="descclassname">matscipy.elasticity.</tt><tt class="descname">cubic_to_Voigt_6x6</tt><big>(</big><em>C11</em>, <em>C12</em>, <em>C44</em><big>)</big><a class="headerlink" href="#matscipy.elasticity.cubic_to_Voigt_6x6" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="matscipy.elasticity.fit_elastic_constants">
+<tt class="descclassname">matscipy.elasticity.</tt><tt class="descname">fit_elastic_constants</tt><big>(</big><em>a</em>, <em>symmetry='triclinic'</em>, <em>N_steps=5</em>, <em>delta=0.01</em>, <em>optimizer=None</em>, <em>verbose=True</em>, <em>graphics=False</em>, <em>logfile=None</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#matscipy.elasticity.fit_elastic_constants" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute elastic constants by linear regression of stress vs. strain</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>a</strong> : ase.Atoms or list of ase.Atoms</p>
+<blockquote>
+<div><p>Either a single atomic configuration or a list of strained
+configurations. If a single configuration is given, it is
+passed <a class="reference internal" href="#matscipy.elasticity.generate_strained_configs" title="matscipy.elasticity.generate_strained_configs"><tt class="xref py py-func docutils literal"><span class="pre">generate_strained_configs()</span></tt></a> along with <cite>symmetry</cite>, <cite>N_steps</cite>,
+and <cite>delta</cite> to generate the set of strained configurations.</p>
+</div></blockquote>
+<p><strong>symmetry</strong> : string</p>
+<blockquote>
+<div><p>Symmetry to use to determine which strain patterns are necessary.
+Default is &#8216;triclininc&#8217;, i.e. no symmetry.</p>
+</div></blockquote>
+<p><strong>N_steps</strong> : int</p>
+<blockquote>
+<div><p>Number of atomic configurations to generate for each strain pattern.
+Default is 5. Absolute strain values range from -delta*N_steps/2
+to +delta*N_steps/2.</p>
+</div></blockquote>
+<p><strong>delta</strong> : float</p>
+<blockquote>
+<div><p>Strain increment for analytical derivatives of stresses.
+Default is 1e-2.</p>
+</div></blockquote>
+<p><strong>optimizer</strong> : ase.optimizer.*</p>
+<blockquote>
+<div><p>Optimizer to use for atomic positions (internal degrees of freedom)
+for each applied strain. Initial config <cite>a</cite> is not optimised, and should
+already have relaxed cell and atomic positions. Does not optimize atomic
+positions if set to None.</p>
+</div></blockquote>
+<p><strong>verbose</strong> : bool</p>
+<blockquote>
+<div><p>If True, print additional infomation about the quality of fit
+and summarise results of C_ij and estimated errors. Default True.</p>
+</div></blockquote>
+<p><strong>graphics</strong> : bool</p>
+<blockquote>
+<div><p>If True, use <tt class="xref py py-mod docutils literal"><span class="pre">matplotlib.pyplot</span></tt> to plot the stress vs. strain
+curve for each C_ij component fitted. Default True.</p>
+</div></blockquote>
+<p><strong>logfile</strong> : bool</p>
+<blockquote>
+<div><p>Log file to write optimizer output to. Default None (i.e. suppress
+output).</p>
+</div></blockquote>
+<p><strong>**kwargs</strong> : dict</p>
+<blockquote>
+<div><p>Additional arguments to pass to <cite>optimizer.run()</cite> method e.g. <cite>fmax</cite>.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>C</strong> : array_like</p>
+<blockquote>
+<div><p>6x6 matrix of the elastic constants in Voigt notation.</p>
+</div></blockquote>
+<p><strong>C_err</strong> : array_like</p>
+<blockquote class="last">
+<div><p>If scipy.stats module is available then error estimates for each C_ij
+component are obtained from the accuracy of the linear regression.
+Otherwise an array of np.zeros((6,6)) is returned.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>Code originally adapted from elastics.py script, available from
+<a class="reference external" href="http://github.com/djw/elastic-constants">http://github.com/djw/elastic-constants</a></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="matscipy.elasticity.full_3x3_to_Voigt_6_index">
+<tt class="descclassname">matscipy.elasticity.</tt><tt class="descname">full_3x3_to_Voigt_6_index</tt><big>(</big><em>i</em>, <em>j</em><big>)</big><a class="headerlink" href="#matscipy.elasticity.full_3x3_to_Voigt_6_index" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="matscipy.elasticity.full_3x3_to_Voigt_6_strain">
+<tt class="descclassname">matscipy.elasticity.</tt><tt class="descname">full_3x3_to_Voigt_6_strain</tt><big>(</big><em>strain_matrix</em><big>)</big><a class="headerlink" href="#matscipy.elasticity.full_3x3_to_Voigt_6_strain" title="Permalink to this definition">¶</a></dt>
+<dd><p>Form a 6 component strain vector in Voigt notation from a 3x3 matrix</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="matscipy.elasticity.full_3x3_to_Voigt_6_stress">
+<tt class="descclassname">matscipy.elasticity.</tt><tt class="descname">full_3x3_to_Voigt_6_stress</tt><big>(</big><em>stress_matrix</em><big>)</big><a class="headerlink" href="#matscipy.elasticity.full_3x3_to_Voigt_6_stress" title="Permalink to this definition">¶</a></dt>
+<dd><p>Form a 6 component stress vector in Voigt notation from a 3x3 matrix</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="matscipy.elasticity.full_3x3x3x3_to_Voigt_6x6">
+<tt class="descclassname">matscipy.elasticity.</tt><tt class="descname">full_3x3x3x3_to_Voigt_6x6</tt><big>(</big><em>C</em><big>)</big><a class="headerlink" href="#matscipy.elasticity.full_3x3x3x3_to_Voigt_6x6" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert from the full 3x3x3x3 representation of the stiffness matrix
+to the representation in Voigt notation. Checks symmetry in that process.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="matscipy.elasticity.generate_strained_configs">
+<tt class="descclassname">matscipy.elasticity.</tt><tt class="descname">generate_strained_configs</tt><big>(</big><em>at0</em>, <em>symmetry='triclinic'</em>, <em>N_steps=5</em>, <em>delta=0.01</em><big>)</big><a class="headerlink" href="#matscipy.elasticity.generate_strained_configs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate a sequence of strained configurations</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>a</strong> : ase.Atoms</p>
+<blockquote>
+<div><p>Bulk crystal configuration - both unit cell and atomic positions
+should be relaxed before calling this routine.</p>
+</div></blockquote>
+<p><strong>symmetry</strong> : string</p>
+<blockquote>
+<div><p>Symmetry to use to determine which strain patterns are necessary.
+Default is &#8216;triclininc&#8217;, i.e. no symmetry.</p>
+</div></blockquote>
+<p><strong>N_steps</strong> : int</p>
+<blockquote>
+<div><p>Number of atomic configurations to generate for each strain pattern.
+Default is 5. Absolute strain values range from -delta*N_steps/2
+to +delta*N_steps/2.</p>
+</div></blockquote>
+<p><strong>delta</strong> : float</p>
+<blockquote>
+<div><p>Strain increment for analytical derivatives of stresses. Default 1e-2</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Generator which yields a sequence of ase.Atoms instances corresponding</p>
+<p>to the minima set of strained conifugurations required to evaluate the</p>
+<p class="last">full 6x6 C_ij matrix under the assumed symmetry.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="matscipy.elasticity.invariants">
+<tt class="descclassname">matscipy.elasticity.</tt><tt class="descname">invariants</tt><big>(</big><em>s</em>, <em>syy=None</em>, <em>szz=None</em>, <em>syz=None</em>, <em>sxz=None</em>, <em>sxy=None</em>, <em>full_3x3_to_Voigt_6=&lt;function full_3x3_to_Voigt_6_stress at 0x6fffc919848&gt;</em><big>)</big><a class="headerlink" href="#matscipy.elasticity.invariants" title="Permalink to this definition">¶</a></dt>
+<dd><p>Receives a list of stress tensors and returns the three tensor invariants.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="matscipy.elasticity.measure_triclinic_elastic_constants">
+<tt class="descclassname">matscipy.elasticity.</tt><tt class="descname">measure_triclinic_elastic_constants</tt><big>(</big><em>a</em>, <em>delta=0.001</em>, <em>optimizer=None</em>, <em>logfile=None</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#matscipy.elasticity.measure_triclinic_elastic_constants" title="Permalink to this definition">¶</a></dt>
+<dd><p>Brute-force measurement of elastic constants for a triclinic (general)
+unit cell.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>a</strong> : ase.Atoms</p>
+<blockquote>
+<div><p>Atomic configuration.</p>
+</div></blockquote>
+<p><strong>optimizer</strong> : ase.optimizer.*</p>
+<blockquote>
+<div><p>Optimizer to use for atomic position. Does not optimize atomic
+position if set to None.</p>
+</div></blockquote>
+<p><strong>delta</strong> : float</p>
+<blockquote>
+<div><p>Strain increment for analytical derivatives of stresses.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>C</strong> : array_like</p>
+<blockquote class="last">
+<div><p>6x6 matrix of the elastic constants in Voigt notation.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="matscipy.elasticity.poisson_ratio">
+<tt class="descclassname">matscipy.elasticity.</tt><tt class="descname">poisson_ratio</tt><big>(</big><em>C</em>, <em>l</em>, <em>m</em><big>)</big><a class="headerlink" href="#matscipy.elasticity.poisson_ratio" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div>Calculate approximate Poisson ratio</div></blockquote>
+<p>u_{lm} from 6x6 elastic constant matrix C_{ij}</p>
+<blockquote>
+<div>This is the response in <cite>m</cite> direction to pulling in <cite>l</cite> direction. Result is dimensionless.</div></blockquote>
+<p class="rubric">Notes</p>
+<p>Formula is from W. Brantley, Calculated elastic constants for stress problems associated 
+with semiconductor devices. J. Appl. Phys., 44, 534 (1973).</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="matscipy.elasticity.rotate_cubic_elastic_constants">
+<tt class="descclassname">matscipy.elasticity.</tt><tt class="descname">rotate_cubic_elastic_constants</tt><big>(</big><em>C11</em>, <em>C12</em>, <em>C44</em>, <em>A</em>, <em>tol=1e-06</em><big>)</big><a class="headerlink" href="#matscipy.elasticity.rotate_cubic_elastic_constants" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return rotated elastic moduli for a cubic crystal given the elastic 
+constant in standard C11, C12, C44 notation.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>C11, C12, C44</strong> : float</p>
+<blockquote>
+<div><p>Cubic elastic moduli.</p>
+</div></blockquote>
+<p><strong>A</strong> : array_like</p>
+<blockquote>
+<div><p>3x3 rotation matrix.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>C</strong> : array</p>
+<blockquote class="last">
+<div><p>6x6 matrix of rotated elastic constants (Voigt notation).</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="matscipy.elasticity.rotate_elastic_constants">
+<tt class="descclassname">matscipy.elasticity.</tt><tt class="descname">rotate_elastic_constants</tt><big>(</big><em>C</em>, <em>A</em>, <em>tol=1e-06</em><big>)</big><a class="headerlink" href="#matscipy.elasticity.rotate_elastic_constants" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return rotated elastic moduli for a general crystal given the elastic 
+constant in Voigt notation.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>C</strong> : array_like</p>
+<blockquote>
+<div><p>6x6 matrix of elastic constants (Voigt notation).</p>
+</div></blockquote>
+<p><strong>A</strong> : array_like</p>
+<blockquote>
+<div><p>3x3 rotation matrix.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>C</strong> : array</p>
+<blockquote class="last">
+<div><p>6x6 matrix of rotated elastic constants (Voigt notation).</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="matscipy.elasticity.youngs_modulus">
+<tt class="descclassname">matscipy.elasticity.</tt><tt class="descname">youngs_modulus</tt><big>(</big><em>C</em>, <em>l</em><big>)</big><a class="headerlink" href="#matscipy.elasticity.youngs_modulus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate approximate Youngs modulus E_l from 6x6 elastic constants matrix C_ij</p>
+<p>This is the modulus for loading in the l direction. For the exact answer, taking
+into account elastic anisotropuy, rotate the C_ij matrix to the correct frame,
+compute the compliance matrix:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">C</span> <span class="o">=</span> <span class="o">...</span>  <span class="c"># 6x6 C_ij matrix in crystal frame</span>
+<span class="n">A</span> <span class="o">=</span> <span class="o">...</span>  <span class="c"># rotation matrix</span>
+<span class="n">Cr</span> <span class="o">=</span> <span class="n">rotate_elastic_constants</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">A</span><span class="p">)</span>
+<span class="n">S</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">Cr</span><span class="p">)</span>
+<span class="n">E_x</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">S</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>  <span class="c"># Young&#39;s modulus for a pull in x direction</span>
+<span class="n">E_y</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">S</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>  <span class="c"># Young&#39;s modulus for a pull in y direction</span>
+<span class="n">E_z</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">S</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>  <span class="c"># Young&#39;s modulus for a pull in z direction</span>
+</pre></div>
+</div>
+<p class="rubric">Notes</p>
+<p>Formula is from W. Brantley, Calculated elastic constants for stress problems associated 
+with semiconductor devices. J. Appl. Phys., 44, 534 (1973).</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-matscipy.hydrogenate">
+<span id="matscipy-hydrogenate-module"></span><h2>matscipy.hydrogenate module<a class="headerlink" href="#module-matscipy.hydrogenate" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="matscipy.hydrogenate.hydrogenate">
+<tt class="descclassname">matscipy.hydrogenate.</tt><tt class="descname">hydrogenate</tt><big>(</big><em>a, cutoff, bond_length, b=None, mask=[True, True, True], exclude=None, vacuum=None</em><big>)</big><a class="headerlink" href="#matscipy.hydrogenate.hydrogenate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hydrogenate a slab of material at its periodic boundary conditions.
+Boundary conditions are turned into nonperiodic.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>a</strong> : ase.Atoms</p>
+<blockquote>
+<div><p>Atomic configuration.</p>
+</div></blockquote>
+<p><strong>cutoff</strong> : float</p>
+<blockquote>
+<div><p>Cutoff for neighbor counting.</p>
+</div></blockquote>
+<p><strong>bond_length</strong> : float</p>
+<blockquote>
+<div><p>X-H bond length for hydrogenation.</p>
+</div></blockquote>
+<p><strong>b</strong> : ase.Atoms, optional</p>
+<blockquote>
+<div><p>If present, this is the configuration to hydrogenate. Number of atoms
+must be identical to a object. All bonds present in a but not present
+in b will be hydrogenated in b.</p>
+</div></blockquote>
+<p><strong>mask</strong> : list of bool</p>
+<blockquote>
+<div><p>Cartesian directions which to hydrogenate, only if b argument is not
+given.</p>
+</div></blockquote>
+<p><strong>exclude</strong> : array_like</p>
+<blockquote>
+<div><p>Boolean array masking atoms to be excluded from hydrogenation.</p>
+</div></blockquote>
+<p><strong>vacuum</strong> : float, optional</p>
+<blockquote>
+<div><p>Add this much vacuum after hydrogenation.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>a</strong> : ase.Atoms</p>
+<blockquote class="last">
+<div><p>Atomic configuration of the hydrogenated slab.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-matscipy.io">
+<span id="matscipy-io-module"></span><h2>matscipy.io module<a class="headerlink" href="#module-matscipy.io" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="matscipy.io.loadtbl">
+<tt class="descclassname">matscipy.io.</tt><tt class="descname">loadtbl</tt><big>(</big><em>fn</em>, <em>usecols=None</em>, <em>fromfile=False</em><big>)</big><a class="headerlink" href="#matscipy.io.loadtbl" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load tabulated data from column header strings.</p>
+<dl class="docutils">
+<dt>Example data file:</dt>
+<dd><p class="first"># time strain energy
+1.0 0.01 283
+2.0 0.02 398
+...</p>
+<p class="last">strain, energy = loadtbl(&#8216;file.dat&#8217;, usecols=[&#8216;strain&#8217;, &#8216;energy&#8217;])</p>
+</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>fn</strong> : str</p>
+<blockquote>
+<div><p>Name of file to load.</p>
+</div></blockquote>
+<p><strong>usecols</strong> : list of strings</p>
+<blockquote>
+<div><p>List of column names.</p>
+</div></blockquote>
+<p><strong>fromfile</strong> : bool</p>
+<blockquote>
+<div><p>Use numpy.fromfile instead of numpy.loadtxt if set to True. Can be
+faster in some circumstances.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>data</strong> : tuple of arrays</p>
+<blockquote class="last">
+<div><p>Return tuple of array with data for each colume in usecols if
+usecols specified. For usecols=None, return dictionary with header
+keys and arrays as data entries.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="matscipy.io.savetbl">
+<tt class="descclassname">matscipy.io.</tt><tt class="descname">savetbl</tt><big>(</big><em>fn</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#matscipy.io.savetbl" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save tabulated data and write column header strings.</p>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd>savetbl(&#8216;file.dat&#8217;, time=time, strain=strain, energy=energy)</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>fn</strong> : str</p>
+<blockquote>
+<div><p>Name of file to write to.</p>
+</div></blockquote>
+<p><strong>kwargs</strong> : dict</p>
+<blockquote class="last">
+<div><p>Keyword argument pass data and column header names.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-matscipy.logger">
+<span id="matscipy-logger-module"></span><h2>matscipy.logger module<a class="headerlink" href="#module-matscipy.logger" title="Permalink to this headline">¶</a></h2>
+<p>Log status to screen.</p>
+<dl class="class">
+<dt id="matscipy.logger.Logger">
+<em class="property">class </em><tt class="descclassname">matscipy.logger.</tt><tt class="descname">Logger</tt><big>(</big><em>logfile=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x6fffffe2150&gt;</em>, <em>outevery=1</em>, <em>sepevery=10</em><big>)</big><a class="headerlink" href="#matscipy.logger.Logger" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p class="rubric">Methods</p>
+<dl class="method">
+<dt id="matscipy.logger.Logger.flush">
+<tt class="descname">flush</tt><big>(</big><big>)</big><a class="headerlink" href="#matscipy.logger.Logger.flush" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="matscipy.logger.Logger.get_logfile">
+<tt class="descname">get_logfile</tt><big>(</big><big>)</big><a class="headerlink" href="#matscipy.logger.Logger.get_logfile" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="matscipy.logger.Logger.has_logfile">
+<tt class="descname">has_logfile</tt><big>(</big><big>)</big><a class="headerlink" href="#matscipy.logger.Logger.has_logfile" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="matscipy.logger.Logger.iteration_finished">
+<tt class="descname">iteration_finished</tt><big>(</big><big>)</big><a class="headerlink" href="#matscipy.logger.Logger.iteration_finished" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="matscipy.logger.Logger.pr">
+<tt class="descname">pr</tt><big>(</big><em>s</em>, <em>caller=None</em>, <em>logfile=None</em><big>)</big><a class="headerlink" href="#matscipy.logger.Logger.pr" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="matscipy.logger.Logger.set_logfile">
+<tt class="descname">set_logfile</tt><big>(</big><em>logfile</em><big>)</big><a class="headerlink" href="#matscipy.logger.Logger.set_logfile" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="matscipy.logger.Logger.set_outevery">
+<tt class="descname">set_outevery</tt><big>(</big><em>outevery</em><big>)</big><a class="headerlink" href="#matscipy.logger.Logger.set_outevery" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="matscipy.logger.Logger.st">
+<tt class="descname">st</tt><big>(</big><em>hdr</em>, <em>vals</em>, <em>force_print=False</em><big>)</big><a class="headerlink" href="#matscipy.logger.Logger.st" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="matscipy.logger.Logger.warn">
+<tt class="descname">warn</tt><big>(</big><em>s</em>, <em>caller=None</em><big>)</big><a class="headerlink" href="#matscipy.logger.Logger.warn" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="matscipy.logger.flatten">
+<tt class="descclassname">matscipy.logger.</tt><tt class="descname">flatten</tt><big>(</big><em>x</em><big>)</big><a class="headerlink" href="#matscipy.logger.flatten" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="matscipy.logger.hdr_str">
+<tt class="descclassname">matscipy.logger.</tt><tt class="descname">hdr_str</tt><big>(</big><em>s</em>, <em>x</em><big>)</big><a class="headerlink" href="#matscipy.logger.hdr_str" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return header description strings</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="matscipy.logger.hdrfmt_str">
+<tt class="descclassname">matscipy.logger.</tt><tt class="descname">hdrfmt_str</tt><big>(</big><em>x</em>, <em>i</em><big>)</big><a class="headerlink" href="#matscipy.logger.hdrfmt_str" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return header format string for datatype x</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="matscipy.logger.numfmt_str">
+<tt class="descclassname">matscipy.logger.</tt><tt class="descname">numfmt_str</tt><big>(</big><em>x</em>, <em>i</em><big>)</big><a class="headerlink" href="#matscipy.logger.numfmt_str" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return numeric format string for datatype x</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-matscipy.neighbours">
+<span id="matscipy-neighbours-module"></span><h2>matscipy.neighbours module<a class="headerlink" href="#module-matscipy.neighbours" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="matscipy.neighbours.mic">
+<tt class="descclassname">matscipy.neighbours.</tt><tt class="descname">mic</tt><big>(</big><em>dr</em>, <em>cell</em>, <em>pbc=None</em><big>)</big><a class="headerlink" href="#matscipy.neighbours.mic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply minimum image convention to an array of distance vectors.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>dr</strong> : array_like</p>
+<blockquote>
+<div><p>Array of distance vectors.</p>
+</div></blockquote>
+<p><strong>cell</strong> : array_like</p>
+<blockquote>
+<div><p>Simulation cell.</p>
+</div></blockquote>
+<p><strong>pbc</strong> : array_like, optional</p>
+<blockquote>
+<div><p>Periodic boundary conditions in x-, y- and z-direction. Default is to
+assume periodic boundaries in all directions.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>dr</strong> : array</p>
+<blockquote class="last">
+<div><p>Array of distance vectors, wrapped according to the minimum image
+convention.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="matscipy.neighbours.neighbour_list">
+<tt class="descclassname">matscipy.neighbours.</tt><tt class="descname">neighbour_list</tt><big>(</big><em>quantities</em>, <em>a</em>, <em>cutoff</em><big>)</big><a class="headerlink" href="#matscipy.neighbours.neighbour_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute a neighbour list for an atomic configuration.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>quantities</strong> : str</p>
+<blockquote>
+<div><p>Quantities to compute by the neighbor list algorithm. Each character
+in this string defines a quantity. They are returned in a tuple of 
+the same order. Possible quantities are</p>
+<blockquote>
+<div><p>&#8216;i&#8217; : first atom index
+&#8216;j&#8217; : second atom index
+&#8216;d&#8217; : absolute distance
+&#8216;D&#8217; : distance vector
+&#8216;S&#8217; : shift vector (number of cell boundaries crossed by the bond</p>
+<blockquote>
+<div><p>between atom i and j)</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p><strong>a</strong> : ase.Atoms</p>
+<blockquote>
+<div><p>Atomic configuration.</p>
+</div></blockquote>
+<p><strong>cutoff</strong> : float</p>
+<blockquote>
+<div><p>Cutoff for neighbour search.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>i, j, ...</strong> : array</p>
+<blockquote class="last">
+<div><p>Tuple with arrays for each quantity specified above.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-matscipy.rings">
+<span id="matscipy-rings-module"></span><h2>matscipy.rings module<a class="headerlink" href="#module-matscipy.rings" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="matscipy.rings.ring_statistics">
+<tt class="descclassname">matscipy.rings.</tt><tt class="descname">ring_statistics</tt><big>(</big><em>a</em>, <em>cutoff</em>, <em>maxlength=-1</em><big>)</big><a class="headerlink" href="#matscipy.rings.ring_statistics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute number of shortest path rings in sample.
+See: D.S. Franzblau, Phys. Rev. B 44, 4925 (1991)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>a</strong> : ase.Atoms</p>
+<blockquote>
+<div><p>Atomic configuration.</p>
+</div></blockquote>
+<p><strong>cutoff</strong> : float</p>
+<blockquote>
+<div><p>Cutoff for neighbor counting.</p>
+</div></blockquote>
+<p><strong>maxlength</strong> : float, optional</p>
+<blockquote>
+<div><p>Maximum ring length. Search for rings will stop at this length. This
+is useful to speed up calculations for large systems.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>ringstat</strong> : array</p>
+<blockquote class="last">
+<div><p>Array with number of shortest path rings.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-matscipy.socketcalc">
+<span id="matscipy-socketcalc-module"></span><h2>matscipy.socketcalc module<a class="headerlink" href="#module-matscipy.socketcalc" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="matscipy.socketcalc.AtomsRequestHandler">
+<em class="property">class </em><tt class="descclassname">matscipy.socketcalc.</tt><tt class="descname">AtomsRequestHandler</tt><big>(</big><em>request</em>, <em>client_address</em>, <em>server</em><big>)</big><a class="headerlink" href="#matscipy.socketcalc.AtomsRequestHandler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">SocketServer.StreamRequestHandler</span></tt></p>
+<p class="rubric">Attributes</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="41%" />
+<col width="59%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>timeout</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Methods</p>
+<dl class="method">
+<dt id="matscipy.socketcalc.AtomsRequestHandler.handle">
+<tt class="descname">handle</tt><big>(</big><big>)</big><a class="headerlink" href="#matscipy.socketcalc.AtomsRequestHandler.handle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="matscipy.socketcalc.AtomsServer">
+<em class="property">class </em><tt class="descclassname">matscipy.socketcalc.</tt><tt class="descname">AtomsServer</tt><big>(</big><em>server_address</em>, <em>RequestHandlerClass</em>, <em>clients</em>, <em>bind_and_activate=True</em>, <em>max_attempts=3</em>, <em>bgq=False</em><big>)</big><a class="headerlink" href="#matscipy.socketcalc.AtomsServer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">SocketServer.ThreadingMixIn</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">SocketServer.TCPServer</span></tt></p>
+<p class="rubric">Attributes</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="41%" />
+<col width="59%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>timeout</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Methods</p>
+<dl class="attribute">
+<dt id="matscipy.socketcalc.AtomsServer.allow_reuse_address">
+<tt class="descname">allow_reuse_address</tt><em class="property"> = True</em><a class="headerlink" href="#matscipy.socketcalc.AtomsServer.allow_reuse_address" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="matscipy.socketcalc.AtomsServer.get_results">
+<tt class="descname">get_results</tt><big>(</big><big>)</big><a class="headerlink" href="#matscipy.socketcalc.AtomsServer.get_results" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="matscipy.socketcalc.AtomsServer.join_all">
+<tt class="descname">join_all</tt><big>(</big><big>)</big><a class="headerlink" href="#matscipy.socketcalc.AtomsServer.join_all" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="matscipy.socketcalc.AtomsServer.put">
+<tt class="descname">put</tt><big>(</big><em>at</em>, <em>client_id</em>, <em>label</em>, <em>force_restart=False</em><big>)</big><a class="headerlink" href="#matscipy.socketcalc.AtomsServer.put" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="matscipy.socketcalc.AtomsServer.server_activate">
+<tt class="descname">server_activate</tt><big>(</big><big>)</big><a class="headerlink" href="#matscipy.socketcalc.AtomsServer.server_activate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="matscipy.socketcalc.AtomsServer.shutdown">
+<tt class="descname">shutdown</tt><big>(</big><big>)</big><a class="headerlink" href="#matscipy.socketcalc.AtomsServer.shutdown" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="matscipy.socketcalc.AtomsServer.shutdown_clients">
+<tt class="descname">shutdown_clients</tt><big>(</big><big>)</big><a class="headerlink" href="#matscipy.socketcalc.AtomsServer.shutdown_clients" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="matscipy.socketcalc.Client">
+<em class="property">class </em><tt class="descclassname">matscipy.socketcalc.</tt><tt class="descname">Client</tt><big>(</big><em>client_id</em>, <em>exe</em>, <em>env=None</em>, <em>npj=1</em>, <em>ppn=1</em>, <em>block=None</em>, <em>corner=None</em>, <em>shape=None</em>, <em>jobname='socketcalc'</em>, <em>rundir=None</em>, <em>fmt='REFTRAJ'</em>, <em>parmode=None</em>, <em>mpirun='mpirun'</em><big>)</big><a class="headerlink" href="#matscipy.socketcalc.Client" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Represents a single Client job</p>
+<p>Used by AtomsServer to start, restart and shutdown clients
+running on the Compute Nodes.</p>
+<p class="rubric">Methods</p>
+<dl class="method">
+<dt id="matscipy.socketcalc.Client.extra_args">
+<tt class="descname">extra_args</tt><big>(</big><em>label=None</em><big>)</big><a class="headerlink" href="#matscipy.socketcalc.Client.extra_args" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return list of additional command line arguments to be passed to client</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="matscipy.socketcalc.Client.is_compatible">
+<tt class="descname">is_compatible</tt><big>(</big><em>old_at</em>, <em>new_at</em>, <em>label</em><big>)</big><a class="headerlink" href="#matscipy.socketcalc.Client.is_compatible" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if new_at and old_at are compatible.</p>
+<p>Returns True if calculation can be continued, or False
+if client must be restarted before it can process new_at.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="matscipy.socketcalc.Client.postprocess">
+<tt class="descname">postprocess</tt><big>(</big><em>at</em>, <em>label</em><big>)</big><a class="headerlink" href="#matscipy.socketcalc.Client.postprocess" title="Permalink to this definition">¶</a></dt>
+<dd><p>Post-process results of calculation.</p>
+<p>May be overrriden in subclasses to e.g. reverse sort order
+applied in preprocess().</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="matscipy.socketcalc.Client.preprocess">
+<tt class="descname">preprocess</tt><big>(</big><em>at</em>, <em>label</em>, <em>force_restart=False</em><big>)</big><a class="headerlink" href="#matscipy.socketcalc.Client.preprocess" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prepare client for a calculation.</p>
+<p>Starts client if this is the first task for it, or schedules a
+restart if new configuration is not compatible with the last
+one submitted to the queue (see is_compatible() method).</p>
+<p>Many be extended in subclasses to e.g. sort the atoms by
+atomic numbe. If Atoms object needs to be changed, a copy
+should be returned rather than updating it inplace.</p>
+<p>Returns (at, first_time).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="matscipy.socketcalc.Client.shutdown">
+<tt class="descname">shutdown</tt><big>(</big><em>block=True</em><big>)</big><a class="headerlink" href="#matscipy.socketcalc.Client.shutdown" title="Permalink to this definition">¶</a></dt>
+<dd><p>Request a client to shutdown.</p>
+<p>If block=True, does not return until shutdown is complete.  If
+block=False, waits for the client to shutdown in a new
+thread. Check self.waits_thread.isAlive() to see when shutdown
+has finished. (This function also returns a handle to the wait
+thread when block=False).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="matscipy.socketcalc.Client.start">
+<tt class="descname">start</tt><big>(</big><em>label=None</em><big>)</big><a class="headerlink" href="#matscipy.socketcalc.Client.start" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start an individual client.</p>
+<p>Raises RuntimeError if this client is already running.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="matscipy.socketcalc.Client.start_or_restart">
+<tt class="descname">start_or_restart</tt><big>(</big><em>at</em>, <em>label</em>, <em>restart=False</em><big>)</big><a class="headerlink" href="#matscipy.socketcalc.Client.start_or_restart" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start or restart a client</p>
+<p>If restart=True, wait for previous client to shutdown first.
+Calls write_input_files() followed by start().</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="matscipy.socketcalc.Client.wait_for_shutdown">
+<tt class="descname">wait_for_shutdown</tt><big>(</big><big>)</big><a class="headerlink" href="#matscipy.socketcalc.Client.wait_for_shutdown" title="Permalink to this definition">¶</a></dt>
+<dd><p>Block until a client has shutdown.</p>
+<p>Typically called automatically by shutdown() or
+start_or_restart().</p>
+<p>Shutdown should previously have been initiated by queuing a
+&#8216;shutdown&#8217; or &#8216;restart&#8217; request. Waits CLIENT_TIMEOUT for
+graceful shutdown. If client is still alive, a SIGTERM signal
+is sent. If this has had no effect after a further
+CLIENT_TIMEOUT, then a SIGKILL is sent. Does not return until
+the SIGKILL has taken effect.</p>
+<p>This function also marks shutdown task as complete in
+servers&#8217;s input_q for this client.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="matscipy.socketcalc.Client.write_input_files">
+<tt class="descname">write_input_files</tt><big>(</big><em>at</em>, <em>label</em><big>)</big><a class="headerlink" href="#matscipy.socketcalc.Client.write_input_files" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="matscipy.socketcalc.QUIPClient">
+<em class="property">class </em><tt class="descclassname">matscipy.socketcalc.</tt><tt class="descname">QUIPClient</tt><big>(</big><em>client_id</em>, <em>exe</em>, <em>env=None</em>, <em>npj=1</em>, <em>ppn=1</em>, <em>block=None</em>, <em>corner=None</em>, <em>shape=None</em>, <em>jobname='socketcalc'</em>, <em>rundir=None</em>, <em>fmt='REFTRAJ'</em>, <em>parmode=None</em>, <em>mpirun='mpirun'</em>, <em>param_files=None</em><big>)</big><a class="headerlink" href="#matscipy.socketcalc.QUIPClient" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#matscipy.socketcalc.Client" title="matscipy.socketcalc.Client"><tt class="xref py py-class docutils literal"><span class="pre">matscipy.socketcalc.Client</span></tt></a></p>
+<p>Subclass of Client for running QUIP calculations.</p>
+<p>Initial input files are written in extended XYZ format, and
+subsequent communication is via sockets, in either REFTRAJ
+or XYZ format.</p>
+<p class="rubric">Methods</p>
+<dl class="method">
+<dt id="matscipy.socketcalc.QUIPClient.write_input_files">
+<tt class="descname">write_input_files</tt><big>(</big><em>at</em>, <em>label</em><big>)</big><a class="headerlink" href="#matscipy.socketcalc.QUIPClient.write_input_files" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="matscipy.socketcalc.SocketCalculator">
+<em class="property">class </em><tt class="descclassname">matscipy.socketcalc.</tt><tt class="descname">SocketCalculator</tt><big>(</big><em>client</em>, <em>ip=None</em>, <em>atoms=None</em>, <em>port=0</em><big>)</big><a class="headerlink" href="#matscipy.socketcalc.SocketCalculator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">ase.calculators.calculator.Calculator</span></tt></p>
+<p>ASE-compatible calculator which communicates with remote 
+force engines via sockets using an AtomsServer.</p>
+<p class="rubric">Methods</p>
+<dl class="method">
+<dt id="matscipy.socketcalc.SocketCalculator.calculate">
+<tt class="descname">calculate</tt><big>(</big><em>atoms</em>, <em>properties</em>, <em>system_changes</em><big>)</big><a class="headerlink" href="#matscipy.socketcalc.SocketCalculator.calculate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="matscipy.socketcalc.SocketCalculator.implemented_properties">
+<tt class="descname">implemented_properties</tt><em class="property"> = ['energy', 'forces', 'stress']</em><a class="headerlink" href="#matscipy.socketcalc.SocketCalculator.implemented_properties" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="matscipy.socketcalc.SocketCalculator.shutdown">
+<tt class="descname">shutdown</tt><big>(</big><big>)</big><a class="headerlink" href="#matscipy.socketcalc.SocketCalculator.shutdown" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="matscipy.socketcalc.VaspClient">
+<em class="property">class </em><tt class="descclassname">matscipy.socketcalc.</tt><tt class="descname">VaspClient</tt><big>(</big><em>client_id</em>, <em>exe</em>, <em>env=None</em>, <em>npj=1</em>, <em>ppn=1</em>, <em>block=None</em>, <em>corner=None</em>, <em>shape=None</em>, <em>jobname='socketcalc'</em>, <em>rundir=None</em>, <em>fmt='REFTRAJ'</em>, <em>parmode=None</em>, <em>mpirun='mpirun'</em>, <em>**vasp_args</em><big>)</big><a class="headerlink" href="#matscipy.socketcalc.VaspClient" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#matscipy.socketcalc.Client" title="matscipy.socketcalc.Client"><tt class="xref py py-class docutils literal"><span class="pre">matscipy.socketcalc.Client</span></tt></a></p>
+<p>Subclass of Client for running VASP calculations.</p>
+<p>Initial input files are written in POSCAR, INCAR, POTCAR and KPOINTS
+formats, and subsequent communicatin is via sockets in REFTRAJ format.</p>
+<p class="rubric">Methods</p>
+<dl class="method">
+<dt id="matscipy.socketcalc.VaspClient.is_compatible">
+<tt class="descname">is_compatible</tt><big>(</big><em>old_at</em>, <em>new_at</em>, <em>label</em><big>)</big><a class="headerlink" href="#matscipy.socketcalc.VaspClient.is_compatible" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="matscipy.socketcalc.VaspClient.postprocess">
+<tt class="descname">postprocess</tt><big>(</big><em>at</em>, <em>label</em><big>)</big><a class="headerlink" href="#matscipy.socketcalc.VaspClient.postprocess" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="matscipy.socketcalc.VaspClient.preprocess">
+<tt class="descname">preprocess</tt><big>(</big><em>at</em>, <em>label</em>, <em>force_restart=False</em><big>)</big><a class="headerlink" href="#matscipy.socketcalc.VaspClient.preprocess" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="matscipy.socketcalc.VaspClient.write_input_files">
+<tt class="descname">write_input_files</tt><big>(</big><em>at</em>, <em>label</em><big>)</big><a class="headerlink" href="#matscipy.socketcalc.VaspClient.write_input_files" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="matscipy.socketcalc.pack_atoms_to_reftraj_str">
+<tt class="descclassname">matscipy.socketcalc.</tt><tt class="descname">pack_atoms_to_reftraj_str</tt><big>(</big><em>at</em>, <em>label</em><big>)</big><a class="headerlink" href="#matscipy.socketcalc.pack_atoms_to_reftraj_str" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="matscipy.socketcalc.pack_atoms_to_xyz_str">
+<tt class="descclassname">matscipy.socketcalc.</tt><tt class="descname">pack_atoms_to_xyz_str</tt><big>(</big><em>at</em>, <em>label</em><big>)</big><a class="headerlink" href="#matscipy.socketcalc.pack_atoms_to_xyz_str" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="matscipy.socketcalc.pack_results_to_reftraj_output_str">
+<tt class="descclassname">matscipy.socketcalc.</tt><tt class="descname">pack_results_to_reftraj_output_str</tt><big>(</big><em>at</em><big>)</big><a class="headerlink" href="#matscipy.socketcalc.pack_results_to_reftraj_output_str" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="matscipy.socketcalc.unpack_reftraj_output_str_to_results">
+<tt class="descclassname">matscipy.socketcalc.</tt><tt class="descname">unpack_reftraj_output_str_to_results</tt><big>(</big><em>data</em><big>)</big><a class="headerlink" href="#matscipy.socketcalc.unpack_reftraj_output_str_to_results" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="matscipy.socketcalc.unpack_reftraj_str_to_atoms">
+<tt class="descclassname">matscipy.socketcalc.</tt><tt class="descname">unpack_reftraj_str_to_atoms</tt><big>(</big><em>data</em><big>)</big><a class="headerlink" href="#matscipy.socketcalc.unpack_reftraj_str_to_atoms" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="matscipy.socketcalc.unpack_xyz_str_to_results">
+<tt class="descclassname">matscipy.socketcalc.</tt><tt class="descname">unpack_xyz_str_to_results</tt><big>(</big><em>data</em><big>)</big><a class="headerlink" href="#matscipy.socketcalc.unpack_xyz_str_to_results" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-matscipy.structure_identification">
+<span id="matscipy-structure-identification-module"></span><h2>matscipy.structure_identification module<a class="headerlink" href="#module-matscipy.structure_identification" title="Permalink to this headline">¶</a></h2>
+<p>Structure identification methods.</p>
+<dl class="function">
+<dt id="matscipy.structure_identification.centrosymmetry">
+<tt class="descclassname">matscipy.structure_identification.</tt><tt class="descname">centrosymmetry</tt><big>(</big><em>a</em>, <em>nn</em>, <em>cutoff</em><big>)</big><a class="headerlink" href="#matscipy.structure_identification.centrosymmetry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the centrosymmetry parameter.
+See: Kelchner, Plimpton, Hamilton, Phys. Rev. B 58, 11085 (1998)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>a</strong> : ase.Atoms</p>
+<blockquote>
+<div><p>Atomic configuration.</p>
+</div></blockquote>
+<p><strong>nn</strong> : integer</p>
+<blockquote>
+<div><p>Number of nearest neighbours of the underlying (symmetric) structure.</p>
+</div></blockquote>
+<p><strong>cutoff</strong> : float</p>
+<blockquote>
+<div><p>Nearest-neighbor cutoff distance.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>c</strong> : array</p>
+<blockquote class="last">
+<div><p>Centrosymmetry parameter for each atom.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-matscipy.surface">
+<span id="matscipy-surface-module"></span><h2>matscipy.surface module<a class="headerlink" href="#module-matscipy.surface" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="matscipy.surface.MillerDirection">
+<tt class="descclassname">matscipy.surface.</tt><tt class="descname">MillerDirection</tt><big>(</big><em>v</em><big>)</big><a class="headerlink" href="#matscipy.surface.MillerDirection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Special case of <a class="reference internal" href="#matscipy.surface.MillerIndex" title="matscipy.surface.MillerIndex"><tt class="xref py py-class docutils literal"><span class="pre">MillerIndex</span></tt></a> with <tt class="docutils literal"><span class="pre">type=&quot;direction&quot;</span></tt> (the default)</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="matscipy.surface.MillerIndex">
+<em class="property">class </em><tt class="descclassname">matscipy.surface.</tt><tt class="descname">MillerIndex</tt><a class="headerlink" href="#matscipy.surface.MillerIndex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">numpy.ndarray</span></tt></p>
+<p>Representation of a three of four index Miller direction or plane</p>
+<p>A <a class="reference internal" href="#matscipy.surface.MillerIndex" title="matscipy.surface.MillerIndex"><tt class="xref py py-class docutils literal"><span class="pre">MillerIndex</span></tt></a> can be constructed from vector or parsed from a string:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">x</span> <span class="o">=</span> <span class="n">MillerIndex</span><span class="p">(</span><span class="s">&#39;-211&#39;</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">MillerIndex</span><span class="p">(</span><span class="s">&#39;111&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s">&#39;plane&#39;</span><span class="p">)</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">cross</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">x</span> <span class="c"># prints &quot;[-211]&quot;</span>
+<span class="k">print</span> <span class="n">y</span> <span class="c"># prints &quot;(111)&quot;, note round brackets denoting a plane</span>
+<span class="k">print</span> <span class="n">z</span><span class="o">.</span><span class="n">latex</span><span class="p">()</span>
+<span class="k">assert</span><span class="p">(</span><span class="n">angle_between</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span> <span class="o">==</span> <span class="n">pi</span><span class="o">/</span><span class="mf">2.</span><span class="p">)</span>
+<span class="k">assert</span><span class="p">(</span><span class="n">angle_between</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">)</span> <span class="o">==</span> <span class="n">pi</span><span class="o">/</span><span class="mf">2.</span><span class="p">)</span>
+<span class="k">assert</span><span class="p">(</span><span class="n">angle_between</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">z</span><span class="p">)</span> <span class="o">==</span> <span class="n">pi</span><span class="o">/</span><span class="mf">2.</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="rubric">Attributes</p>
+<p class="rubric">Methods</p>
+<dl class="attribute">
+<dt id="matscipy.surface.MillerIndex.all_brackets">
+<tt class="descname">all_brackets</tt><em class="property"> = ['{', '}', '[', ']', '(', ')', '&lt;', '&gt;']</em><a class="headerlink" href="#matscipy.surface.MillerIndex.all_brackets" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="matscipy.surface.MillerIndex.angle">
+<tt class="descname">angle</tt><big>(</big><em>other</em><big>)</big><a class="headerlink" href="#matscipy.surface.MillerIndex.angle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="matscipy.surface.MillerIndex.as3">
+<tt class="descname">as3</tt><big>(</big><big>)</big><a class="headerlink" href="#matscipy.surface.MillerIndex.as3" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="matscipy.surface.MillerIndex.as4">
+<tt class="descname">as4</tt><big>(</big><big>)</big><a class="headerlink" href="#matscipy.surface.MillerIndex.as4" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="matscipy.surface.MillerIndex.brackets">
+<tt class="descname">brackets</tt><em class="property"> = {'plane_family': '{}', 'direction': '[]', 'plane': '()', 'direction_family': '&lt;&gt;'}</em><a class="headerlink" href="#matscipy.surface.MillerIndex.brackets" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="matscipy.surface.MillerIndex.cosine">
+<tt class="descname">cosine</tt><big>(</big><em>other</em><big>)</big><a class="headerlink" href="#matscipy.surface.MillerIndex.cosine" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="matscipy.surface.MillerIndex.cross">
+<tt class="descname">cross</tt><big>(</big><em>other</em><big>)</big><a class="headerlink" href="#matscipy.surface.MillerIndex.cross" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="matscipy.surface.MillerIndex.hat">
+<tt class="descname">hat</tt><big>(</big><big>)</big><a class="headerlink" href="#matscipy.surface.MillerIndex.hat" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="matscipy.surface.MillerIndex.latex">
+<tt class="descname">latex</tt><big>(</big><big>)</big><a class="headerlink" href="#matscipy.surface.MillerIndex.latex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Format this <a class="reference internal" href="#matscipy.surface.MillerIndex" title="matscipy.surface.MillerIndex"><tt class="xref py py-class docutils literal"><span class="pre">MillerIndex</span></tt></a> as a LaTeX string</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="matscipy.surface.MillerIndex.norm">
+<tt class="descname">norm</tt><big>(</big><big>)</big><a class="headerlink" href="#matscipy.surface.MillerIndex.norm" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="matscipy.surface.MillerIndex.normalised">
+<tt class="descname">normalised</tt><big>(</big><big>)</big><a class="headerlink" href="#matscipy.surface.MillerIndex.normalised" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="matscipy.surface.MillerIndex.parse">
+<em class="property">classmethod </em><tt class="descname">parse</tt><big>(</big><em>s</em><big>)</big><a class="headerlink" href="#matscipy.surface.MillerIndex.parse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parse a Miller index string</p>
+<dl class="docutils">
+<dt>Negative indices can be denoted by:</dt>
+<dd><ol class="first last arabic simple">
+<li>leading minus sign, e.g. <tt class="docutils literal"><span class="pre">[11-2]</span></tt></li>
+<li>trailing <tt class="docutils literal"><span class="pre">b</span></tt> (for &#8216;bar&#8217;), e.g. <tt class="docutils literal"><span class="pre">112b</span></tt></li>
+<li>LaTeX <tt class="docutils literal"><span class="pre">\bar{}</span></tt>, e.g. <tt class="docutils literal"><span class="pre">[11\bar{2}]</span></tt> (which renders as  in LaTeX)</li>
+</ol>
+</dd>
+</dl>
+<p>Leading or trailing brackets of various kinds are ignored.
+i.e. <tt class="docutils literal"><span class="pre">[001]</span></tt>, <tt class="docutils literal"><span class="pre">{001}</span></tt>, <tt class="docutils literal"><span class="pre">(001)</span></tt>, <tt class="docutils literal"><span class="pre">[001]</span></tt>, <tt class="docutils literal"><span class="pre">&lt;001&gt;</span></tt>, <tt class="docutils literal"><span class="pre">001</span></tt> are all equivalent.</p>
+<p>Returns an array of components (i,j,k) or (h,k,i,l)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="matscipy.surface.MillerIndex.plane_spacing">
+<tt class="descname">plane_spacing</tt><big>(</big><em>a</em><big>)</big><a class="headerlink" href="#matscipy.surface.MillerIndex.plane_spacing" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="matscipy.surface.MillerIndex.simplified">
+<tt class="descname">simplified</tt><big>(</big><big>)</big><a class="headerlink" href="#matscipy.surface.MillerIndex.simplified" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="matscipy.surface.MillerIndex.simplify">
+<tt class="descname">simplify</tt><big>(</big><big>)</big><a class="headerlink" href="#matscipy.surface.MillerIndex.simplify" title="Permalink to this definition">¶</a></dt>
+<dd><p>Simplify by dividing through by greatest common denominator</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="matscipy.surface.MillerPlane">
+<tt class="descclassname">matscipy.surface.</tt><tt class="descname">MillerPlane</tt><big>(</big><em>v</em><big>)</big><a class="headerlink" href="#matscipy.surface.MillerPlane" title="Permalink to this definition">¶</a></dt>
+<dd><p>Special case of <a class="reference internal" href="#matscipy.surface.MillerIndex" title="matscipy.surface.MillerIndex"><tt class="xref py py-class docutils literal"><span class="pre">MillerIndex</span></tt></a> with <tt class="docutils literal"><span class="pre">type=&quot;plane&quot;</span></tt></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="matscipy.surface.angle_between">
+<tt class="descclassname">matscipy.surface.</tt><tt class="descname">angle_between</tt><big>(</big><em>a</em>, <em>b</em><big>)</big><a class="headerlink" href="#matscipy.surface.angle_between" title="Permalink to this definition">¶</a></dt>
+<dd><p>Angle between crystallographic directions between a=[ijk] and b=[lmn], in radians.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="matscipy.surface.gcd">
+<tt class="descclassname">matscipy.surface.</tt><tt class="descname">gcd</tt><big>(</big><em>a</em>, <em>b</em><big>)</big><a class="headerlink" href="#matscipy.surface.gcd" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the greatest common divisor of a and b</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-matscipy">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-matscipy" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="matscipy.parameter">
+<tt class="descclassname">matscipy.</tt><tt class="descname">parameter</tt><big>(</big><em>name</em>, <em>default=None</em>, <em>logger=&lt;matscipy.logger.Logger object at 0x6fffe040ad0&gt;</em><big>)</big><a class="headerlink" href="#matscipy.parameter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read parameter from params.py control file.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>name</strong> : str</p>
+<blockquote>
+<div><p>Name of the parameter.</p>
+</div></blockquote>
+<p><strong>default</strong> : optional</p>
+<blockquote>
+<div><p>Default value. Will be returned if parameter is not present.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">value</p>
+<blockquote class="last">
+<div><p>Value of the parameter.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">matscipy package</a><ul>
+<li><a class="reference internal" href="#subpackages">Subpackages</a></li>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-matscipy.angle_distribution">matscipy.angle_distribution module</a></li>
+<li><a class="reference internal" href="#module-matscipy.atomic_strain">matscipy.atomic_strain module</a></li>
+<li><a class="reference internal" href="#module-matscipy.checkpoint">matscipy.checkpoint module</a></li>
+<li><a class="reference internal" href="#module-matscipy.elasticity">matscipy.elasticity module</a></li>
+<li><a class="reference internal" href="#module-matscipy.hydrogenate">matscipy.hydrogenate module</a></li>
+<li><a class="reference internal" href="#module-matscipy.io">matscipy.io module</a></li>
+<li><a class="reference internal" href="#module-matscipy.logger">matscipy.logger module</a></li>
+<li><a class="reference internal" href="#module-matscipy.neighbours">matscipy.neighbours module</a></li>
+<li><a class="reference internal" href="#module-matscipy.rings">matscipy.rings module</a></li>
+<li><a class="reference internal" href="#module-matscipy.socketcalc">matscipy.socketcalc module</a></li>
+<li><a class="reference internal" href="#module-matscipy.structure_identification">matscipy.structure_identification module</a></li>
+<li><a class="reference internal" href="#module-matscipy.surface">matscipy.surface module</a></li>
+<li><a class="reference internal" href="#module-matscipy">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/matscipy.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="index.html">matscipy devel documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2015, James Kermode, Lars Pastewka.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    </div>
+  </body>
+</html>

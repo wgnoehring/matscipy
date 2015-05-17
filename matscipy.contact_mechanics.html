@@ -1,0 +1,657 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>matscipy.contact_mechanics package &mdash; matscipy devel documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     'devel',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="matscipy devel documentation" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="index.html">matscipy devel documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="matscipy-contact-mechanics-package">
+<h1>matscipy.contact_mechanics package<a class="headerlink" href="#matscipy-contact-mechanics-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-matscipy.contact_mechanics.DMT">
+<span id="matscipy-contact-mechanics-dmt-module"></span><h2>matscipy.contact_mechanics.DMT module<a class="headerlink" href="#module-matscipy.contact_mechanics.DMT" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="matscipy.contact_mechanics.DMT.radius_and_pressure">
+<tt class="descclassname">matscipy.contact_mechanics.DMT.</tt><tt class="descname">radius_and_pressure</tt><big>(</big><em>N</em>, <em>R</em>, <em>Es</em>, <em>w</em><big>)</big><a class="headerlink" href="#matscipy.contact_mechanics.DMT.radius_and_pressure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given normal load, sphere radius and contact modulus compute contact radius
+and peak pressure.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>N</strong> : float</p>
+<blockquote>
+<div><p>Normal force.</p>
+</div></blockquote>
+<p><strong>R</strong> : float</p>
+<blockquote>
+<div><p>Sphere radius.</p>
+</div></blockquote>
+<p><strong>Es</strong> : float</p>
+<blockquote>
+<div><p>Contact modulus: Es = E/(1-nu**2) with Young&#8217;s modulus E and Poisson
+number nu.</p>
+</div></blockquote>
+<p><strong>w</strong> : float</p>
+<blockquote class="last">
+<div><p>Work of adhesion.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="matscipy.contact_mechanics.DMT.surface_displacements">
+<tt class="descclassname">matscipy.contact_mechanics.DMT.</tt><tt class="descname">surface_displacements</tt><big>(</big><em>r</em>, <em>a</em><big>)</big><a class="headerlink" href="#matscipy.contact_mechanics.DMT.surface_displacements" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="matscipy.contact_mechanics.DMT.surface_stress">
+<tt class="descclassname">matscipy.contact_mechanics.DMT.</tt><tt class="descname">surface_stress</tt><big>(</big><em>r</em>, <em>a</em>, <em>nu</em><big>)</big><a class="headerlink" href="#matscipy.contact_mechanics.DMT.surface_stress" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given distance from the center of the sphere, contact radius and Poisson
+number contact, compute the stress at the surface.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>r</strong> : array_like</p>
+<blockquote>
+<div><p>Array of distance (from the center of the sphere).</p>
+</div></blockquote>
+<p><strong>a</strong> : float</p>
+<blockquote>
+<div><p>Contact radius.</p>
+</div></blockquote>
+<p><strong>nu</strong> : float</p>
+<blockquote>
+<div><p>Poisson number.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>pz</strong> : array</p>
+<blockquote>
+<div><p>Contact pressure.</p>
+</div></blockquote>
+<p><strong>sr</strong> : array</p>
+<blockquote>
+<div><p>Radial stress.</p>
+</div></blockquote>
+<p><strong>stheta</strong> : array</p>
+<blockquote class="last">
+<div><p>Azimuthal stress.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-matscipy.contact_mechanics.Hertz">
+<span id="matscipy-contact-mechanics-hertz-module"></span><h2>matscipy.contact_mechanics.Hertz module<a class="headerlink" href="#module-matscipy.contact_mechanics.Hertz" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="matscipy.contact_mechanics.Hertz.centerline_stress">
+<tt class="descclassname">matscipy.contact_mechanics.Hertz.</tt><tt class="descname">centerline_stress</tt><big>(</big><em>z</em>, <em>nu=0.5</em><big>)</big><a class="headerlink" href="#matscipy.contact_mechanics.Hertz.centerline_stress" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given distance from the center of the sphere, contact radius and Poisson
+number contact, compute the stress at the surface.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>z</strong> : array_like</p>
+<blockquote>
+<div><p>Array of depths (from the center of the sphere in units of contact
+radius a).</p>
+</div></blockquote>
+<p><strong>nu</strong> : float</p>
+<blockquote>
+<div><p>Poisson number.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>srr</strong> : array</p>
+<blockquote>
+<div><p>Radial stress (in units of maximum pressure p0).</p>
+</div></blockquote>
+<p><strong>szz</strong> : array</p>
+<blockquote class="last">
+<div><p>Contact pressure (in units of maximum pressure p0).</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="matscipy.contact_mechanics.Hertz.radius_and_pressure">
+<tt class="descclassname">matscipy.contact_mechanics.Hertz.</tt><tt class="descname">radius_and_pressure</tt><big>(</big><em>N</em>, <em>R</em>, <em>Es</em><big>)</big><a class="headerlink" href="#matscipy.contact_mechanics.Hertz.radius_and_pressure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given normal load, sphere radius and contact modulus compute contact radius
+and peak pressure.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>N</strong> : float</p>
+<blockquote>
+<div><p>Normal force.</p>
+</div></blockquote>
+<p><strong>R</strong> : float</p>
+<blockquote>
+<div><p>Sphere radius.</p>
+</div></blockquote>
+<p><strong>Es</strong> : float</p>
+<blockquote class="last">
+<div><p>Contact modulus: Es = E/(1-nu**2) with Young&#8217;s modulus E and Poisson
+number nu.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="matscipy.contact_mechanics.Hertz.stress">
+<tt class="descclassname">matscipy.contact_mechanics.Hertz.</tt><tt class="descname">stress</tt><big>(</big><em>r</em>, <em>z</em>, <em>nu=0.5</em><big>)</big><a class="headerlink" href="#matscipy.contact_mechanics.Hertz.stress" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return components of the stress tensor in the bulk of the Hertz solid.
+This is the solution given by: M.T. Huber, Ann. Phys. 319, 153 (1904)</p>
+<p>Note that the stress tensor at any point in the solid has the form below.
+Zero off-diagonal components are zero by rotational symmetry. stt is the
+circumferential component, srr the radial component and szz the normal
+component of the stress tensor.</p>
+<blockquote>
+<div><blockquote>
+<div>/ stt  0   0  </div></blockquote>
+<dl class="docutils">
+<dt>s = |  0  srr srz |</dt>
+<dd> 0  srz szz /</dd>
+</dl>
+</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>r</strong> : array_like</p>
+<blockquote>
+<div><p>Radial position (in units of the contact radius a).</p>
+</div></blockquote>
+<p><strong>z</strong> : array_like</p>
+<blockquote>
+<div><p>Depth (in units of the contact radius a).</p>
+</div></blockquote>
+<p><strong>nu</strong> : float</p>
+<blockquote>
+<div><p>Poisson number.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>stt</strong> : array</p>
+<blockquote>
+<div><p>Circumferential component of the stress tensor (in units of maximum
+pressure p0).</p>
+</div></blockquote>
+<p><strong>srr</strong> : array</p>
+<blockquote>
+<div><p>Radial component of the stress tensor (in units of maximum pressure p0).</p>
+</div></blockquote>
+<p><strong>szz</strong> : array</p>
+<blockquote>
+<div><p>Normal component of the stress tensor (in units of maximum pressure p0).</p>
+</div></blockquote>
+<p><strong>srz</strong> : array</p>
+<blockquote class="last">
+<div><p>Shear component of the stress tensor (in units of maximum pressure p0).</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="matscipy.contact_mechanics.Hertz.surface_displacements">
+<tt class="descclassname">matscipy.contact_mechanics.Hertz.</tt><tt class="descname">surface_displacements</tt><big>(</big><em>r</em><big>)</big><a class="headerlink" href="#matscipy.contact_mechanics.Hertz.surface_displacements" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the displacements at the surface due to an indenting sphere.
+See: K.L. Johnson, Contact Mechanics, p. 61</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>r</strong> : array_like</p>
+<blockquote>
+<div><p>Radial position normalized by contact radius a.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>uz</strong> : array</p>
+<blockquote class="last">
+<div><p>Normal displacements at the surface of the contact (in units of
+p0/Es * a where p0 is maximum pressure, Es contact modulus and a 
+contact radius).</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="matscipy.contact_mechanics.Hertz.surface_stress">
+<tt class="descclassname">matscipy.contact_mechanics.Hertz.</tt><tt class="descname">surface_stress</tt><big>(</big><em>r</em>, <em>nu=0.5</em><big>)</big><a class="headerlink" href="#matscipy.contact_mechanics.Hertz.surface_stress" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given distance from the center of the sphere, contact radius and Poisson
+number contact, compute the stress at the surface.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>r</strong> : array_like</p>
+<blockquote>
+<div><p>Array of distance (from the center of the sphere in units of contact
+radius a).</p>
+</div></blockquote>
+<p><strong>nu</strong> : float</p>
+<blockquote>
+<div><p>Poisson number.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>pz</strong> : array</p>
+<blockquote>
+<div><p>Contact pressure (in units of maximum pressure p0).</p>
+</div></blockquote>
+<p><strong>sr</strong> : array</p>
+<blockquote>
+<div><p>Radial stress (in units of maximum pressure p0).</p>
+</div></blockquote>
+<p><strong>stheta</strong> : array</p>
+<blockquote class="last">
+<div><p>Azimuthal stress (in units of maximum pressure p0).</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-matscipy.contact_mechanics.JKR">
+<span id="matscipy-contact-mechanics-jkr-module"></span><h2>matscipy.contact_mechanics.JKR module<a class="headerlink" href="#module-matscipy.contact_mechanics.JKR" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="matscipy.contact_mechanics.JKR.radius">
+<tt class="descclassname">matscipy.contact_mechanics.JKR.</tt><tt class="descname">radius</tt><big>(</big><em>N</em>, <em>R</em>, <em>Es</em>, <em>w</em><big>)</big><a class="headerlink" href="#matscipy.contact_mechanics.JKR.radius" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given normal load, sphere radius and contact modulus compute contact radius
+and peak pressure.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>N</strong> : float</p>
+<blockquote>
+<div><p>Normal force.</p>
+</div></blockquote>
+<p><strong>R</strong> : float</p>
+<blockquote>
+<div><p>Sphere radius.</p>
+</div></blockquote>
+<p><strong>Es</strong> : float</p>
+<blockquote>
+<div><p>Contact modulus: Es = E/(1-nu**2) with Young&#8217;s modulus E and Poisson
+number nu.</p>
+</div></blockquote>
+<p><strong>w</strong> : float</p>
+<blockquote class="last">
+<div><p>Work of adhesion.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-matscipy.contact_mechanics.greens_function">
+<span id="matscipy-contact-mechanics-greens-function-module"></span><h2>matscipy.contact_mechanics.greens_function module<a class="headerlink" href="#module-matscipy.contact_mechanics.greens_function" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="matscipy.contact_mechanics.greens_function.gf_displacement_nonperiodic">
+<tt class="descclassname">matscipy.contact_mechanics.greens_function.</tt><tt class="descname">gf_displacement_nonperiodic</tt><big>(</big><em>x</em>, <em>y</em>, <em>a=0.5</em>, <em>b=0.5</em><big>)</big><a class="headerlink" href="#matscipy.contact_mechanics.greens_function.gf_displacement_nonperiodic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Real-space representation of Green&#8217;s function for the normal displacements
+of a non-periodic linear elastic half-space with contact modulus 2 and
+Poisson number 1/2 in response to a uniform pressure applied to a
+rectangular region.
+See: K.L. Johnson, Contact Mechanics, p. 54</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>x</strong> : array_like</p>
+<blockquote>
+<div><p>x-coordinates.</p>
+</div></blockquote>
+<p><strong>y</strong> : array_like</p>
+<blockquote>
+<div><p>y-coordinates.</p>
+</div></blockquote>
+<p><strong>a, b</strong> : float</p>
+<blockquote>
+<div><p>Size of rectangle. Rectangle has corners at -a,-b and a,b, i.e.
+rectangle has extend of 2*a x 2*b. Solution converges to
+Boussinesq-Cerrutti form for a-&gt;0 and b-&gt;0.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>gf</strong> : array</p>
+<blockquote class="last">
+<div><p>Green&#8217;s function for displacements at coordinates given by x,y as a
+function of pressure applied to the rectangular region.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="matscipy.contact_mechanics.greens_function.gf_subsurface_stress_nonperiodic">
+<tt class="descclassname">matscipy.contact_mechanics.greens_function.</tt><tt class="descname">gf_subsurface_stress_nonperiodic</tt><big>(</big><em>x</em>, <em>y</em>, <em>z</em>, <em>nu=0.5</em><big>)</big><a class="headerlink" href="#matscipy.contact_mechanics.greens_function.gf_subsurface_stress_nonperiodic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Real-space representation of Green&#8217;s function for the stress in the bulk of
+a non-periodic linear elastic half-space in response to a concentrated
+normal force. This is the Boussinesq-Cerrutti solution.
+See: K.L. Johnson, Contact Mechanics, p. 51</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>x</strong> : array_like</p>
+<blockquote>
+<div><p>x-coordinates.</p>
+</div></blockquote>
+<p><strong>y</strong> : array_like</p>
+<blockquote>
+<div><p>y-coordinates.</p>
+</div></blockquote>
+<p><strong>z</strong> : array_like</p>
+<blockquote>
+<div><p>z_coordinates.</p>
+</div></blockquote>
+<p><strong>nu</strong> : float</p>
+<blockquote>
+<div><p>Poisson number.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>sxx</strong> : array</p>
+<blockquote>
+<div><p>Green&#8217;s function xx-component of the stress tensor at coordinates given
+by x,y,z as a function of pressure applied at point 0,0.</p>
+</div></blockquote>
+<p><strong>syy</strong> : array</p>
+<blockquote>
+<div><p>yy-component of the stress tensor.</p>
+</div></blockquote>
+<p><strong>szz</strong> : array</p>
+<blockquote>
+<div><p>zz-component of the stress tensor.</p>
+</div></blockquote>
+<p><strong>syz</strong> : array</p>
+<blockquote>
+<div><p>yz-component of the stress tensor.</p>
+</div></blockquote>
+<p><strong>sxz</strong> : array</p>
+<blockquote>
+<div><p>xz-component of the stress tensor.</p>
+</div></blockquote>
+<p><strong>sxy</strong> : array</p>
+<blockquote class="last">
+<div><p>xy-component of the stress tensor.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="matscipy.contact_mechanics.greens_function.min_ccg">
+<tt class="descclassname">matscipy.contact_mechanics.greens_function.</tt><tt class="descname">min_ccg</tt><big>(</big><em>h_r</em>, <em>gf_q</em>, <em>u_r=None</em>, <em>pentol=1e-06</em>, <em>maxiter=100000</em>, <em>logger=None</em><big>)</big><a class="headerlink" href="#matscipy.contact_mechanics.greens_function.min_ccg" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use a constrained conjugate gradient optimization to find the equilibrium
+configuration deflection of an elastic manifold. The conjugate gradient
+iteration is reset using the steepest descent direction whenever the contact
+area changes.
+Method is described in I.A. Polonsky, L.M. Keer, Wear 231, 206 (1999)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>h_r</strong> : array_like</p>
+<blockquote>
+<div><p>Height profile of the rigid counterbody.</p>
+</div></blockquote>
+<p><strong>gf_q</strong> : array_like</p>
+<blockquote>
+<div><p>Green&#8217;s function (in reciprocal space).</p>
+</div></blockquote>
+<p><strong>u_r</strong> : array</p>
+<blockquote>
+<div><p>Array used for initial displacements. A new array is created if omitted.</p>
+</div></blockquote>
+<p><strong>pentol</strong> : float</p>
+<blockquote>
+<div><p>Maximum penetration of contacting regions required for convergence.</p>
+</div></blockquote>
+<p><strong>maxiter</strong> : float</p>
+<blockquote>
+<div><p>Maximum number of iterations.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>u</strong> : array</p>
+<blockquote>
+<div><p>2d-array of displacements.</p>
+</div></blockquote>
+<p><strong>p</strong> : array</p>
+<blockquote class="last">
+<div><p>2d-array of pressure.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="matscipy.contact_mechanics.greens_function.reciprocal_grid">
+<tt class="descclassname">matscipy.contact_mechanics.greens_function.</tt><tt class="descname">reciprocal_grid</tt><big>(</big><em>nx</em>, <em>ny=None</em>, <em>gf=&lt;function gf_displacement_nonperiodic at 0x6fffbc24c80&gt;</em>, <em>coordinates=False</em><big>)</big><a class="headerlink" href="#matscipy.contact_mechanics.greens_function.reciprocal_grid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the reciprocal space representation of a Green&#8217;s function on an FFT
+grid.
+Note: If the Green&#8217;s function is for the non-periodic (free-bounday)
+problem, then only a section of 1/2 nx by 1/2 ny of the grid can have
+non-zero pressure. The other region is a padding region. See R.W. Hockney,
+Methods in Computational Physics, Vol. 9, pp. 135-211 (1970) for an
+application of this method to the electrostatic problem.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>nx</strong> : int</p>
+<blockquote>
+<div><p>Number of grid points in x-direction.</p>
+</div></blockquote>
+<p><strong>ny</strong> : int</p>
+<blockquote>
+<div><p>Number of grid points in y-direction.</p>
+</div></blockquote>
+<p><strong>gf</strong> : function</p>
+<blockquote>
+<div><p>Function returning the real-space Green&#8217;s function.</p>
+</div></blockquote>
+<p><strong>coordinates</strong> : bool</p>
+<blockquote>
+<div><p>If True, return grid coordinates.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>G</strong> : array</p>
+<blockquote>
+<div><p>Reciprocal space representation of the stiffness on an nx,ny grid.</p>
+</div></blockquote>
+<p><strong>x</strong> : array</p>
+<blockquote>
+<div><p>x-coordinates of grid.</p>
+</div></blockquote>
+<p><strong>y</strong> : array</p>
+<blockquote class="last">
+<div><p>y-coordinates of grid.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="matscipy.contact_mechanics.greens_function.reciprocal_stiffness_periodic">
+<tt class="descclassname">matscipy.contact_mechanics.greens_function.</tt><tt class="descname">reciprocal_stiffness_periodic</tt><big>(</big><em>nx</em>, <em>ny=None</em>, <em>phi0=None</em>, <em>size=None</em><big>)</big><a class="headerlink" href="#matscipy.contact_mechanics.greens_function.reciprocal_stiffness_periodic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return reciprocal space stiffness coefficients (i.e. inverse of the Green&#8217;s
+function) for a periodic system with contact modulus 2 and Poisson number
+1/2.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>nx</strong> : int</p>
+<blockquote>
+<div><p>Number of grid points in x-direction.</p>
+</div></blockquote>
+<p><strong>ny</strong> : int</p>
+<blockquote>
+<div><p>Number of grid points in y-direction.</p>
+</div></blockquote>
+<p><strong>phi0</strong> : float</p>
+<blockquote>
+<div><p>Stiffness at q=0 (gamma point).</p>
+</div></blockquote>
+<p><strong>size</strong> : tuple</p>
+<blockquote>
+<div><p>System size. Assumed to be nx,ny if parameter is omitted.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>phi</strong> : array</p>
+<blockquote class="last">
+<div><p>Reciprocal space representation of the stiffness on an nx,ny grid.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-matscipy.contact_mechanics">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-matscipy.contact_mechanics" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">matscipy.contact_mechanics package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-matscipy.contact_mechanics.DMT">matscipy.contact_mechanics.DMT module</a></li>
+<li><a class="reference internal" href="#module-matscipy.contact_mechanics.Hertz">matscipy.contact_mechanics.Hertz module</a></li>
+<li><a class="reference internal" href="#module-matscipy.contact_mechanics.JKR">matscipy.contact_mechanics.JKR module</a></li>
+<li><a class="reference internal" href="#module-matscipy.contact_mechanics.greens_function">matscipy.contact_mechanics.greens_function module</a></li>
+<li><a class="reference internal" href="#module-matscipy.contact_mechanics">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/matscipy.contact_mechanics.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="index.html">matscipy devel documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2015, James Kermode, Lars Pastewka.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    </div>
+  </body>
+</html>
