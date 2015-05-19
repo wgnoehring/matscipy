@@ -60,23 +60,13 @@ and peak pressure.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>N</strong> : float</p>
-<blockquote>
-<div><p>Normal force.</p>
-</div></blockquote>
-<p><strong>R</strong> : float</p>
-<blockquote>
-<div><p>Sphere radius.</p>
-</div></blockquote>
-<p><strong>Es</strong> : float</p>
-<blockquote>
-<div><p>Contact modulus: Es = E/(1-nu**2) with Young&#8217;s modulus E and Poisson
-number nu.</p>
-</div></blockquote>
-<p><strong>w</strong> : float</p>
-<blockquote class="last">
-<div><p>Work of adhesion.</p>
-</div></blockquote>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>N</strong> (<em>float</em>) &#8211; Normal force.</li>
+<li><strong>R</strong> (<em>float</em>) &#8211; Sphere radius.</li>
+<li><strong>Es</strong> (<em>float</em>) &#8211; Contact modulus: Es = E/(1-nu**2) with Young&#8217;s modulus E and Poisson
+number nu.</li>
+<li><strong>w</strong> (<em>float</em>) &#8211; Work of adhesion.</li>
+</ul>
 </td>
 </tr>
 </tbody>
@@ -97,32 +87,22 @@ number contact, compute the stress at the surface.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>r</strong> : array_like</p>
-<blockquote>
-<div><p>Array of distance (from the center of the sphere).</p>
-</div></blockquote>
-<p><strong>a</strong> : float</p>
-<blockquote>
-<div><p>Contact radius.</p>
-</div></blockquote>
-<p><strong>nu</strong> : float</p>
-<blockquote>
-<div><p>Poisson number.</p>
-</div></blockquote>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>r</strong> (<em>array_like</em>) &#8211; Array of distance (from the center of the sphere).</li>
+<li><strong>a</strong> (<em>float</em>) &#8211; Contact radius.</li>
+<li><strong>nu</strong> (<em>float</em>) &#8211; Poisson number.</li>
+</ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>pz</strong> : array</p>
-<blockquote>
-<div><p>Contact pressure.</p>
-</div></blockquote>
-<p><strong>sr</strong> : array</p>
-<blockquote>
-<div><p>Radial stress.</p>
-</div></blockquote>
-<p><strong>stheta</strong> : array</p>
-<blockquote class="last">
-<div><p>Azimuthal stress.</p>
-</div></blockquote>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><ul class="simple">
+<li><strong>pz</strong> (<em>array</em>) &#8211;
+Contact pressure.</li>
+<li><strong>sr</strong> (<em>array</em>) &#8211;
+Radial stress.</li>
+<li><strong>stheta</strong> (<em>array</em>) &#8211;
+Azimuthal stress.</li>
+</ul>
+</p>
 </td>
 </tr>
 </tbody>
@@ -141,25 +121,20 @@ number contact, compute the stress at the surface.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>z</strong> : array_like</p>
-<blockquote>
-<div><p>Array of depths (from the center of the sphere in units of contact
-radius a).</p>
-</div></blockquote>
-<p><strong>nu</strong> : float</p>
-<blockquote>
-<div><p>Poisson number.</p>
-</div></blockquote>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>z</strong> (<em>array_like</em>) &#8211; Array of depths (from the center of the sphere in units of contact
+radius a).</li>
+<li><strong>nu</strong> (<em>float</em>) &#8211; Poisson number.</li>
+</ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>srr</strong> : array</p>
-<blockquote>
-<div><p>Radial stress (in units of maximum pressure p0).</p>
-</div></blockquote>
-<p><strong>szz</strong> : array</p>
-<blockquote class="last">
-<div><p>Contact pressure (in units of maximum pressure p0).</p>
-</div></blockquote>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><ul class="simple">
+<li><strong>srr</strong> (<em>array</em>) &#8211;
+Radial stress (in units of maximum pressure p0).</li>
+<li><strong>szz</strong> (<em>array</em>) &#8211;
+Contact pressure (in units of maximum pressure p0).</li>
+</ul>
+</p>
 </td>
 </tr>
 </tbody>
@@ -175,19 +150,21 @@ and peak pressure.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>N</strong> : float</p>
-<blockquote>
-<div><p>Normal force.</p>
-</div></blockquote>
-<p><strong>R</strong> : float</p>
-<blockquote>
-<div><p>Sphere radius.</p>
-</div></blockquote>
-<p><strong>Es</strong> : float</p>
-<blockquote class="last">
-<div><p>Contact modulus: Es = E/(1-nu**2) with Young&#8217;s modulus E and Poisson
-number nu.</p>
-</div></blockquote>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>N</strong> (<em>float</em>) &#8211; Normal force.</li>
+<li><strong>R</strong> (<em>float</em>) &#8211; Sphere radius.</li>
+<li><strong>Es</strong> (<em>float</em>) &#8211; Contact modulus: Es = E/(1-nu**2) with Young&#8217;s modulus E and Poisson
+number nu.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><ul class="simple">
+<li><strong>a</strong> (<em>float</em>) &#8211;
+Contact radius.</li>
+<li><strong>p0</strong> (<em>float</em>) &#8211;
+Maximum pressure inside the contacting area (right under the apex).</li>
+</ul>
+</p>
 </td>
 </tr>
 </tbody>
@@ -215,37 +192,25 @@ component of the stress tensor.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>r</strong> : array_like</p>
-<blockquote>
-<div><p>Radial position (in units of the contact radius a).</p>
-</div></blockquote>
-<p><strong>z</strong> : array_like</p>
-<blockquote>
-<div><p>Depth (in units of the contact radius a).</p>
-</div></blockquote>
-<p><strong>nu</strong> : float</p>
-<blockquote>
-<div><p>Poisson number.</p>
-</div></blockquote>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>r</strong> (<em>array_like</em>) &#8211; Radial position (in units of the contact radius a).</li>
+<li><strong>z</strong> (<em>array_like</em>) &#8211; Depth (in units of the contact radius a).</li>
+<li><strong>nu</strong> (<em>float</em>) &#8211; Poisson number.</li>
+</ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>stt</strong> : array</p>
-<blockquote>
-<div><p>Circumferential component of the stress tensor (in units of maximum
-pressure p0).</p>
-</div></blockquote>
-<p><strong>srr</strong> : array</p>
-<blockquote>
-<div><p>Radial component of the stress tensor (in units of maximum pressure p0).</p>
-</div></blockquote>
-<p><strong>szz</strong> : array</p>
-<blockquote>
-<div><p>Normal component of the stress tensor (in units of maximum pressure p0).</p>
-</div></blockquote>
-<p><strong>srz</strong> : array</p>
-<blockquote class="last">
-<div><p>Shear component of the stress tensor (in units of maximum pressure p0).</p>
-</div></blockquote>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><ul class="simple">
+<li><strong>stt</strong> (<em>array</em>) &#8211;
+Circumferential component of the stress tensor (in units of maximum
+pressure p0).</li>
+<li><strong>srr</strong> (<em>array</em>) &#8211;
+Radial component of the stress tensor (in units of maximum pressure p0).</li>
+<li><strong>szz</strong> (<em>array</em>) &#8211;
+Normal component of the stress tensor (in units of maximum pressure p0).</li>
+<li><strong>srz</strong> (<em>array</em>) &#8211;
+Shear component of the stress tensor (in units of maximum pressure p0).</li>
+</ul>
+</p>
 </td>
 </tr>
 </tbody>
@@ -261,19 +226,14 @@ See: K.L. Johnson, Contact Mechanics, p. 61</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>r</strong> : array_like</p>
-<blockquote>
-<div><p>Radial position normalized by contact radius a.</p>
-</div></blockquote>
-</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>r</strong> (<em>array_like</em>) &#8211; Radial position normalized by contact radius a.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>uz</strong> : array</p>
-<blockquote class="last">
-<div><p>Normal displacements at the surface of the contact (in units of
-p0/Es * a where p0 is maximum pressure, Es contact modulus and a 
-contact radius).</p>
-</div></blockquote>
-</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><strong>uz</strong> &#8211;
+Normal displacements at the surface of the contact (in units of
+p0/Es * a where p0 is maximum pressure, Es contact modulus and a
+contact radius).</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">array</td>
 </tr>
 </tbody>
 </table>
@@ -288,29 +248,22 @@ number contact, compute the stress at the surface.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>r</strong> : array_like</p>
-<blockquote>
-<div><p>Array of distance (from the center of the sphere in units of contact
-radius a).</p>
-</div></blockquote>
-<p><strong>nu</strong> : float</p>
-<blockquote>
-<div><p>Poisson number.</p>
-</div></blockquote>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>r</strong> (<em>array_like</em>) &#8211; Array of distance (from the center of the sphere in units of contact
+radius a).</li>
+<li><strong>nu</strong> (<em>float</em>) &#8211; Poisson number.</li>
+</ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>pz</strong> : array</p>
-<blockquote>
-<div><p>Contact pressure (in units of maximum pressure p0).</p>
-</div></blockquote>
-<p><strong>sr</strong> : array</p>
-<blockquote>
-<div><p>Radial stress (in units of maximum pressure p0).</p>
-</div></blockquote>
-<p><strong>stheta</strong> : array</p>
-<blockquote class="last">
-<div><p>Azimuthal stress (in units of maximum pressure p0).</p>
-</div></blockquote>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><ul class="simple">
+<li><strong>pz</strong> (<em>array</em>) &#8211;
+Contact pressure (in units of maximum pressure p0).</li>
+<li><strong>sr</strong> (<em>array</em>) &#8211;
+Radial stress (in units of maximum pressure p0).</li>
+<li><strong>stheta</strong> (<em>array</em>) &#8211;
+Azimuthal stress (in units of maximum pressure p0).</li>
+</ul>
+</p>
 </td>
 </tr>
 </tbody>
@@ -329,23 +282,13 @@ and peak pressure.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>N</strong> : float</p>
-<blockquote>
-<div><p>Normal force.</p>
-</div></blockquote>
-<p><strong>R</strong> : float</p>
-<blockquote>
-<div><p>Sphere radius.</p>
-</div></blockquote>
-<p><strong>Es</strong> : float</p>
-<blockquote>
-<div><p>Contact modulus: Es = E/(1-nu**2) with Young&#8217;s modulus E and Poisson
-number nu.</p>
-</div></blockquote>
-<p><strong>w</strong> : float</p>
-<blockquote class="last">
-<div><p>Work of adhesion.</p>
-</div></blockquote>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>N</strong> (<em>float</em>) &#8211; Normal force.</li>
+<li><strong>R</strong> (<em>float</em>) &#8211; Sphere radius.</li>
+<li><strong>Es</strong> (<em>float</em>) &#8211; Contact modulus: Es = E/(1-nu**2) with Young&#8217;s modulus E and Poisson
+number nu.</li>
+<li><strong>w</strong> (<em>float</em>) &#8211; Work of adhesion.</li>
+</ul>
 </td>
 </tr>
 </tbody>
@@ -367,27 +310,21 @@ See: K.L. Johnson, Contact Mechanics, p. 54</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>x</strong> : array_like</p>
-<blockquote>
-<div><p>x-coordinates.</p>
-</div></blockquote>
-<p><strong>y</strong> : array_like</p>
-<blockquote>
-<div><p>y-coordinates.</p>
-</div></blockquote>
-<p><strong>a, b</strong> : float</p>
-<blockquote>
-<div><p>Size of rectangle. Rectangle has corners at -a,-b and a,b, i.e.
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>x</strong> (<em>array_like</em>) &#8211; x-coordinates.</li>
+<li><strong>y</strong> (<em>array_like</em>) &#8211; y-coordinates.</li>
+<li><strong>b</strong> (<em>a,</em>) &#8211; Size of rectangle. Rectangle has corners at -a,-b and a,b, i.e.
 rectangle has extend of 2*a x 2*b. Solution converges to
-Boussinesq-Cerrutti form for a-&gt;0 and b-&gt;0.</p>
-</div></blockquote>
+Boussinesq-Cerrutti form for a-&gt;0 and b-&gt;0.</li>
+</ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>gf</strong> : array</p>
-<blockquote class="last">
-<div><p>Green&#8217;s function for displacements at coordinates given by x,y as a
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>gf</strong> &#8211;
+Green&#8217;s function for displacements at coordinates given by x,y as a
 function of pressure applied to the rectangular region.</p>
-</div></blockquote>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">array</p>
 </td>
 </tr>
 </tbody>
@@ -405,49 +342,30 @@ See: K.L. Johnson, Contact Mechanics, p. 51</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>x</strong> : array_like</p>
-<blockquote>
-<div><p>x-coordinates.</p>
-</div></blockquote>
-<p><strong>y</strong> : array_like</p>
-<blockquote>
-<div><p>y-coordinates.</p>
-</div></blockquote>
-<p><strong>z</strong> : array_like</p>
-<blockquote>
-<div><p>z_coordinates.</p>
-</div></blockquote>
-<p><strong>nu</strong> : float</p>
-<blockquote>
-<div><p>Poisson number.</p>
-</div></blockquote>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>x</strong> (<em>array_like</em>) &#8211; x-coordinates.</li>
+<li><strong>y</strong> (<em>array_like</em>) &#8211; y-coordinates.</li>
+<li><strong>z</strong> (<em>array_like</em>) &#8211; z_coordinates.</li>
+<li><strong>nu</strong> (<em>float</em>) &#8211; Poisson number.</li>
+</ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>sxx</strong> : array</p>
-<blockquote>
-<div><p>Green&#8217;s function xx-component of the stress tensor at coordinates given
-by x,y,z as a function of pressure applied at point 0,0.</p>
-</div></blockquote>
-<p><strong>syy</strong> : array</p>
-<blockquote>
-<div><p>yy-component of the stress tensor.</p>
-</div></blockquote>
-<p><strong>szz</strong> : array</p>
-<blockquote>
-<div><p>zz-component of the stress tensor.</p>
-</div></blockquote>
-<p><strong>syz</strong> : array</p>
-<blockquote>
-<div><p>yz-component of the stress tensor.</p>
-</div></blockquote>
-<p><strong>sxz</strong> : array</p>
-<blockquote>
-<div><p>xz-component of the stress tensor.</p>
-</div></blockquote>
-<p><strong>sxy</strong> : array</p>
-<blockquote class="last">
-<div><p>xy-component of the stress tensor.</p>
-</div></blockquote>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><ul class="simple">
+<li><strong>sxx</strong> (<em>array</em>) &#8211;
+Green&#8217;s function xx-component of the stress tensor at coordinates given
+by x,y,z as a function of pressure applied at point 0,0.</li>
+<li><strong>syy</strong> (<em>array</em>) &#8211;
+yy-component of the stress tensor.</li>
+<li><strong>szz</strong> (<em>array</em>) &#8211;
+zz-component of the stress tensor.</li>
+<li><strong>syz</strong> (<em>array</em>) &#8211;
+yz-component of the stress tensor.</li>
+<li><strong>sxz</strong> (<em>array</em>) &#8211;
+xz-component of the stress tensor.</li>
+<li><strong>sxy</strong> (<em>array</em>) &#8211;
+xy-component of the stress tensor.</li>
+</ul>
+</p>
 </td>
 </tr>
 </tbody>
@@ -466,36 +384,22 @@ Method is described in I.A. Polonsky, L.M. Keer, Wear 231, 206 (1999)</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>h_r</strong> : array_like</p>
-<blockquote>
-<div><p>Height profile of the rigid counterbody.</p>
-</div></blockquote>
-<p><strong>gf_q</strong> : array_like</p>
-<blockquote>
-<div><p>Green&#8217;s function (in reciprocal space).</p>
-</div></blockquote>
-<p><strong>u_r</strong> : array</p>
-<blockquote>
-<div><p>Array used for initial displacements. A new array is created if omitted.</p>
-</div></blockquote>
-<p><strong>pentol</strong> : float</p>
-<blockquote>
-<div><p>Maximum penetration of contacting regions required for convergence.</p>
-</div></blockquote>
-<p><strong>maxiter</strong> : float</p>
-<blockquote>
-<div><p>Maximum number of iterations.</p>
-</div></blockquote>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>h_r</strong> (<em>array_like</em>) &#8211; Height profile of the rigid counterbody.</li>
+<li><strong>gf_q</strong> (<em>array_like</em>) &#8211; Green&#8217;s function (in reciprocal space).</li>
+<li><strong>u_r</strong> (<em>array</em>) &#8211; Array used for initial displacements. A new array is created if omitted.</li>
+<li><strong>pentol</strong> (<em>float</em>) &#8211; Maximum penetration of contacting regions required for convergence.</li>
+<li><strong>maxiter</strong> (<em>float</em>) &#8211; Maximum number of iterations.</li>
+</ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>u</strong> : array</p>
-<blockquote>
-<div><p>2d-array of displacements.</p>
-</div></blockquote>
-<p><strong>p</strong> : array</p>
-<blockquote class="last">
-<div><p>2d-array of pressure.</p>
-</div></blockquote>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><ul class="simple">
+<li><strong>u</strong> (<em>array</em>) &#8211;
+2d-array of displacements.</li>
+<li><strong>p</strong> (<em>array</em>) &#8211;
+2d-array of pressure.</li>
+</ul>
+</p>
 </td>
 </tr>
 </tbody>
@@ -504,7 +408,7 @@ Method is described in I.A. Polonsky, L.M. Keer, Wear 231, 206 (1999)</p>
 
 <dl class="function">
 <dt id="matscipy.contact_mechanics.greens_function.reciprocal_grid">
-<tt class="descclassname">matscipy.contact_mechanics.greens_function.</tt><tt class="descname">reciprocal_grid</tt><big>(</big><em>nx</em>, <em>ny=None</em>, <em>gf=&lt;function gf_displacement_nonperiodic at 0x6fffbc24c80&gt;</em>, <em>coordinates=False</em><big>)</big><a class="headerlink" href="#matscipy.contact_mechanics.greens_function.reciprocal_grid" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">matscipy.contact_mechanics.greens_function.</tt><tt class="descname">reciprocal_grid</tt><big>(</big><em>nx</em>, <em>ny=None</em>, <em>gf=&lt;function gf_displacement_nonperiodic at 0x6fffdb30cf8&gt;</em>, <em>coordinates=False</em><big>)</big><a class="headerlink" href="#matscipy.contact_mechanics.greens_function.reciprocal_grid" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the reciprocal space representation of a Green&#8217;s function on an FFT
 grid.
 Note: If the Green&#8217;s function is for the non-periodic (free-bounday)
@@ -516,36 +420,23 @@ application of this method to the electrostatic problem.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>nx</strong> : int</p>
-<blockquote>
-<div><p>Number of grid points in x-direction.</p>
-</div></blockquote>
-<p><strong>ny</strong> : int</p>
-<blockquote>
-<div><p>Number of grid points in y-direction.</p>
-</div></blockquote>
-<p><strong>gf</strong> : function</p>
-<blockquote>
-<div><p>Function returning the real-space Green&#8217;s function.</p>
-</div></blockquote>
-<p><strong>coordinates</strong> : bool</p>
-<blockquote>
-<div><p>If True, return grid coordinates.</p>
-</div></blockquote>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>nx</strong> (<em>int</em>) &#8211; Number of grid points in x-direction.</li>
+<li><strong>ny</strong> (<em>int</em>) &#8211; Number of grid points in y-direction.</li>
+<li><strong>gf</strong> (<em>function</em>) &#8211; Function returning the real-space Green&#8217;s function.</li>
+<li><strong>coordinates</strong> (<em>bool</em>) &#8211; If True, return grid coordinates.</li>
+</ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>G</strong> : array</p>
-<blockquote>
-<div><p>Reciprocal space representation of the stiffness on an nx,ny grid.</p>
-</div></blockquote>
-<p><strong>x</strong> : array</p>
-<blockquote>
-<div><p>x-coordinates of grid.</p>
-</div></blockquote>
-<p><strong>y</strong> : array</p>
-<blockquote class="last">
-<div><p>y-coordinates of grid.</p>
-</div></blockquote>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><ul class="simple">
+<li><strong>G</strong> (<em>array</em>) &#8211;
+Reciprocal space representation of the stiffness on an nx,ny grid.</li>
+<li><strong>x</strong> (<em>array</em>) &#8211;
+x-coordinates of grid.</li>
+<li><strong>y</strong> (<em>array</em>) &#8211;
+y-coordinates of grid.</li>
+</ul>
+</p>
 </td>
 </tr>
 </tbody>
@@ -562,28 +453,19 @@ function) for a periodic system with contact modulus 2 and Poisson number
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>nx</strong> : int</p>
-<blockquote>
-<div><p>Number of grid points in x-direction.</p>
-</div></blockquote>
-<p><strong>ny</strong> : int</p>
-<blockquote>
-<div><p>Number of grid points in y-direction.</p>
-</div></blockquote>
-<p><strong>phi0</strong> : float</p>
-<blockquote>
-<div><p>Stiffness at q=0 (gamma point).</p>
-</div></blockquote>
-<p><strong>size</strong> : tuple</p>
-<blockquote>
-<div><p>System size. Assumed to be nx,ny if parameter is omitted.</p>
-</div></blockquote>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>nx</strong> (<em>int</em>) &#8211; Number of grid points in x-direction.</li>
+<li><strong>ny</strong> (<em>int</em>) &#8211; Number of grid points in y-direction.</li>
+<li><strong>phi0</strong> (<em>float</em>) &#8211; Stiffness at q=0 (gamma point).</li>
+<li><strong>size</strong> (<em>tuple</em>) &#8211; System size. Assumed to be nx,ny if parameter is omitted.</li>
+</ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>phi</strong> : array</p>
-<blockquote class="last">
-<div><p>Reciprocal space representation of the stiffness on an nx,ny grid.</p>
-</div></blockquote>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>phi</strong> &#8211;
+Reciprocal space representation of the stiffness on an nx,ny grid.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">array</p>
 </td>
 </tr>
 </tbody>

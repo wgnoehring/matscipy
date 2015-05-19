@@ -85,18 +85,11 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>i, j, dr</strong> : array_like</p>
-<blockquote>
-<div><p>Neighbour list, including list of distance vectors.</p>
-</div></blockquote>
-<p><strong>nbins</strong> : int</p>
-<blockquote>
-<div><p>Number of bins for bond angle histogram.</p>
-</div></blockquote>
-<p><strong>cutoff</strong> : float, optional</p>
-<blockquote class="last">
-<div><p>Bond length cutoff, i.e. consider only bonds shorter than this length.</p>
-</div></blockquote>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>j, dr</strong> (<em>i,</em>) &#8211; Neighbour list, including list of distance vectors.</li>
+<li><strong>nbins</strong> (<em>int</em>) &#8211; Number of bins for bond angle histogram.</li>
+<li><strong>cutoff</strong> (<em>float, optional</em>) &#8211; Bond length cutoff, i.e. consider only bonds shorter than this length.</li>
+</ul>
 </td>
 </tr>
 </tbody>
@@ -122,6 +115,22 @@ This is faster than calling numpy.linalg.inv for each matrix.</p>
 <dd><p>Calculate deformation gradient tensor and D^2_min measure for non-affine
 displacements.
 See: Falk, Langer, Phys. Rev. B 57, 7192 (1998)</p>
+<dl class="docutils">
+<dt>atoms_now <span class="classifier-delimiter">:</span> <span class="classifier">ase.Atoms</span></dt>
+<dd>Current atomic configuration</dd>
+<dt>atoms_old <span class="classifier-delimiter">:</span> <span class="classifier">ase.Atoms</span></dt>
+<dd>Reference atomic configuration</dd>
+<dt>cutoff <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd>Neighbor list cutoff.</dd>
+<dt>neighbours <span class="classifier-delimiter">:</span> <span class="classifier">( array_like, array_like )</span></dt>
+<dd>Neighbor list. Automatically computed if not provided.</dd>
+</dl>
+<dl class="docutils">
+<dt>delta_plus_epsilon <span class="classifier-delimiter">:</span> <span class="classifier">array</span></dt>
+<dd>3x3 deformation gradient tensor for each atom.</dd>
+<dt>residual <span class="classifier-delimiter">:</span> <span class="classifier">array</span></dt>
+<dd>D^2_min norm for each atom</dd>
+</dl>
 </dd></dl>
 
 <dl class="function">
@@ -157,11 +166,10 @@ See: Falk, Langer, Phys. Rev. B 57, 7192 (1998)</p>
 </div>
 <div class="section" id="module-matscipy.checkpoint">
 <span id="matscipy-checkpoint-module"></span><h2>matscipy.checkpoint module<a class="headerlink" href="#module-matscipy.checkpoint" title="Permalink to this headline">¶</a></h2>
-<p>Checkpointing and restart functionality for Python scripts use ASE Atoms
-objects.</p>
+<p>Checkpointing functionality.</p>
 <p>Initialize checkpoint object:</p>
 <p>CP = Checkpoint(&#8216;checkpoints.db&#8217;)</p>
-<p>Checkpointed code block in try ... except notation:</p>
+<p>Checkpointed code block, try ... except notation:</p>
 <dl class="docutils">
 <dt>try:</dt>
 <dd>a, C, C_err = CP.load()</dd>
@@ -185,13 +193,10 @@ tip_y = tip_y0</dd>
 converged = ...
 CP.flush(a, converged, tip_x, tip_y)</dd>
 </dl>
-<p>The simplest way to use checkpointing is through the CheckpointCalculator. It
-wraps any calculator object and</p>
 <dl class="class">
 <dt id="matscipy.checkpoint.Checkpoint">
-<em class="property">class </em><tt class="descclassname">matscipy.checkpoint.</tt><tt class="descname">Checkpoint</tt><big>(</big><em>db='checkpoints.db'</em>, <em>logger=&lt;matscipy.logger.Logger object at 0x6fffe040950&gt;</em><big>)</big><a class="headerlink" href="#matscipy.checkpoint.Checkpoint" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">matscipy.checkpoint.</tt><tt class="descname">Checkpoint</tt><big>(</big><em>db='checkpoints.db'</em>, <em>logger=&lt;matscipy.logger.Logger object at 0x6fffd692a50&gt;</em><big>)</big><a class="headerlink" href="#matscipy.checkpoint.Checkpoint" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
-<p class="rubric">Methods</p>
 <dl class="method">
 <dt id="matscipy.checkpoint.Checkpoint.flush">
 <tt class="descname">flush</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#matscipy.checkpoint.Checkpoint.flush" title="Permalink to this definition">¶</a></dt>
@@ -219,28 +224,6 @@ the checkpoint.</p>
 
 </dd></dl>
 
-<dl class="class">
-<dt id="matscipy.checkpoint.CheckpointCalculator">
-<em class="property">class </em><tt class="descclassname">matscipy.checkpoint.</tt><tt class="descname">CheckpointCalculator</tt><big>(</big><em>calculator</em>, <em>db='checkpoints.db'</em>, <em>logger=&lt;matscipy.logger.Logger object at 0x6fffe040950&gt;</em><big>)</big><a class="headerlink" href="#matscipy.checkpoint.CheckpointCalculator" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">ase.calculators.calculator.Calculator</span></tt></p>
-<p class="rubric">Methods</p>
-<dl class="method">
-<dt id="matscipy.checkpoint.CheckpointCalculator.calculate">
-<tt class="descname">calculate</tt><big>(</big><em>atoms</em>, <em>properties</em>, <em>system_changes</em><big>)</big><a class="headerlink" href="#matscipy.checkpoint.CheckpointCalculator.calculate" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="matscipy.checkpoint.CheckpointCalculator.implemented_properties">
-<tt class="descname">implemented_properties</tt><em class="property"> = ['energy', 'forces', 'stress', 'dipole', 'charges', 'magmom', 'magmoms']</em><a class="headerlink" href="#matscipy.checkpoint.CheckpointCalculator.implemented_properties" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="matscipy.checkpoint.CheckpointCalculator.property_to_method_name">
-<tt class="descname">property_to_method_name</tt><em class="property"> = {'energies': 'get_potential_energies', 'stresses': 'get_stresses', 'energy': 'get_potential_energy', 'stress': 'get_stress', 'forces': 'get_forces'}</em><a class="headerlink" href="#matscipy.checkpoint.CheckpointCalculator.property_to_method_name" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
 <dl class="exception">
 <dt id="matscipy.checkpoint.NoCheckpoint">
 <em class="property">exception </em><tt class="descclassname">matscipy.checkpoint.</tt><tt class="descname">NoCheckpoint</tt><a class="headerlink" href="#matscipy.checkpoint.NoCheckpoint" title="Permalink to this definition">¶</a></dt>
@@ -253,8 +236,7 @@ the checkpoint.</p>
 <dl class="class">
 <dt id="matscipy.elasticity.CubicElasticModuli">
 <em class="property">class </em><tt class="descclassname">matscipy.elasticity.</tt><tt class="descname">CubicElasticModuli</tt><big>(</big><em>C11</em>, <em>C12</em>, <em>C44</em><big>)</big><a class="headerlink" href="#matscipy.elasticity.CubicElasticModuli" title="Permalink to this definition">¶</a></dt>
-<dd><p class="rubric">Methods</p>
-<dl class="method">
+<dd><dl class="method">
 <dt id="matscipy.elasticity.CubicElasticModuli.compliance">
 <tt class="descname">compliance</tt><big>(</big><big>)</big><a class="headerlink" href="#matscipy.elasticity.CubicElasticModuli.compliance" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the compliance coefficients</p>
@@ -307,17 +289,12 @@ C11, C12 and C44.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>C</strong> : array_like</p>
-<blockquote>
-<div><p>6x6 stiffness matrix (Voigt notation).</p>
-</div></blockquote>
-</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>C</strong> (<em>array_like</em>) &#8211; 6x6 stiffness matrix (Voigt notation).</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>C</strong> : array_like</p>
-<blockquote class="last">
-<div><p>3x3x3x3 stiffness matrix.</p>
-</div></blockquote>
-</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><strong>C</strong> &#8211;
+3x3x3x3 stiffness matrix.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">array_like</td>
 </tr>
 </tbody>
 </table>
@@ -336,67 +313,42 @@ C11, C12 and C44.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>a</strong> : ase.Atoms or list of ase.Atoms</p>
-<blockquote>
-<div><p>Either a single atomic configuration or a list of strained
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>a</strong> (<em>ase.Atoms or list of ase.Atoms</em>) &#8211; Either a single atomic configuration or a list of strained
 configurations. If a single configuration is given, it is
 passed <a class="reference internal" href="#matscipy.elasticity.generate_strained_configs" title="matscipy.elasticity.generate_strained_configs"><tt class="xref py py-func docutils literal"><span class="pre">generate_strained_configs()</span></tt></a> along with <cite>symmetry</cite>, <cite>N_steps</cite>,
-and <cite>delta</cite> to generate the set of strained configurations.</p>
-</div></blockquote>
-<p><strong>symmetry</strong> : string</p>
-<blockquote>
-<div><p>Symmetry to use to determine which strain patterns are necessary.
-Default is &#8216;triclininc&#8217;, i.e. no symmetry.</p>
-</div></blockquote>
-<p><strong>N_steps</strong> : int</p>
-<blockquote>
-<div><p>Number of atomic configurations to generate for each strain pattern.
+and <cite>delta</cite> to generate the set of strained configurations.</li>
+<li><strong>symmetry</strong> (<em>string</em>) &#8211; Symmetry to use to determine which strain patterns are necessary.
+Default is &#8216;triclininc&#8217;, i.e. no symmetry.</li>
+<li><strong>N_steps</strong> (<em>int</em>) &#8211; Number of atomic configurations to generate for each strain pattern.
 Default is 5. Absolute strain values range from -delta*N_steps/2
-to +delta*N_steps/2.</p>
-</div></blockquote>
-<p><strong>delta</strong> : float</p>
-<blockquote>
-<div><p>Strain increment for analytical derivatives of stresses.
-Default is 1e-2.</p>
-</div></blockquote>
-<p><strong>optimizer</strong> : ase.optimizer.*</p>
-<blockquote>
-<div><p>Optimizer to use for atomic positions (internal degrees of freedom)
+to +delta*N_steps/2.</li>
+<li><strong>delta</strong> (<em>float</em>) &#8211; Strain increment for analytical derivatives of stresses.
+Default is 1e-2.</li>
+<li><strong>optimizer</strong> (<em>ase.optimizer.*</em>) &#8211; Optimizer to use for atomic positions (internal degrees of freedom)
 for each applied strain. Initial config <cite>a</cite> is not optimised, and should
 already have relaxed cell and atomic positions. Does not optimize atomic
-positions if set to None.</p>
-</div></blockquote>
-<p><strong>verbose</strong> : bool</p>
-<blockquote>
-<div><p>If True, print additional infomation about the quality of fit
-and summarise results of C_ij and estimated errors. Default True.</p>
-</div></blockquote>
-<p><strong>graphics</strong> : bool</p>
-<blockquote>
-<div><p>If True, use <tt class="xref py py-mod docutils literal"><span class="pre">matplotlib.pyplot</span></tt> to plot the stress vs. strain
-curve for each C_ij component fitted. Default True.</p>
-</div></blockquote>
-<p><strong>logfile</strong> : bool</p>
-<blockquote>
-<div><p>Log file to write optimizer output to. Default None (i.e. suppress
-output).</p>
-</div></blockquote>
-<p><strong>**kwargs</strong> : dict</p>
-<blockquote>
-<div><p>Additional arguments to pass to <cite>optimizer.run()</cite> method e.g. <cite>fmax</cite>.</p>
-</div></blockquote>
+positions if set to None.</li>
+<li><strong>verbose</strong> (<em>bool</em>) &#8211; If True, print additional infomation about the quality of fit
+and summarise results of C_ij and estimated errors. Default True.</li>
+<li><strong>graphics</strong> (<em>bool</em>) &#8211; If True, use <tt class="xref py py-mod docutils literal"><span class="pre">matplotlib.pyplot</span></tt> to plot the stress vs. strain
+curve for each C_ij component fitted. Default True.</li>
+<li><strong>logfile</strong> (<em>bool</em>) &#8211; Log file to write optimizer output to. Default None (i.e. suppress
+output).</li>
+<li><strong>**kwargs</strong> &#8211; <p>Additional arguments to pass to <cite>optimizer.run()</cite> method e.g. <cite>fmax</cite>.</p>
+</li>
+</ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>C</strong> : array_like</p>
-<blockquote>
-<div><p>6x6 matrix of the elastic constants in Voigt notation.</p>
-</div></blockquote>
-<p><strong>C_err</strong> : array_like</p>
-<blockquote class="last">
-<div><p>If scipy.stats module is available then error estimates for each C_ij
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><ul class="simple">
+<li><strong>C</strong> (<em>array_like</em>) &#8211;
+6x6 matrix of the elastic constants in Voigt notation.</li>
+<li><strong>C_err</strong> (<em>array_like</em>) &#8211;
+If scipy.stats module is available then error estimates for each C_ij
 component are obtained from the accuracy of the linear regression.
-Otherwise an array of np.zeros((6,6)) is returned.</p>
-</div></blockquote>
+Otherwise an array of np.zeros((6,6)) is returned.</li>
+</ul>
+</p>
 </td>
 </tr>
 </tbody>
@@ -438,31 +390,24 @@ to the representation in Voigt notation. Checks symmetry in that process.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>a</strong> : ase.Atoms</p>
-<blockquote>
-<div><p>Bulk crystal configuration - both unit cell and atomic positions
-should be relaxed before calling this routine.</p>
-</div></blockquote>
-<p><strong>symmetry</strong> : string</p>
-<blockquote>
-<div><p>Symmetry to use to determine which strain patterns are necessary.
-Default is &#8216;triclininc&#8217;, i.e. no symmetry.</p>
-</div></blockquote>
-<p><strong>N_steps</strong> : int</p>
-<blockquote>
-<div><p>Number of atomic configurations to generate for each strain pattern.
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>a</strong> (<em>ase.Atoms</em>) &#8211; Bulk crystal configuration - both unit cell and atomic positions
+should be relaxed before calling this routine.</li>
+<li><strong>symmetry</strong> (<em>string</em>) &#8211; Symmetry to use to determine which strain patterns are necessary.
+Default is &#8216;triclininc&#8217;, i.e. no symmetry.</li>
+<li><strong>N_steps</strong> (<em>int</em>) &#8211; Number of atomic configurations to generate for each strain pattern.
 Default is 5. Absolute strain values range from -delta*N_steps/2
-to +delta*N_steps/2.</p>
-</div></blockquote>
-<p><strong>delta</strong> : float</p>
-<blockquote>
-<div><p>Strain increment for analytical derivatives of stresses. Default 1e-2</p>
-</div></blockquote>
+to +delta*N_steps/2.</li>
+<li><strong>delta</strong> (<em>float</em>) &#8211; Strain increment for analytical derivatives of stresses. Default 1e-2</li>
+</ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Generator which yields a sequence of ase.Atoms instances corresponding</p>
-<p>to the minima set of strained conifugurations required to evaluate the</p>
-<p class="last">full 6x6 C_ij matrix under the assumed symmetry.</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><ul class="simple">
+<li><em>Generator which yields a sequence of ase.Atoms instances corresponding</em></li>
+<li><em>to the minima set of strained conifugurations required to evaluate the</em></li>
+<li><em>full 6x6 C_ij matrix under the assumed symmetry.</em></li>
+</ul>
+</p>
 </td>
 </tr>
 </tbody>
@@ -471,7 +416,7 @@ to +delta*N_steps/2.</p>
 
 <dl class="function">
 <dt id="matscipy.elasticity.invariants">
-<tt class="descclassname">matscipy.elasticity.</tt><tt class="descname">invariants</tt><big>(</big><em>s</em>, <em>syy=None</em>, <em>szz=None</em>, <em>syz=None</em>, <em>sxz=None</em>, <em>sxy=None</em>, <em>full_3x3_to_Voigt_6=&lt;function full_3x3_to_Voigt_6_stress at 0x6fffc919848&gt;</em><big>)</big><a class="headerlink" href="#matscipy.elasticity.invariants" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">matscipy.elasticity.</tt><tt class="descname">invariants</tt><big>(</big><em>s</em>, <em>syy=None</em>, <em>szz=None</em>, <em>syz=None</em>, <em>sxz=None</em>, <em>sxy=None</em>, <em>full_3x3_to_Voigt_6=&lt;function full_3x3_to_Voigt_6_stress at 0x6fffc1c1f50&gt;</em><big>)</big><a class="headerlink" href="#matscipy.elasticity.invariants" title="Permalink to this definition">¶</a></dt>
 <dd><p>Receives a list of stress tensors and returns the three tensor invariants.</p>
 </dd></dl>
 
@@ -484,25 +429,19 @@ unit cell.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>a</strong> : ase.Atoms</p>
-<blockquote>
-<div><p>Atomic configuration.</p>
-</div></blockquote>
-<p><strong>optimizer</strong> : ase.optimizer.*</p>
-<blockquote>
-<div><p>Optimizer to use for atomic position. Does not optimize atomic
-position if set to None.</p>
-</div></blockquote>
-<p><strong>delta</strong> : float</p>
-<blockquote>
-<div><p>Strain increment for analytical derivatives of stresses.</p>
-</div></blockquote>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>a</strong> (<em>ase.Atoms</em>) &#8211; Atomic configuration.</li>
+<li><strong>optimizer</strong> (<em>ase.optimizer.*</em>) &#8211; Optimizer to use for atomic position. Does not optimize atomic
+position if set to None.</li>
+<li><strong>delta</strong> (<em>float</em>) &#8211; Strain increment for analytical derivatives of stresses.</li>
+</ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>C</strong> : array_like</p>
-<blockquote class="last">
-<div><p>6x6 matrix of the elastic constants in Voigt notation.</p>
-</div></blockquote>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>C</strong> &#8211;
+6x6 matrix of the elastic constants in Voigt notation.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">array_like</p>
 </td>
 </tr>
 </tbody>
@@ -516,35 +455,32 @@ position if set to None.</p>
 <div>Calculate approximate Poisson ratio</div></blockquote>
 <p>u_{lm} from 6x6 elastic constant matrix C_{ij}</p>
 <blockquote>
-<div>This is the response in <cite>m</cite> direction to pulling in <cite>l</cite> direction. Result is dimensionless.</div></blockquote>
-<p class="rubric">Notes</p>
-<p>Formula is from W. Brantley, Calculated elastic constants for stress problems associated 
+<div><p>This is the response in <cite>m</cite> direction to pulling in <cite>l</cite> direction. Result is dimensionless.</p>
+<p>Formula is from W. Brantley, Calculated elastic constants for stress problems associated
 with semiconductor devices. J. Appl. Phys., 44, 534 (1973).</p>
+</div></blockquote>
 </dd></dl>
 
 <dl class="function">
 <dt id="matscipy.elasticity.rotate_cubic_elastic_constants">
 <tt class="descclassname">matscipy.elasticity.</tt><tt class="descname">rotate_cubic_elastic_constants</tt><big>(</big><em>C11</em>, <em>C12</em>, <em>C44</em>, <em>A</em>, <em>tol=1e-06</em><big>)</big><a class="headerlink" href="#matscipy.elasticity.rotate_cubic_elastic_constants" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return rotated elastic moduli for a cubic crystal given the elastic 
+<dd><p>Return rotated elastic moduli for a cubic crystal given the elastic
 constant in standard C11, C12, C44 notation.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>C11, C12, C44</strong> : float</p>
-<blockquote>
-<div><p>Cubic elastic moduli.</p>
-</div></blockquote>
-<p><strong>A</strong> : array_like</p>
-<blockquote>
-<div><p>3x3 rotation matrix.</p>
-</div></blockquote>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>C12, C44</strong> (<em>C11,</em>) &#8211; Cubic elastic moduli.</li>
+<li><strong>A</strong> (<em>array_like</em>) &#8211; 3x3 rotation matrix.</li>
+</ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>C</strong> : array</p>
-<blockquote class="last">
-<div><p>6x6 matrix of rotated elastic constants (Voigt notation).</p>
-</div></blockquote>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>C</strong> &#8211;
+6x6 matrix of rotated elastic constants (Voigt notation).</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">array</p>
 </td>
 </tr>
 </tbody>
@@ -554,26 +490,23 @@ constant in standard C11, C12, C44 notation.</p>
 <dl class="function">
 <dt id="matscipy.elasticity.rotate_elastic_constants">
 <tt class="descclassname">matscipy.elasticity.</tt><tt class="descname">rotate_elastic_constants</tt><big>(</big><em>C</em>, <em>A</em>, <em>tol=1e-06</em><big>)</big><a class="headerlink" href="#matscipy.elasticity.rotate_elastic_constants" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return rotated elastic moduli for a general crystal given the elastic 
+<dd><p>Return rotated elastic moduli for a general crystal given the elastic
 constant in Voigt notation.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>C</strong> : array_like</p>
-<blockquote>
-<div><p>6x6 matrix of elastic constants (Voigt notation).</p>
-</div></blockquote>
-<p><strong>A</strong> : array_like</p>
-<blockquote>
-<div><p>3x3 rotation matrix.</p>
-</div></blockquote>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>C</strong> (<em>array_like</em>) &#8211; 6x6 matrix of elastic constants (Voigt notation).</li>
+<li><strong>A</strong> (<em>array_like</em>) &#8211; 3x3 rotation matrix.</li>
+</ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>C</strong> : array</p>
-<blockquote class="last">
-<div><p>6x6 matrix of rotated elastic constants (Voigt notation).</p>
-</div></blockquote>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>C</strong> &#8211;
+6x6 matrix of rotated elastic constants (Voigt notation).</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">array</p>
 </td>
 </tr>
 </tbody>
@@ -597,7 +530,7 @@ compute the compliance matrix:</p>
 </pre></div>
 </div>
 <p class="rubric">Notes</p>
-<p>Formula is from W. Brantley, Calculated elastic constants for stress problems associated 
+<p>Formula is from W. Brantley, Calculated elastic constants for stress problems associated
 with semiconductor devices. J. Appl. Phys., 44, 534 (1973).</p>
 </dd></dl>
 
@@ -606,50 +539,27 @@ with semiconductor devices. J. Appl. Phys., 44, 534 (1973).</p>
 <span id="matscipy-hydrogenate-module"></span><h2>matscipy.hydrogenate module<a class="headerlink" href="#module-matscipy.hydrogenate" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="matscipy.hydrogenate.hydrogenate">
-<tt class="descclassname">matscipy.hydrogenate.</tt><tt class="descname">hydrogenate</tt><big>(</big><em>a, cutoff, bond_length, b=None, mask=[True, True, True], exclude=None, vacuum=None</em><big>)</big><a class="headerlink" href="#matscipy.hydrogenate.hydrogenate" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">matscipy.hydrogenate.</tt><tt class="descname">hydrogenate</tt><big>(</big><em>a</em>, <em>cutoff</em>, <em>bond_length</em>, <em>mask</em>, <em>vacuum=None</em><big>)</big><a class="headerlink" href="#matscipy.hydrogenate.hydrogenate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Hydrogenate a slab of material at its periodic boundary conditions.
 Boundary conditions are turned into nonperiodic.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>a</strong> : ase.Atoms</p>
-<blockquote>
-<div><p>Atomic configuration.</p>
-</div></blockquote>
-<p><strong>cutoff</strong> : float</p>
-<blockquote>
-<div><p>Cutoff for neighbor counting.</p>
-</div></blockquote>
-<p><strong>bond_length</strong> : float</p>
-<blockquote>
-<div><p>X-H bond length for hydrogenation.</p>
-</div></blockquote>
-<p><strong>b</strong> : ase.Atoms, optional</p>
-<blockquote>
-<div><p>If present, this is the configuration to hydrogenate. Number of atoms
-must be identical to a object. All bonds present in a but not present
-in b will be hydrogenated in b.</p>
-</div></blockquote>
-<p><strong>mask</strong> : list of bool</p>
-<blockquote>
-<div><p>Cartesian directions which to hydrogenate, only if b argument is not
-given.</p>
-</div></blockquote>
-<p><strong>exclude</strong> : array_like</p>
-<blockquote>
-<div><p>Boolean array masking atoms to be excluded from hydrogenation.</p>
-</div></blockquote>
-<p><strong>vacuum</strong> : float, optional</p>
-<blockquote>
-<div><p>Add this much vacuum after hydrogenation.</p>
-</div></blockquote>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>a</strong> (<em>ase.Atoms</em>) &#8211; Atomic configuration.</li>
+<li><strong>cutoff</strong> (<em>float</em>) &#8211; Cutoff for neighbor counting.</li>
+<li><strong>bond_length</strong> (<em>float</em>) &#8211; X-H bond length for hydrogenation.</li>
+<li><strong>mask</strong> (<em>list of bool</em>) &#8211; Cartesian directions which to hydrogenate.</li>
+<li><strong>vacuum</strong> (<em>float, optional</em>) &#8211; Add this much vacuum after hydrogenation.</li>
+</ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>a</strong> : ase.Atoms</p>
-<blockquote class="last">
-<div><p>Atomic configuration of the hydrogenated slab.</p>
-</div></blockquote>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>a</strong> &#8211;
+Atomic configuration of the hydrogenated slab.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ase.Atoms</p>
 </td>
 </tr>
 </tbody>
@@ -676,27 +586,21 @@ given.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>fn</strong> : str</p>
-<blockquote>
-<div><p>Name of file to load.</p>
-</div></blockquote>
-<p><strong>usecols</strong> : list of strings</p>
-<blockquote>
-<div><p>List of column names.</p>
-</div></blockquote>
-<p><strong>fromfile</strong> : bool</p>
-<blockquote>
-<div><p>Use numpy.fromfile instead of numpy.loadtxt if set to True. Can be
-faster in some circumstances.</p>
-</div></blockquote>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>fn</strong> (<em>str</em>) &#8211; Name of file to load.</li>
+<li><strong>usecols</strong> (<em>list of strings</em>) &#8211; List of column names.</li>
+<li><strong>fromfile</strong> (<em>bool</em>) &#8211; Use numpy.fromfile instead of numpy.loadtxt if set to True. Can be
+faster in some circumstances.</li>
+</ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>data</strong> : tuple of arrays</p>
-<blockquote class="last">
-<div><p>Return tuple of array with data for each colume in usecols if
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>data</strong> &#8211;
+Return tuple of array with data for each colume in usecols if
 usecols specified. For usecols=None, return dictionary with header
 keys and arrays as data entries.</p>
-</div></blockquote>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">tuple of arrays</p>
 </td>
 </tr>
 </tbody>
@@ -707,22 +611,16 @@ keys and arrays as data entries.</p>
 <dt id="matscipy.io.savetbl">
 <tt class="descclassname">matscipy.io.</tt><tt class="descname">savetbl</tt><big>(</big><em>fn</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#matscipy.io.savetbl" title="Permalink to this definition">¶</a></dt>
 <dd><p>Save tabulated data and write column header strings.</p>
-<dl class="docutils">
-<dt>Example:</dt>
-<dd>savetbl(&#8216;file.dat&#8217;, time=time, strain=strain, energy=energy)</dd>
-</dl>
+<p class="rubric">Example</p>
+<p>savetbl(&#8216;file.dat&#8217;, time=time, strain=strain, energy=energy)</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>fn</strong> : str</p>
-<blockquote>
-<div><p>Name of file to write to.</p>
-</div></blockquote>
-<p><strong>kwargs</strong> : dict</p>
-<blockquote class="last">
-<div><p>Keyword argument pass data and column header names.</p>
-</div></blockquote>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>fn</strong> (<em>str</em>) &#8211; Name of file to write to.</li>
+<li><strong>kwargs</strong> (<em>dict</em>) &#8211; Keyword argument pass data and column header names.</li>
+</ul>
 </td>
 </tr>
 </tbody>
@@ -737,7 +635,6 @@ keys and arrays as data entries.</p>
 <dt id="matscipy.logger.Logger">
 <em class="property">class </em><tt class="descclassname">matscipy.logger.</tt><tt class="descname">Logger</tt><big>(</big><em>logfile=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x6fffffe2150&gt;</em>, <em>outevery=1</em>, <em>sepevery=10</em><big>)</big><a class="headerlink" href="#matscipy.logger.Logger" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
-<p class="rubric">Methods</p>
 <dl class="method">
 <dt id="matscipy.logger.Logger.flush">
 <tt class="descname">flush</tt><big>(</big><big>)</big><a class="headerlink" href="#matscipy.logger.Logger.flush" title="Permalink to this definition">¶</a></dt>
@@ -819,26 +716,20 @@ keys and arrays as data entries.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>dr</strong> : array_like</p>
-<blockquote>
-<div><p>Array of distance vectors.</p>
-</div></blockquote>
-<p><strong>cell</strong> : array_like</p>
-<blockquote>
-<div><p>Simulation cell.</p>
-</div></blockquote>
-<p><strong>pbc</strong> : array_like, optional</p>
-<blockquote>
-<div><p>Periodic boundary conditions in x-, y- and z-direction. Default is to
-assume periodic boundaries in all directions.</p>
-</div></blockquote>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>dr</strong> (<em>array_like</em>) &#8211; Array of distance vectors.</li>
+<li><strong>cell</strong> (<em>array_like</em>) &#8211; Simulation cell.</li>
+<li><strong>pbc</strong> (<em>array_like, optional</em>) &#8211; Periodic boundary conditions in x-, y- and z-direction. Default is to
+assume periodic boundaries in all directions.</li>
+</ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>dr</strong> : array</p>
-<blockquote class="last">
-<div><p>Array of distance vectors, wrapped according to the minimum image
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>dr</strong> &#8211;
+Array of distance vectors, wrapped according to the minimum image
 convention.</p>
-</div></blockquote>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">array</p>
 </td>
 </tr>
 </tbody>
@@ -853,36 +744,29 @@ convention.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>quantities</strong> : str</p>
-<blockquote>
-<div><p>Quantities to compute by the neighbor list algorithm. Each character
-in this string defines a quantity. They are returned in a tuple of 
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>quantities</strong> (<em>str</em>) &#8211; <p>Quantities to compute by the neighbor list algorithm. Each character
+in this string defines a quantity. They are returned in a tuple of
 the same order. Possible quantities are</p>
 <blockquote>
-<div><p>&#8216;i&#8217; : first atom index
+<div>&#8216;i&#8217; : first atom index
 &#8216;j&#8217; : second atom index
 &#8216;d&#8217; : absolute distance
 &#8216;D&#8217; : distance vector
-&#8216;S&#8217; : shift vector (number of cell boundaries crossed by the bond</p>
-<blockquote>
-<div><p>between atom i and j)</p>
+&#8216;S&#8217; : shift vector (number of cell boundaries crossed by the bond<blockquote>
+<div>between atom i and j)</div></blockquote>
 </div></blockquote>
-</div></blockquote>
-</div></blockquote>
-<p><strong>a</strong> : ase.Atoms</p>
-<blockquote>
-<div><p>Atomic configuration.</p>
-</div></blockquote>
-<p><strong>cutoff</strong> : float</p>
-<blockquote>
-<div><p>Cutoff for neighbour search.</p>
-</div></blockquote>
+</li>
+<li><strong>a</strong> (<em>ase.Atoms</em>) &#8211; Atomic configuration.</li>
+<li><strong>cutoff</strong> (<em>float</em>) &#8211; Cutoff for neighbour search.</li>
+</ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>i, j, ...</strong> : array</p>
-<blockquote class="last">
-<div><p>Tuple with arrays for each quantity specified above.</p>
-</div></blockquote>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>i, j, ...</strong> &#8211;
+Tuple with arrays for each quantity specified above.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">array</p>
 </td>
 </tr>
 </tbody>
@@ -901,25 +785,19 @@ See: D.S. Franzblau, Phys. Rev. B 44, 4925 (1991)</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>a</strong> : ase.Atoms</p>
-<blockquote>
-<div><p>Atomic configuration.</p>
-</div></blockquote>
-<p><strong>cutoff</strong> : float</p>
-<blockquote>
-<div><p>Cutoff for neighbor counting.</p>
-</div></blockquote>
-<p><strong>maxlength</strong> : float, optional</p>
-<blockquote>
-<div><p>Maximum ring length. Search for rings will stop at this length. This
-is useful to speed up calculations for large systems.</p>
-</div></blockquote>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>a</strong> (<em>ase.Atoms</em>) &#8211; Atomic configuration.</li>
+<li><strong>cutoff</strong> (<em>float</em>) &#8211; Cutoff for neighbor counting.</li>
+<li><strong>maxlength</strong> (<em>float, optional</em>) &#8211; Maximum ring length. Search for rings will stop at this length. This
+is useful to speed up calculations for large systems.</li>
+</ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>ringstat</strong> : array</p>
-<blockquote class="last">
-<div><p>Array with number of shortest path rings.</p>
-</div></blockquote>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>ringstat</strong> &#8211;
+Array with number of shortest path rings.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">array</p>
 </td>
 </tr>
 </tbody>
@@ -933,19 +811,6 @@ is useful to speed up calculations for large systems.</p>
 <dt id="matscipy.socketcalc.AtomsRequestHandler">
 <em class="property">class </em><tt class="descclassname">matscipy.socketcalc.</tt><tt class="descname">AtomsRequestHandler</tt><big>(</big><em>request</em>, <em>client_address</em>, <em>server</em><big>)</big><a class="headerlink" href="#matscipy.socketcalc.AtomsRequestHandler" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">SocketServer.StreamRequestHandler</span></tt></p>
-<p class="rubric">Attributes</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="41%" />
-<col width="59%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td>timeout</td>
-<td>&nbsp;</td>
-</tr>
-</tbody>
-</table>
-<p class="rubric">Methods</p>
 <dl class="method">
 <dt id="matscipy.socketcalc.AtomsRequestHandler.handle">
 <tt class="descname">handle</tt><big>(</big><big>)</big><a class="headerlink" href="#matscipy.socketcalc.AtomsRequestHandler.handle" title="Permalink to this definition">¶</a></dt>
@@ -957,19 +822,6 @@ is useful to speed up calculations for large systems.</p>
 <dt id="matscipy.socketcalc.AtomsServer">
 <em class="property">class </em><tt class="descclassname">matscipy.socketcalc.</tt><tt class="descname">AtomsServer</tt><big>(</big><em>server_address</em>, <em>RequestHandlerClass</em>, <em>clients</em>, <em>bind_and_activate=True</em>, <em>max_attempts=3</em>, <em>bgq=False</em><big>)</big><a class="headerlink" href="#matscipy.socketcalc.AtomsServer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">SocketServer.ThreadingMixIn</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">SocketServer.TCPServer</span></tt></p>
-<p class="rubric">Attributes</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="41%" />
-<col width="59%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td>timeout</td>
-<td>&nbsp;</td>
-</tr>
-</tbody>
-</table>
-<p class="rubric">Methods</p>
 <dl class="attribute">
 <dt id="matscipy.socketcalc.AtomsServer.allow_reuse_address">
 <tt class="descname">allow_reuse_address</tt><em class="property"> = True</em><a class="headerlink" href="#matscipy.socketcalc.AtomsServer.allow_reuse_address" title="Permalink to this definition">¶</a></dt>
@@ -1014,7 +866,6 @@ is useful to speed up calculations for large systems.</p>
 <p>Represents a single Client job</p>
 <p>Used by AtomsServer to start, restart and shutdown clients
 running on the Compute Nodes.</p>
-<p class="rubric">Methods</p>
 <dl class="method">
 <dt id="matscipy.socketcalc.Client.extra_args">
 <tt class="descname">extra_args</tt><big>(</big><em>label=None</em><big>)</big><a class="headerlink" href="#matscipy.socketcalc.Client.extra_args" title="Permalink to this definition">¶</a></dt>
@@ -1107,7 +958,6 @@ servers&#8217;s input_q for this client.</p>
 <p>Initial input files are written in extended XYZ format, and
 subsequent communication is via sockets, in either REFTRAJ
 or XYZ format.</p>
-<p class="rubric">Methods</p>
 <dl class="method">
 <dt id="matscipy.socketcalc.QUIPClient.write_input_files">
 <tt class="descname">write_input_files</tt><big>(</big><em>at</em>, <em>label</em><big>)</big><a class="headerlink" href="#matscipy.socketcalc.QUIPClient.write_input_files" title="Permalink to this definition">¶</a></dt>
@@ -1119,9 +969,8 @@ or XYZ format.</p>
 <dt id="matscipy.socketcalc.SocketCalculator">
 <em class="property">class </em><tt class="descclassname">matscipy.socketcalc.</tt><tt class="descname">SocketCalculator</tt><big>(</big><em>client</em>, <em>ip=None</em>, <em>atoms=None</em>, <em>port=0</em><big>)</big><a class="headerlink" href="#matscipy.socketcalc.SocketCalculator" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">ase.calculators.calculator.Calculator</span></tt></p>
-<p>ASE-compatible calculator which communicates with remote 
+<p>ASE-compatible calculator which communicates with remote
 force engines via sockets using an AtomsServer.</p>
-<p class="rubric">Methods</p>
 <dl class="method">
 <dt id="matscipy.socketcalc.SocketCalculator.calculate">
 <tt class="descname">calculate</tt><big>(</big><em>atoms</em>, <em>properties</em>, <em>system_changes</em><big>)</big><a class="headerlink" href="#matscipy.socketcalc.SocketCalculator.calculate" title="Permalink to this definition">¶</a></dt>
@@ -1146,7 +995,6 @@ force engines via sockets using an AtomsServer.</p>
 <p>Subclass of Client for running VASP calculations.</p>
 <p>Initial input files are written in POSCAR, INCAR, POTCAR and KPOINTS
 formats, and subsequent communicatin is via sockets in REFTRAJ format.</p>
-<p class="rubric">Methods</p>
 <dl class="method">
 <dt id="matscipy.socketcalc.VaspClient.is_compatible">
 <tt class="descname">is_compatible</tt><big>(</big><em>old_at</em>, <em>new_at</em>, <em>label</em><big>)</big><a class="headerlink" href="#matscipy.socketcalc.VaspClient.is_compatible" title="Permalink to this definition">¶</a></dt>
@@ -1212,24 +1060,18 @@ See: Kelchner, Plimpton, Hamilton, Phys. Rev. B 58, 11085 (1998)</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>a</strong> : ase.Atoms</p>
-<blockquote>
-<div><p>Atomic configuration.</p>
-</div></blockquote>
-<p><strong>nn</strong> : integer</p>
-<blockquote>
-<div><p>Number of nearest neighbours of the underlying (symmetric) structure.</p>
-</div></blockquote>
-<p><strong>cutoff</strong> : float</p>
-<blockquote>
-<div><p>Nearest-neighbor cutoff distance.</p>
-</div></blockquote>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>a</strong> (<em>ase.Atoms</em>) &#8211; Atomic configuration.</li>
+<li><strong>nn</strong> (<em>integer</em>) &#8211; Number of nearest neighbours of the underlying (symmetric) structure.</li>
+<li><strong>cutoff</strong> (<em>float</em>) &#8211; Nearest-neighbor cutoff distance.</li>
+</ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>c</strong> : array</p>
-<blockquote class="last">
-<div><p>Centrosymmetry parameter for each atom.</p>
-</div></blockquote>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>c</strong> &#8211;
+Centrosymmetry parameter for each atom.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">array</p>
 </td>
 </tr>
 </tbody>
@@ -1262,8 +1104,6 @@ See: Kelchner, Plimpton, Hamilton, Phys. Rev. B 58, 11085 (1998)</p>
 <span class="k">assert</span><span class="p">(</span><span class="n">angle_between</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">z</span><span class="p">)</span> <span class="o">==</span> <span class="n">pi</span><span class="o">/</span><span class="mf">2.</span><span class="p">)</span>
 </pre></div>
 </div>
-<p class="rubric">Attributes</p>
-<p class="rubric">Methods</p>
 <dl class="attribute">
 <dt id="matscipy.surface.MillerIndex.all_brackets">
 <tt class="descname">all_brackets</tt><em class="property"> = ['{', '}', '[', ']', '(', ')', '&lt;', '&gt;']</em><a class="headerlink" href="#matscipy.surface.MillerIndex.all_brackets" title="Permalink to this definition">¶</a></dt>
@@ -1379,26 +1219,22 @@ i.e. <tt class="docutils literal"><span class="pre">[001]</span></tt>, <tt class
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-matscipy" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="matscipy.parameter">
-<tt class="descclassname">matscipy.</tt><tt class="descname">parameter</tt><big>(</big><em>name</em>, <em>default=None</em>, <em>logger=&lt;matscipy.logger.Logger object at 0x6fffe040ad0&gt;</em><big>)</big><a class="headerlink" href="#matscipy.parameter" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">matscipy.</tt><tt class="descname">parameter</tt><big>(</big><em>name</em>, <em>default=None</em>, <em>logger=&lt;matscipy.logger.Logger object at 0x6fffd692bd0&gt;</em><big>)</big><a class="headerlink" href="#matscipy.parameter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Read parameter from params.py control file.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>name</strong> : str</p>
-<blockquote>
-<div><p>Name of the parameter.</p>
-</div></blockquote>
-<p><strong>default</strong> : optional</p>
-<blockquote>
-<div><p>Default value. Will be returned if parameter is not present.</p>
-</div></blockquote>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name</strong> (<em>str</em>) &#8211; Name of the parameter.</li>
+<li><strong>default</strong> (<em>optional</em>) &#8211; Default value. Will be returned if parameter is not present.</li>
+</ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">value</p>
-<blockquote class="last">
-<div><p>Value of the parameter.</p>
-</div></blockquote>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Value of the parameter.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">value</p>
 </td>
 </tr>
 </tbody>

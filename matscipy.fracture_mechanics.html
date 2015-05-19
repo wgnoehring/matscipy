@@ -85,7 +85,6 @@
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
 <p>Constraint which increments epsilon_yy at a constant strain rate</p>
 <p>Rescaling is applied only to atoms where <cite>mask</cite> is True (default is all atoms)</p>
-<p class="rubric">Methods</p>
 <dl class="method">
 <dt id="matscipy.fracture_mechanics.crack.ConstantStrainRate.adjust_forces">
 <tt class="descname">adjust_forces</tt><big>(</big><em>positions</em>, <em>forces</em><big>)</big><a class="headerlink" href="#matscipy.fracture_mechanics.crack.ConstantStrainRate.adjust_forces" title="Permalink to this definition">¶</a></dt>
@@ -107,11 +106,10 @@
 <dt id="matscipy.fracture_mechanics.crack.CubicCrystalCrack">
 <em class="property">class </em><tt class="descclassname">matscipy.fracture_mechanics.crack.</tt><tt class="descname">CubicCrystalCrack</tt><big>(</big><em>crack_surface</em>, <em>crack_front</em>, <em>C11=None</em>, <em>C12=None</em>, <em>C44=None</em>, <em>stress_state='plane strain'</em>, <em>C=None</em>, <em>Crot=None</em><big>)</big><a class="headerlink" href="#matscipy.fracture_mechanics.crack.CubicCrystalCrack" title="Permalink to this definition">¶</a></dt>
 <dd><p>Crack in a cubic crystal.</p>
-<p class="rubric">Methods</p>
 <dl class="method">
 <dt id="matscipy.fracture_mechanics.crack.CubicCrystalCrack.crack_tip_position">
-<tt class="descname">crack_tip_position</tt><big>(</big><em>x</em>, <em>y</em>, <em>ref_x</em>, <em>ref_y</em>, <em>x0</em>, <em>y0</em>, <em>k</em>, <em>mask=None</em>, <em>residual_func=&lt;function displacement_residual at 0x6fffb0a0410&gt;</em>, <em>method='Powell'</em>, <em>return_residuals=False</em><big>)</big><a class="headerlink" href="#matscipy.fracture_mechanics.crack.CubicCrystalCrack.crack_tip_position" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return an estimate of the real crack tip position by minimizing the 
+<tt class="descname">crack_tip_position</tt><big>(</big><em>x</em>, <em>y</em>, <em>ref_x</em>, <em>ref_y</em>, <em>x0</em>, <em>y0</em>, <em>k</em>, <em>mask=None</em>, <em>residual_func=&lt;function displacement_residual at 0x6fffb35fc80&gt;</em>, <em>method='Powell'</em>, <em>return_residuals=False</em><big>)</big><a class="headerlink" href="#matscipy.fracture_mechanics.crack.CubicCrystalCrack.crack_tip_position" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return an estimate of the real crack tip position by minimizing the
 mean square error of the current configuration relative to the
 diplacement field obtained for a stress intensity factor k from linear
 elastic fracture mechanics.</p>
@@ -119,65 +117,31 @@ elastic fracture mechanics.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>x</strong> : array_like</p>
-<blockquote>
-<div><p>x-positions of the atomic system containing the crack.</p>
-</div></blockquote>
-<p><strong>y</strong> : array_like</p>
-<blockquote>
-<div><p>y-positions of the atomic system containing the crack.</p>
-</div></blockquote>
-<p><strong>ref_x</strong> : array_like</p>
-<blockquote>
-<div><p>x-positions of the reference crystal.</p>
-</div></blockquote>
-<p><strong>ref_y</strong> : array_like</p>
-<blockquote>
-<div><p>y-positions of the reference crystal.</p>
-</div></blockquote>
-<p><strong>x0</strong> : float</p>
-<blockquote>
-<div><p>Initial guess for the x-coordinate of the crack tip.</p>
-</div></blockquote>
-<p><strong>y0</strong> : float</p>
-<blockquote>
-<div><p>Initial guess for the y-coordinate of the crack tip.</p>
-</div></blockquote>
-<p><strong>k</strong> : float</p>
-<blockquote>
-<div><p>Stress intensity factor.</p>
-</div></blockquote>
-<p><strong>mask</strong> : array_like, optional</p>
-<blockquote>
-<div><p>Marks the atoms to use for this calculation.</p>
-</div></blockquote>
-<p><strong>residual_func</strong> : function</p>
-<blockquote>
-<div><p>Function returning per-atom residuals to be minimized.</p>
-</div></blockquote>
-<p><strong>method</strong> : str</p>
-<blockquote>
-<div><p>Optimization method. See method argument of scipy.optimize.minimize.
-Additionally, &#8216;leastsq&#8217; invokes scipy.optimize.leastsq.</p>
-</div></blockquote>
-<p><strong>return_residuals</strong> : bool</p>
-<blockquote>
-<div><p>Function returns residuals if set to True.</p>
-</div></blockquote>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>x</strong> (<em>array_like</em>) &#8211; x-positions of the atomic system containing the crack.</li>
+<li><strong>y</strong> (<em>array_like</em>) &#8211; y-positions of the atomic system containing the crack.</li>
+<li><strong>ref_x</strong> (<em>array_like</em>) &#8211; x-positions of the reference crystal.</li>
+<li><strong>ref_y</strong> (<em>array_like</em>) &#8211; y-positions of the reference crystal.</li>
+<li><strong>x0</strong> (<em>float</em>) &#8211; Initial guess for the x-coordinate of the crack tip.</li>
+<li><strong>y0</strong> (<em>float</em>) &#8211; Initial guess for the y-coordinate of the crack tip.</li>
+<li><strong>k</strong> (<em>float</em>) &#8211; Stress intensity factor.</li>
+<li><strong>mask</strong> (<em>array_like, optional</em>) &#8211; Marks the atoms to use for this calculation.</li>
+<li><strong>residual_func</strong> (<em>function</em>) &#8211; Function returning per-atom residuals to be minimized.</li>
+<li><strong>method</strong> (<em>str</em>) &#8211; Optimization method. See method argument of scipy.optimize.minimize.
+Additionally, &#8216;leastsq&#8217; invokes scipy.optimize.leastsq.</li>
+<li><strong>return_residuals</strong> (<em>bool</em>) &#8211; Function returns residuals if set to True.</li>
+</ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>x0</strong> : float</p>
-<blockquote>
-<div><p>x-coordinate of the crack tip.</p>
-</div></blockquote>
-<p><strong>y0</strong> : float</p>
-<blockquote>
-<div><p>y-coordinate of the crack tip.</p>
-</div></blockquote>
-<p><strong>residuals</strong> : array, optional</p>
-<blockquote class="last">
-<div><p>Per-atom residuals at end of optimization.</p>
-</div></blockquote>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><ul class="simple">
+<li><strong>x0</strong> (<em>float</em>) &#8211;
+x-coordinate of the crack tip.</li>
+<li><strong>y0</strong> (<em>float</em>) &#8211;
+y-coordinate of the crack tip.</li>
+<li><strong>residuals</strong> (<em>array, optional</em>) &#8211;
+Per-atom residuals at end of optimization.</li>
+</ul>
+</p>
 </td>
 </tr>
 </tbody>
@@ -187,50 +151,29 @@ Additionally, &#8216;leastsq&#8217; invokes scipy.optimize.leastsq.</p>
 <dl class="method">
 <dt id="matscipy.fracture_mechanics.crack.CubicCrystalCrack.crack_tip_position_y">
 <tt class="descname">crack_tip_position_y</tt><big>(</big><em>x</em>, <em>y</em>, <em>ref_x</em>, <em>ref_y</em>, <em>x0</em>, <em>y0</em>, <em>k</em>, <em>mask=None</em><big>)</big><a class="headerlink" href="#matscipy.fracture_mechanics.crack.CubicCrystalCrack.crack_tip_position_y" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return an estimate of the y-coordinate of the real crack tip position 
+<dd><p>Return an estimate of the y-coordinate of the real crack tip position
 assuming the stress intensity factor is k.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>x</strong> : array_like</p>
-<blockquote>
-<div><p>x-positions of the atomic system containing the crack.</p>
-</div></blockquote>
-<p><strong>y</strong> : array_like</p>
-<blockquote>
-<div><p>y-positions of the atomic system containing the crack.</p>
-</div></blockquote>
-<p><strong>ref_x</strong> : array_like</p>
-<blockquote>
-<div><p>x-positions of the reference crystal.</p>
-</div></blockquote>
-<p><strong>ref_y</strong> : array_like</p>
-<blockquote>
-<div><p>y-positions of the reference crystal.</p>
-</div></blockquote>
-<p><strong>x0</strong> : float</p>
-<blockquote>
-<div><p>Initial guess for the x-coordinate of the crack tip.</p>
-</div></blockquote>
-<p><strong>y0</strong> : float</p>
-<blockquote>
-<div><p>Initial guess for the y-coordinate of the crack tip.</p>
-</div></blockquote>
-<p><strong>k</strong> : float</p>
-<blockquote>
-<div><p>Stress intensity factor.</p>
-</div></blockquote>
-<p><strong>mask</strong> : array_like, optional</p>
-<blockquote>
-<div><p>Marks the atoms to use for this calculation.</p>
-</div></blockquote>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>x</strong> (<em>array_like</em>) &#8211; x-positions of the atomic system containing the crack.</li>
+<li><strong>y</strong> (<em>array_like</em>) &#8211; y-positions of the atomic system containing the crack.</li>
+<li><strong>ref_x</strong> (<em>array_like</em>) &#8211; x-positions of the reference crystal.</li>
+<li><strong>ref_y</strong> (<em>array_like</em>) &#8211; y-positions of the reference crystal.</li>
+<li><strong>x0</strong> (<em>float</em>) &#8211; Initial guess for the x-coordinate of the crack tip.</li>
+<li><strong>y0</strong> (<em>float</em>) &#8211; Initial guess for the y-coordinate of the crack tip.</li>
+<li><strong>k</strong> (<em>float</em>) &#8211; Stress intensity factor.</li>
+<li><strong>mask</strong> (<em>array_like, optional</em>) &#8211; Marks the atoms to use for this calculation.</li>
+</ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>y0</strong> : float</p>
-<blockquote class="last">
-<div><p>y-coordinate of the crack tip</p>
-</div></blockquote>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>y0</strong> &#8211;
+y-coordinate of the crack tip</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">float</p>
 </td>
 </tr>
 </tbody>
@@ -245,36 +188,22 @@ assuming the stress intensity factor is k.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>ref_x</strong> : array_like</p>
-<blockquote>
-<div><p>x-positions of the reference crystal.</p>
-</div></blockquote>
-<p><strong>ref_y</strong> : array_like</p>
-<blockquote>
-<div><p>y-positions of the reference crystal.</p>
-</div></blockquote>
-<p><strong>x0</strong> : float</p>
-<blockquote>
-<div><p>x-coordinate of the crack tip.</p>
-</div></blockquote>
-<p><strong>y0</strong> : float</p>
-<blockquote>
-<div><p>y-coordinate of the crack tip.</p>
-</div></blockquote>
-<p><strong>k</strong> : float</p>
-<blockquote>
-<div><p>Stress intensity factor.</p>
-</div></blockquote>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>ref_x</strong> (<em>array_like</em>) &#8211; x-positions of the reference crystal.</li>
+<li><strong>ref_y</strong> (<em>array_like</em>) &#8211; y-positions of the reference crystal.</li>
+<li><strong>x0</strong> (<em>float</em>) &#8211; x-coordinate of the crack tip.</li>
+<li><strong>y0</strong> (<em>float</em>) &#8211; y-coordinate of the crack tip.</li>
+<li><strong>k</strong> (<em>float</em>) &#8211; Stress intensity factor.</li>
+</ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>ux</strong> : array_like</p>
-<blockquote>
-<div><p>x-displacements.</p>
-</div></blockquote>
-<p><strong>uy</strong> : array_like</p>
-<blockquote class="last">
-<div><p>y-displacements.</p>
-</div></blockquote>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><ul class="simple">
+<li><strong>ux</strong> (<em>array_like</em>) &#8211;
+x-displacements.</li>
+<li><strong>uy</strong> (<em>array_like</em>) &#8211;
+y-displacements.</li>
+</ul>
+</p>
 </td>
 </tr>
 </tbody>
@@ -301,36 +230,22 @@ assuming the stress intensity factor is k.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>ref_x</strong> : array_like</p>
-<blockquote>
-<div><p>x-positions of the reference crystal.</p>
-</div></blockquote>
-<p><strong>ref_y</strong> : array_like</p>
-<blockquote>
-<div><p>y-positions of the reference crystal.</p>
-</div></blockquote>
-<p><strong>x0</strong> : float</p>
-<blockquote>
-<div><p>x-coordinate of the crack tip.</p>
-</div></blockquote>
-<p><strong>y0</strong> : float</p>
-<blockquote>
-<div><p>y-coordinate of the crack tip.</p>
-</div></blockquote>
-<p><strong>k</strong> : float</p>
-<blockquote>
-<div><p>Stress intensity factor.</p>
-</div></blockquote>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>ref_x</strong> (<em>array_like</em>) &#8211; x-positions of the reference crystal.</li>
+<li><strong>ref_y</strong> (<em>array_like</em>) &#8211; y-positions of the reference crystal.</li>
+<li><strong>x0</strong> (<em>float</em>) &#8211; x-coordinate of the crack tip.</li>
+<li><strong>y0</strong> (<em>float</em>) &#8211; y-coordinate of the crack tip.</li>
+<li><strong>k</strong> (<em>float</em>) &#8211; Stress intensity factor.</li>
+</ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>ux</strong> : array_like</p>
-<blockquote>
-<div><p>x-displacements.</p>
-</div></blockquote>
-<p><strong>uy</strong> : array_like</p>
-<blockquote class="last">
-<div><p>y-displacements.</p>
-</div></blockquote>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><ul class="simple">
+<li><strong>ux</strong> (<em>array_like</em>) &#8211;
+x-displacements.</li>
+<li><strong>uy</strong> (<em>array_like</em>) &#8211;
+y-displacements.</li>
+</ul>
+</p>
 </td>
 </tr>
 </tbody>
@@ -357,17 +272,12 @@ assuming the stress intensity factor is k.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>surface_energy</strong> : float</p>
-<blockquote>
-<div><p>Surface energy of the respective crystal surface.</p>
-</div></blockquote>
-</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>surface_energy</strong> (<em>float</em>) &#8211; Surface energy of the respective crystal surface.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>k1g</strong> : float</p>
-<blockquote class="last">
-<div><p>Stress intensity factor.</p>
-</div></blockquote>
-</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><strong>k1g</strong> &#8211;
+Stress intensity factor.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">float</td>
 </tr>
 </tbody>
 </table>
@@ -382,46 +292,29 @@ assuming the stress intensity factor is k.</p>
 <dt id="matscipy.fracture_mechanics.crack.CubicCrystalCrack.scale_displacements">
 <tt class="descname">scale_displacements</tt><big>(</big><em>x</em>, <em>y</em>, <em>ref_x</em>, <em>ref_y</em>, <em>old_k</em>, <em>new_k</em><big>)</big><a class="headerlink" href="#matscipy.fracture_mechanics.crack.CubicCrystalCrack.scale_displacements" title="Permalink to this definition">¶</a></dt>
 <dd><p>Rescale atomic positions from stress intensity factor old_k to the new
-stress intensity factor new_k. This is useful for extrapolation of 
+stress intensity factor new_k. This is useful for extrapolation of
 relaxed positions.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>x</strong> : array_like</p>
-<blockquote>
-<div><p>x-positions of the atomic system containing the crack.</p>
-</div></blockquote>
-<p><strong>y</strong> : array_like</p>
-<blockquote>
-<div><p>y-positions of the atomic system containing the crack.</p>
-</div></blockquote>
-<p><strong>ref_x</strong> : array_like</p>
-<blockquote>
-<div><p>x-positions of the reference crystal.</p>
-</div></blockquote>
-<p><strong>ref_y</strong> : array_like</p>
-<blockquote>
-<div><p>y-positions of the reference crystal.</p>
-</div></blockquote>
-<p><strong>old_k</strong> : float</p>
-<blockquote>
-<div><p>Current stress intensity factor.</p>
-</div></blockquote>
-<p><strong>new_k</strong> : float</p>
-<blockquote>
-<div><p>Stress intensity factor for the output positions.</p>
-</div></blockquote>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>x</strong> (<em>array_like</em>) &#8211; x-positions of the atomic system containing the crack.</li>
+<li><strong>y</strong> (<em>array_like</em>) &#8211; y-positions of the atomic system containing the crack.</li>
+<li><strong>ref_x</strong> (<em>array_like</em>) &#8211; x-positions of the reference crystal.</li>
+<li><strong>ref_y</strong> (<em>array_like</em>) &#8211; y-positions of the reference crystal.</li>
+<li><strong>old_k</strong> (<em>float</em>) &#8211; Current stress intensity factor.</li>
+<li><strong>new_k</strong> (<em>float</em>) &#8211; Stress intensity factor for the output positions.</li>
+</ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>x</strong> : array_like</p>
-<blockquote>
-<div><p>New x-positions of the atomic system containing the crack.</p>
-</div></blockquote>
-<p><strong>y</strong> : array_like</p>
-<blockquote class="last">
-<div><p>New y-positions of the atomic system containing the crack.</p>
-</div></blockquote>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><ul class="simple">
+<li><strong>x</strong> (<em>array_like</em>) &#8211;
+New x-positions of the atomic system containing the crack.</li>
+<li><strong>y</strong> (<em>array_like</em>) &#8211;
+New y-positions of the atomic system containing the crack.</li>
+</ul>
+</p>
 </td>
 </tr>
 </tbody>
@@ -436,40 +329,24 @@ relaxed positions.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>ref_x</strong> : array_like</p>
-<blockquote>
-<div><p>x-positions of the reference crystal.</p>
-</div></blockquote>
-<p><strong>ref_y</strong> : array_like</p>
-<blockquote>
-<div><p>y-positions of the reference crystal.</p>
-</div></blockquote>
-<p><strong>x0</strong> : float</p>
-<blockquote>
-<div><p>x-coordinate of the crack tip.</p>
-</div></blockquote>
-<p><strong>y0</strong> : float</p>
-<blockquote>
-<div><p>y-coordinate of the crack tip.</p>
-</div></blockquote>
-<p><strong>k</strong> : float</p>
-<blockquote>
-<div><p>Stress intensity factor.</p>
-</div></blockquote>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>ref_x</strong> (<em>array_like</em>) &#8211; x-positions of the reference crystal.</li>
+<li><strong>ref_y</strong> (<em>array_like</em>) &#8211; y-positions of the reference crystal.</li>
+<li><strong>x0</strong> (<em>float</em>) &#8211; x-coordinate of the crack tip.</li>
+<li><strong>y0</strong> (<em>float</em>) &#8211; y-coordinate of the crack tip.</li>
+<li><strong>k</strong> (<em>float</em>) &#8211; Stress intensity factor.</li>
+</ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>sig_x</strong> : array_like</p>
-<blockquote>
-<div><p>xx-component of the stress tensor</p>
-</div></blockquote>
-<p><strong>sig_y</strong> : array_like</p>
-<blockquote>
-<div><p>yy-component of the stress tensor</p>
-</div></blockquote>
-<p><strong>sig_xy</strong> : array_like</p>
-<blockquote class="last">
-<div><p>xy-component of the stress tensor</p>
-</div></blockquote>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><ul class="simple">
+<li><strong>sig_x</strong> (<em>array_like</em>) &#8211;
+xx-component of the stress tensor</li>
+<li><strong>sig_y</strong> (<em>array_like</em>) &#8211;
+yy-component of the stress tensor</li>
+<li><strong>sig_xy</strong> (<em>array_like</em>) &#8211;
+xy-component of the stress tensor</li>
+</ul>
+</p>
 </td>
 </tr>
 </tbody>
@@ -498,28 +375,19 @@ relaxed positions.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>G</strong> : float</p>
-<blockquote>
-<div><p>Energy release rate in units consistent with <cite>E</cite> and <cite>orig_height</cite></p>
-</div></blockquote>
-<p><strong>E</strong> : float</p>
-<blockquote>
-<div><p>Young&#8217;s modulus relevant for a pull in y direction sigma_yy/eps_yy</p>
-</div></blockquote>
-<p><strong>nu</strong> : float</p>
-<blockquote>
-<div><p>Poission ratio -eps_yy/eps_xx</p>
-</div></blockquote>
-<p><strong>orig_height</strong> : float</p>
-<blockquote>
-<div><p>Unstrained height of slab</p>
-</div></blockquote>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>G</strong> (<em>float</em>) &#8211; Energy release rate in units consistent with <cite>E</cite> and <cite>orig_height</cite></li>
+<li><strong>E</strong> (<em>float</em>) &#8211; Young&#8217;s modulus relevant for a pull in y direction sigma_yy/eps_yy</li>
+<li><strong>nu</strong> (<em>float</em>) &#8211; Poission ratio -eps_yy/eps_xx</li>
+<li><strong>orig_height</strong> (<em>float</em>) &#8211; Unstrained height of slab</li>
+</ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>strain</strong> : float</p>
-<blockquote class="last">
-<div><p>Dimensionless ratio <tt class="docutils literal"><span class="pre">(current_height</span> <span class="pre">-</span> <span class="pre">orig_height)/orig_height</span></tt></p>
-</div></blockquote>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>strain</strong> &#8211;
+Dimensionless ratio <tt class="docutils literal"><span class="pre">(current_height</span> <span class="pre">-</span> <span class="pre">orig_height)/orig_height</span></tt></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">float</p>
 </td>
 </tr>
 </tbody>
@@ -531,7 +399,6 @@ relaxed positions.</p>
 <em class="property">class </em><tt class="descclassname">matscipy.fracture_mechanics.crack.</tt><tt class="descname">IsotropicStressField</tt><big>(</big><em>K=None</em>, <em>x0=None</em>, <em>y0=None</em>, <em>sxx0=0.0</em>, <em>syy0=0.0</em>, <em>sxy0=0.0</em>, <em>nu=0.5</em>, <em>stress_state='plane strain'</em><big>)</big><a class="headerlink" href="#matscipy.fracture_mechanics.crack.IsotropicStressField" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
 <p>Calculator to return Irwin near-tip stress field at atomic sites</p>
-<p class="rubric">Methods</p>
 <dl class="method">
 <dt id="matscipy.fracture_mechanics.crack.IsotropicStressField.get_stresses">
 <tt class="descname">get_stresses</tt><big>(</big><em>atoms</em><big>)</big><a class="headerlink" href="#matscipy.fracture_mechanics.crack.IsotropicStressField.get_stresses" title="Permalink to this definition">¶</a></dt>
@@ -545,7 +412,6 @@ relaxed positions.</p>
 <dd><p>Near field solution for a crack in a rectilinear anisotropic elastic medium.
 See:
 G. C. Sih, P. C. Paris and G. R. Irwin, Int. J. Frac. Mech. 1, 189 (1965)</p>
-<p class="rubric">Methods</p>
 <dl class="method">
 <dt id="matscipy.fracture_mechanics.crack.RectilinearAnisotropicCrack.deformation_gradient">
 <tt class="descname">deformation_gradient</tt><big>(</big><em>r</em>, <em>theta</em>, <em>k</em><big>)</big><a class="headerlink" href="#matscipy.fracture_mechanics.crack.RectilinearAnisotropicCrack.deformation_gradient" title="Permalink to this definition">¶</a></dt>
@@ -555,39 +421,27 @@ cyclinder coordinates.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>r</strong> : array_like</p>
-<blockquote>
-<div><p>Distances from the crack tip.</p>
-</div></blockquote>
-<p><strong>theta</strong> : array_like</p>
-<blockquote>
-<div><p>Angles with respect to the plane of the crack.</p>
-</div></blockquote>
-<p><strong>k</strong> : float</p>
-<blockquote>
-<div><p>Stress intensity factor.</p>
-</div></blockquote>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>r</strong> (<em>array_like</em>) &#8211; Distances from the crack tip.</li>
+<li><strong>theta</strong> (<em>array_like</em>) &#8211; Angles with respect to the plane of the crack.</li>
+<li><strong>k</strong> (<em>float</em>) &#8211; Stress intensity factor.</li>
+</ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>du_dx</strong> : array</p>
-<blockquote>
-<div><p>Derivatives of displacements parallel to the plane within the plane.</p>
-</div></blockquote>
-<p><strong>du_dy</strong> : array</p>
-<blockquote>
-<div><p>Derivatives of displacements parallel to the plane perpendicular to
-the plane.</p>
-</div></blockquote>
-<p><strong>dv_dx</strong> : array</p>
-<blockquote>
-<div><p>Derivatives of displacements normal to the plane of the crack within
-the plane.</p>
-</div></blockquote>
-<p><strong>dv_dy</strong> : array</p>
-<blockquote class="last">
-<div><p>Derivatives of displacements normal to the plane of the crack 
-perpendicular to the plane.</p>
-</div></blockquote>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><ul class="simple">
+<li><strong>du_dx</strong> (<em>array</em>) &#8211;
+Derivatives of displacements parallel to the plane within the plane.</li>
+<li><strong>du_dy</strong> (<em>array</em>) &#8211;
+Derivatives of displacements parallel to the plane perpendicular to
+the plane.</li>
+<li><strong>dv_dx</strong> (<em>array</em>) &#8211;
+Derivatives of displacements normal to the plane of the crack within
+the plane.</li>
+<li><strong>dv_dy</strong> (<em>array</em>) &#8211;
+Derivatives of displacements normal to the plane of the crack
+perpendicular to the plane.</li>
+</ul>
+</p>
 </td>
 </tr>
 </tbody>
@@ -603,28 +457,20 @@ coordinates.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>r</strong> : array_like</p>
-<blockquote>
-<div><p>Distances from the crack tip.</p>
-</div></blockquote>
-<p><strong>theta</strong> : array_like</p>
-<blockquote>
-<div><p>Angles with respect to the plane of the crack.</p>
-</div></blockquote>
-<p><strong>k</strong> : float</p>
-<blockquote>
-<div><p>Stress intensity factor.</p>
-</div></blockquote>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>r</strong> (<em>array_like</em>) &#8211; Distances from the crack tip.</li>
+<li><strong>theta</strong> (<em>array_like</em>) &#8211; Angles with respect to the plane of the crack.</li>
+<li><strong>k</strong> (<em>float</em>) &#8211; Stress intensity factor.</li>
+</ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>u</strong> : array</p>
-<blockquote>
-<div><p>Displacements parallel to the plane of the crack.</p>
-</div></blockquote>
-<p><strong>v</strong> : array</p>
-<blockquote class="last">
-<div><p>Displacements normal to the plane of the crack.</p>
-</div></blockquote>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><ul class="simple">
+<li><strong>u</strong> (<em>array</em>) &#8211;
+Displacements parallel to the plane of the crack.</li>
+<li><strong>v</strong> (<em>array</em>) &#8211;
+Displacements normal to the plane of the crack.</li>
+</ul>
+</p>
 </td>
 </tr>
 </tbody>
@@ -668,34 +514,24 @@ coordinates.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>r</strong> : array_like</p>
-<blockquote>
-<div><p>Distances from the crack tip.</p>
-</div></blockquote>
-<p><strong>theta</strong> : array_like</p>
-<blockquote>
-<div><p>Angles with respect to the plane of the crack.</p>
-</div></blockquote>
-<p><strong>k</strong> : float</p>
-<blockquote>
-<div><p>Stress intensity factor.</p>
-</div></blockquote>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>r</strong> (<em>array_like</em>) &#8211; Distances from the crack tip.</li>
+<li><strong>theta</strong> (<em>array_like</em>) &#8211; Angles with respect to the plane of the crack.</li>
+<li><strong>k</strong> (<em>float</em>) &#8211; Stress intensity factor.</li>
+</ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>sig_x</strong> : array</p>
-<blockquote>
-<div><p>Diagonal component of stress tensor parallel to the plane of the
-crack.</p>
-</div></blockquote>
-<p><strong>sig_y</strong> : array</p>
-<blockquote>
-<div><p>Diagonal component of stress tensor normal to the plane of the
-crack.</p>
-</div></blockquote>
-<p><strong>sig_xy</strong> : array</p>
-<blockquote class="last">
-<div><p>Off-diagonal component of the stress tensor.</p>
-</div></blockquote>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><ul class="simple">
+<li><strong>sig_x</strong> (<em>array</em>) &#8211;
+Diagonal component of stress tensor parallel to the plane of the
+crack.</li>
+<li><strong>sig_y</strong> (<em>array</em>) &#8211;
+Diagonal component of stress tensor normal to the plane of the
+crack.</li>
+<li><strong>sig_xy</strong> (<em>array</em>) &#8211;
+Off-diagonal component of the stress tensor.</li>
+</ul>
+</p>
 </td>
 </tr>
 </tbody>
@@ -741,7 +577,7 @@ divided by r**alpha.</p>
 have the same meaning as there.</p>
 <div class="admonition seealso">
 <p class="first admonition-title">See also</p>
-<p class="last"><a class="reference internal" href="#matscipy.fracture_mechanics.crack.fit_crack_stress_field" title="matscipy.fracture_mechanics.crack.fit_crack_stress_field"><tt class="xref py py-obj docutils literal"><span class="pre">fit_crack_stress_field</span></tt></a></p>
+<p class="last"><a class="reference internal" href="#matscipy.fracture_mechanics.crack.fit_crack_stress_field" title="matscipy.fracture_mechanics.crack.fit_crack_stress_field"><tt class="xref py py-func docutils literal"><span class="pre">fit_crack_stress_field()</span></tt></a></p>
 </div>
 </dd></dl>
 
@@ -756,12 +592,11 @@ far-field stress components to vary during the fit.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>atoms</strong> : <tt class="xref py py-class docutils literal"><span class="pre">Atoms</span></tt> object</p>
-<blockquote>
-<div><p>Crack system. For the initial fit, the following keys are used
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>atoms</strong> (<tt class="xref py py-class docutils literal"><span class="pre">Atoms</span></tt> object) &#8211; <p>Crack system. For the initial fit, the following keys are used
 from the <tt class="xref py py-attr docutils literal"><span class="pre">info</span></tt> dictionary:</p>
 <blockquote>
-<div><ul class="simple">
+<div><ul>
 <li><tt class="docutils literal"><span class="pre">YoungsModulus</span></tt></li>
 <li><tt class="docutils literal"><span class="pre">PossionRatio_yx</span></tt></li>
 <li><tt class="docutils literal"><span class="pre">G</span></tt> &#8212; current energy release rate</li>
@@ -776,60 +611,39 @@ assuming plane strain in thin strip boundary conditions.</p>
 <p>On exit, new <tt class="docutils literal"><span class="pre">K</span></tt>, <tt class="docutils literal"><span class="pre">sigma0</span></tt> and <tt class="docutils literal"><span class="pre">CrackPos</span></tt> entries are set
 in the <tt class="xref py py-attr docutils literal"><span class="pre">info</span></tt> dictionary. These values are then
 used as starting guesses for subsequent fits.</p>
-</div></blockquote>
-<p><strong>r_range</strong> : sequence of two floats, optional</p>
-<blockquote>
-<div><p>If present, restrict the stress fit to an annular region
+</li>
+<li><strong>r_range</strong> (<em>sequence of two floats, optional</em>) &#8211; If present, restrict the stress fit to an annular region
 <tt class="docutils literal"><span class="pre">r_range[0]</span> <span class="pre">&lt;=</span> <span class="pre">r</span> <span class="pre">&lt;</span> <span class="pre">r_range[1]</span></tt>, centred on the previous crack
 position (from the <tt class="docutils literal"><span class="pre">CrackPos</span></tt> entry in <tt class="docutils literal"><span class="pre">atoms.info</span></tt>). If
-r_range is <tt class="docutils literal"><span class="pre">None</span></tt>, fit is carried out for all atoms.</p>
-</div></blockquote>
-<p><strong>initial_params</strong> : dict</p>
-<blockquote>
-<div><p>Names and initial values of parameters. Missing initial values
-are guessed from Atoms object.</p>
-</div></blockquote>
-<p><strong>fix_params</strong> : dict</p>
-<blockquote>
-<div><p>Names and values of parameters to fix during the fit,
-e.g. <tt class="docutils literal"><span class="pre">{y0:</span> <span class="pre">0.0}</span></tt> to constrain the fit to the line y=0</p>
-</div></blockquote>
-<p><strong>sigma</strong> : None or array with shape (len(atoms), 3, 3)</p>
-<blockquote>
-<div><p>Explicitly provide the per-atom stresses. Avoids calling Atoms&#8217;
-calculators <a class="reference internal" href="#matscipy.fracture_mechanics.crack.IsotropicStressField.get_stresses" title="matscipy.fracture_mechanics.crack.IsotropicStressField.get_stresses"><tt class="xref py py-meth docutils literal"><span class="pre">get_stresses()</span></tt></a> method.</p>
-</div></blockquote>
-<p><strong>avg_sigma</strong> : None or array with shape (len(atoms), 3, 3)</p>
-<blockquote>
-<div><p>If present, use this array to accumulate the time-averaged
-stress field. Useful when processing a trajectory.</p>
-</div></blockquote>
-<p><strong>avg_decay</strong> : real</p>
-<blockquote>
-<div><p>Factor by which average stress is attenuated at each step.
+r_range is <tt class="docutils literal"><span class="pre">None</span></tt>, fit is carried out for all atoms.</li>
+<li><strong>initial_params</strong> (<em>dict</em>) &#8211; Names and initial values of parameters. Missing initial values
+are guessed from Atoms object.</li>
+<li><strong>fix_params</strong> (<em>dict</em>) &#8211; Names and values of parameters to fix during the fit,
+e.g. <tt class="docutils literal"><span class="pre">{y0:</span> <span class="pre">0.0}</span></tt> to constrain the fit to the line y=0</li>
+<li><strong>sigma</strong> (<em>None or array with shape (len(atoms), 3, 3)</em>) &#8211; Explicitly provide the per-atom stresses. Avoids calling Atoms&#8217;
+calculators <a class="reference internal" href="#matscipy.fracture_mechanics.crack.IsotropicStressField.get_stresses" title="matscipy.fracture_mechanics.crack.IsotropicStressField.get_stresses"><tt class="xref py py-meth docutils literal"><span class="pre">get_stresses()</span></tt></a> method.</li>
+<li><strong>avg_sigma</strong> (<em>None or array with shape (len(atoms), 3, 3)</em>) &#8211; If present, use this array to accumulate the time-averaged
+stress field. Useful when processing a trajectory.</li>
+<li><strong>avg_decay</strong> (<em>real</em>) &#8211; Factor by which average stress is attenuated at each step.
 Should be set to <tt class="docutils literal"><span class="pre">dt/tau</span></tt> where <tt class="docutils literal"><span class="pre">dt</span></tt> is MD time-step
-and <tt class="docutils literal"><span class="pre">tau</span></tt> is a characteristic averaging time.</p>
-</div></blockquote>
-<p><strong>calc</strong> : Calculator object, optional</p>
-<blockquote>
-<div><p>If present, override the calculator used to compute stresses
+and <tt class="docutils literal"><span class="pre">tau</span></tt> is a characteristic averaging time.</li>
+<li><strong>calc</strong> (<em>Calculator object, optional</em>) &#8211; <p>If present, override the calculator used to compute stresses
 on the atoms. Default is <tt class="docutils literal"><span class="pre">atoms.get_calculator</span></tt>.</p>
-<p>To use the atom resolved stress tensor pass an instance of the 
+<p>To use the atom resolved stress tensor pass an instance of the
 <tt class="xref py py-class docutils literal"><span class="pre">AtomResolvedStressField</span></tt> class.</p>
-</div></blockquote>
-<p><strong>verbose</strong> : bool, optional</p>
-<blockquote>
-<div><p>If set to True, print additional information about the fit.</p>
-</div></blockquote>
+</li>
+<li><strong>verbose</strong> (<em>bool, optional</em>) &#8211; If set to True, print additional information about the fit.</li>
+</ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>params</strong> : dict with keys <tt class="docutils literal"><span class="pre">[K,</span> <span class="pre">x0,</span> <span class="pre">y0,</span> <span class="pre">sxx0,</span> <span class="pre">syy0,</span> <span class="pre">sxy0]</span></tt></p>
-<blockquote class="last">
-<div><p>Fitted parameters, in a form suitable for passing to
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>params</strong> &#8211;
+Fitted parameters, in a form suitable for passing to
 <a class="reference internal" href="#matscipy.fracture_mechanics.crack.IsotropicStressField" title="matscipy.fracture_mechanics.crack.IsotropicStressField"><tt class="xref py py-class docutils literal"><span class="pre">IsotropicStressField</span></tt></a> constructor. These are the stress intensity
 factor <cite>K</cite>, the centre of the stress field <tt class="docutils literal"><span class="pre">(x0,</span> <span class="pre">y0)</span></tt>, and the
 far field contribution to the stress <tt class="docutils literal"><span class="pre">(sxx0,</span> <span class="pre">syy0,</span> <span class="pre">sxy0)</span></tt>.</p>
-</div></blockquote>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">dict with keys <tt class="docutils literal"><span class="pre">[K,</span> <span class="pre">x0,</span> <span class="pre">y0,</span> <span class="pre">sxx0,</span> <span class="pre">syy0,</span> <span class="pre">sxy0]</span></tt></p>
 </td>
 </tr>
 </tbody>
@@ -873,40 +687,25 @@ uses stored <cite>YoungsModulus</cite> and <cite>PoissionRatio_yz</cite> values 
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>K</strong> : float</p>
-<blockquote>
-<div><p>Mode I stress intensity factor. Units should match units of <cite>G</cite> and <cite>r</cite>.</p>
-</div></blockquote>
-<p><strong>G</strong> : float</p>
-<blockquote>
-<div><p>Shear modulus. Units should match units of <cite>K</cite> and <cite>r</cite>.</p>
-</div></blockquote>
-<p><strong>nu</strong> : float</p>
-<blockquote>
-<div><p>Poisson ratio.</p>
-</div></blockquote>
-<p><strong>r</strong> : array_like</p>
-<blockquote>
-<div><p>Radial distances from crack tip. Can be a multidimensional
-array to evaluate stress field on a grid.</p>
-</div></blockquote>
-<p><strong>t</strong> : array_like</p>
-<blockquote>
-<div><p>Angles from horizontal line y=0 ahead of crack tip,
-measured anticlockwise. Should have same shape as <cite>r</cite>.</p>
-</div></blockquote>
-<p><strong>stress_state</strong> : str</p>
-<blockquote>
-<div><p>One of&#8221;plane stress&#8221; or &#8220;plane strain&#8221;. Used if xyz_only=False to
-determine zz stresses.</p>
-</div></blockquote>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>K</strong> (<em>float</em>) &#8211; Mode I stress intensity factor. Units should match units of <cite>G</cite> and <cite>r</cite>.</li>
+<li><strong>G</strong> (<em>float</em>) &#8211; Shear modulus. Units should match units of <cite>K</cite> and <cite>r</cite>.</li>
+<li><strong>nu</strong> (<em>float</em>) &#8211; Poisson ratio.</li>
+<li><strong>r</strong> (<em>array_like</em>) &#8211; Radial distances from crack tip. Can be a multidimensional
+array to evaluate stress field on a grid.</li>
+<li><strong>t</strong> (<em>array_like</em>) &#8211; Angles from horizontal line y=0 ahead of crack tip,
+measured anticlockwise. Should have same shape as <cite>r</cite>.</li>
+<li><strong>stress_state</strong> (<em>str</em>) &#8211; One of&#8221;plane stress&#8221; or &#8220;plane strain&#8221;. Used if xyz_only=False to
+determine zz stresses.</li>
+</ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>u</strong> : array</p>
-<p><strong>v</strong> : array</p>
-<blockquote class="last">
-<div><p>Displacements. Same shape as <cite>r</cite> and <cite>t</cite>.</p>
-</div></blockquote>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><ul class="simple">
+<li><strong>u</strong> (<em>array</em>)</li>
+<li><strong>v</strong> (<em>array</em>) &#8211;
+Displacements. Same shape as <cite>r</cite> and <cite>t</cite>.</li>
+</ul>
+</p>
 </td>
 </tr>
 </tbody>
@@ -921,36 +720,23 @@ determine zz stresses.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>K</strong> : float</p>
-<blockquote>
-<div><p>Mode I stress intensity factor. Units should match units of <cite>r</cite>.</p>
-</div></blockquote>
-<p><strong>r</strong> : array_like</p>
-<blockquote>
-<div><p>Radial distances from crack tip. Can be a multidimensional
-array to evaluate stress field on a grid.</p>
-</div></blockquote>
-<p><strong>t</strong> : array_like</p>
-<blockquote>
-<div><p>Angles from horzontal line y=0 ahead of crack tip,
-measured anticlockwise. Should have same shape as <cite>r</cite>.</p>
-</div></blockquote>
-<p><strong>xy_only</strong> : bool</p>
-<blockquote>
-<div><p>If True (default) only xx, yy, xy and yx components will be set.</p>
-</div></blockquote>
-<p><strong>nu</strong> : float</p>
-<blockquote>
-<div><p>Poisson ratio. Used only when <tt class="docutils literal"><span class="pre">xy_only=False</span></tt>, to determine zz stresses</p>
-</div></blockquote>
-<p><strong>stress_state</strong> : str</p>
-<blockquote>
-<div><p>One of&#8221;plane stress&#8221; or &#8220;plane strain&#8221;. Used if xyz_only=False to
-determine zz stresses.</p>
-</div></blockquote>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>K</strong> (<em>float</em>) &#8211; Mode I stress intensity factor. Units should match units of <cite>r</cite>.</li>
+<li><strong>r</strong> (<em>array_like</em>) &#8211; Radial distances from crack tip. Can be a multidimensional
+array to evaluate stress field on a grid.</li>
+<li><strong>t</strong> (<em>array_like</em>) &#8211; Angles from horzontal line y=0 ahead of crack tip,
+measured anticlockwise. Should have same shape as <cite>r</cite>.</li>
+<li><strong>xy_only</strong> (<em>bool</em>) &#8211; If True (default) only xx, yy, xy and yx components will be set.</li>
+<li><strong>nu</strong> (<em>float</em>) &#8211; Poisson ratio. Used only when <tt class="docutils literal"><span class="pre">xy_only=False</span></tt>, to determine zz stresses</li>
+<li><strong>stress_state</strong> (<em>str</em>) &#8211; One of&#8221;plane stress&#8221; or &#8220;plane strain&#8221;. Used if xyz_only=False to
+determine zz stresses.</li>
+</ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>sigma</strong> : array with shape <tt class="docutils literal"><span class="pre">r.shape</span> <span class="pre">+</span> <span class="pre">(3,3)</span></tt></p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>sigma</strong></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">array with shape <tt class="docutils literal"><span class="pre">r.shape</span> <span class="pre">+</span> <span class="pre">(3,3)</span></tt></p>
 </td>
 </tr>
 </tbody>
@@ -986,29 +772,20 @@ a sequence of three floats</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>strain</strong> : float</p>
-<blockquote>
-<div><p>Dimensionless ratio <tt class="docutils literal"><span class="pre">(current_height</span> <span class="pre">-</span> <span class="pre">orig_height)/orig_height</span></tt></p>
-</div></blockquote>
-<p><strong>E</strong> : float</p>
-<blockquote>
-<div><p>Young&#8217;s modulus relevant for a pull in y direction sigma_yy/eps_yy</p>
-</div></blockquote>
-<p><strong>nu</strong> : float</p>
-<blockquote>
-<div><p>Poission ratio -eps_yy/eps_xx</p>
-</div></blockquote>
-<p><strong>orig_height</strong> : float</p>
-<blockquote>
-<div><p>Unstrained height of slab</p>
-</div></blockquote>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>strain</strong> (<em>float</em>) &#8211; Dimensionless ratio <tt class="docutils literal"><span class="pre">(current_height</span> <span class="pre">-</span> <span class="pre">orig_height)/orig_height</span></tt></li>
+<li><strong>E</strong> (<em>float</em>) &#8211; Young&#8217;s modulus relevant for a pull in y direction sigma_yy/eps_yy</li>
+<li><strong>nu</strong> (<em>float</em>) &#8211; Poission ratio -eps_yy/eps_xx</li>
+<li><strong>orig_height</strong> (<em>float</em>) &#8211; Unstrained height of slab</li>
+</ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>G</strong> : float</p>
-<blockquote class="last">
-<div><p>Energy release rate in units consistent with input
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>G</strong> &#8211;
+Energy release rate in units consistent with input
 (i.e. in eV/A**2 if eV/A/fs units used)</p>
-</div></blockquote>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">float</p>
 </td>
 </tr>
 </tbody>
@@ -1050,23 +827,13 @@ parameters.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>x</strong> : array</p>
-<p><strong>y</strong> : array</p>
-<blockquote>
-<div><p>Atomic positions in unstrained slab, centered on origin x=0,y=0</p>
-</div></blockquote>
-<p><strong>strain</strong> : float</p>
-<blockquote>
-<div><p>Far field strain to apply</p>
-</div></blockquote>
-<p><strong>a</strong> : float</p>
-<blockquote>
-<div><p>x coordinate for beginning of strain ramp</p>
-</div></blockquote>
-<p><strong>b</strong> : float</p>
-<blockquote class="last">
-<div><p>x coordinate for end of strain ramp</p>
-</div></blockquote>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>x</strong> (<em>array</em>) &#8211; </li>
+<li><strong>y</strong> (<em>array</em>) &#8211; Atomic positions in unstrained slab, centered on origin x=0,y=0</li>
+<li><strong>strain</strong> (<em>float</em>) &#8211; Far field strain to apply</li>
+<li><strong>a</strong> (<em>float</em>) &#8211; x coordinate for beginning of strain ramp</li>
+<li><strong>b</strong> (<em>float</em>) &#8211; x coordinate for end of strain ramp</li>
+</ul>
 </td>
 </tr>
 </tbody>
@@ -1197,46 +964,25 @@ Domain function is currently fixed: q(r) = (r-r1)/(r2-r1)</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>a</strong> : ase.Atoms</p>
-<blockquote>
-<div><p>Relaxed atomic configuration of the crack.</p>
-</div></blockquote>
-<p><strong>deformation_gradient</strong> : array_like</p>
-<blockquote>
-<div><p>len(a) x 3x3 array of atomic deformation gradients.</p>
-</div></blockquote>
-<p><strong>virial</strong> : array_like</p>
-<blockquote>
-<div><p>len(a) x 3x3 array of atomic virials.</p>
-</div></blockquote>
-<p><strong>epot</strong> : float</p>
-<blockquote>
-<div><p>Potential energy per atom of the cracked configuration.</p>
-</div></blockquote>
-<p><strong>e0</strong> : float</p>
-<blockquote>
-<div><p>Reference energy (cohesive energy per atom of the bulk crystal at
-equilibrium).</p>
-</div></blockquote>
-<p><strong>tip_x, tip_y</strong> : float</p>
-<blockquote>
-<div><p>Position of the crack tip.</p>
-</div></blockquote>
-<p><strong>r1, r2</strong> : float</p>
-<blockquote>
-<div><p>Volume integration is carried out in region at a distance between r1
-and r2 from the crack tip.</p>
-</div></blockquote>
-<p><strong>mask</strong> : array_like</p>
-<blockquote>
-<div><p>Include only a subset of all atoms into J-integral computation.</p>
-</div></blockquote>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>a</strong> (<em>ase.Atoms</em>) &#8211; Relaxed atomic configuration of the crack.</li>
+<li><strong>deformation_gradient</strong> (<em>array_like</em>) &#8211; len(a) x 3x3 array of atomic deformation gradients.</li>
+<li><strong>virial</strong> (<em>array_like</em>) &#8211; len(a) x 3x3 array of atomic virials.</li>
+<li><strong>epot</strong> (<em>float</em>) &#8211; Potential energy per atom of the cracked configuration.</li>
+<li><strong>e0</strong> (<em>float</em>) &#8211; Reference energy (cohesive energy per atom of the bulk crystal at
+equilibrium).</li>
+<li><strong>tip_y</strong> (<em>tip_x,</em>) &#8211; Position of the crack tip.</li>
+<li><strong>r2</strong> (<em>r1,</em>) &#8211; Volume integration is carried out in region at a distance between r1
+and r2 from the crack tip.</li>
+<li><strong>mask</strong> (<em>array_like</em>) &#8211; Include only a subset of all atoms into J-integral computation.</li>
+</ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>J</strong> : float</p>
-<blockquote class="last">
-<div><p>Value of the J-integral.</p>
-</div></blockquote>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>J</strong> &#8211;
+Value of the J-integral.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">float</p>
 </td>
 </tr>
 </tbody>
@@ -1248,11 +994,10 @@ and r2 from the crack tip.</p>
 <span id="matscipy-fracture-mechanics-idealbrittlesolid-module"></span><h2>matscipy.fracture_mechanics.idealbrittlesolid module<a class="headerlink" href="#module-matscipy.fracture_mechanics.idealbrittlesolid" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="matscipy.fracture_mechanics.idealbrittlesolid.IdealBrittleSolid">
-<em class="property">class </em><tt class="descclassname">matscipy.fracture_mechanics.idealbrittlesolid.</tt><tt class="descname">IdealBrittleSolid</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#matscipy.fracture_mechanics.idealbrittlesolid.IdealBrittleSolid" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">matscipy.fracture_mechanics.idealbrittlesolid.</tt><tt class="descname">IdealBrittleSolid</tt><big>(</big><em>restart=None</em>, <em>ignore_bad_restart_file=False</em>, <em>label=None</em>, <em>atoms=None</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#matscipy.fracture_mechanics.idealbrittlesolid.IdealBrittleSolid" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">ase.calculators.calculator.Calculator</span></tt></p>
 <p>Implementation of force field for an ideal brittle solid</p>
 <p>Described in Marder, Int. J. Fract. 130, 517-555 (2004)</p>
-<p class="rubric">Methods</p>
 <dl class="method">
 <dt id="matscipy.fracture_mechanics.idealbrittlesolid.IdealBrittleSolid.calculate">
 <tt class="descname">calculate</tt><big>(</big><em>atoms</em>, <em>properties</em>, <em>system_changes</em><big>)</big><a class="headerlink" href="#matscipy.fracture_mechanics.idealbrittlesolid.IdealBrittleSolid.calculate" title="Permalink to this definition">¶</a></dt>
