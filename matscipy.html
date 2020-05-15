@@ -727,6 +727,62 @@ given.</p></li>
 <div class="section" id="module-matscipy.neighbours">
 <span id="matscipy-neighbours-module"></span><h2>matscipy.neighbours module<a class="headerlink" href="#module-matscipy.neighbours" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
+<dt id="matscipy.neighbours.find_common_neighbours">
+<code class="sig-prename descclassname">matscipy.neighbours.</code><code class="sig-name descname">find_common_neighbours</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">i_n</span></em>, <em class="sig-param"><span class="n">j_n</span></em>, <em class="sig-param"><span class="n">nat</span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.neighbours.find_common_neighbours" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find common neighbors of pairs of atoms</p>
+<p>For each pair <code class="docutils literal notranslate"><span class="pre">(i1,</span> <span class="pre">j1)</span></code> in the neighbor list, find all other pairs
+<code class="docutils literal notranslate"><span class="pre">(i2,</span> <span class="pre">j1)</span></code> which share the same <code class="docutils literal notranslate"><span class="pre">j1</span></code>. This includes <code class="docutils literal notranslate"><span class="pre">(i1,j1)</span></code>
+itself. In this way, create a list with <code class="docutils literal notranslate"><span class="pre">n</span></code> blocks of rows, where <code class="docutils literal notranslate"><span class="pre">n</span></code>
+is the length of the neighbor list. All rows in a block have the same
+<code class="docutils literal notranslate"><span class="pre">j1</span></code>. Each row corresponds to one triplet <code class="docutils literal notranslate"><span class="pre">(i1,</span> <span class="pre">j1</span> <span class="pre">,i2)</span></code>. The number
+of rows in the block is equal to the total number of neighbors of <code class="docutils literal notranslate"><span class="pre">j1</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>i_n</strong> (<em>array_like</em>) – array of atom identifiers</p></li>
+<li><p><strong>j_n</strong> (<em>array_like</em>) – array of atom identifiers</p></li>
+<li><p><strong>nat</strong> (<em>int</em>) – number of atoms</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>cnl_i1_i2</strong> (<em>array</em>) – atom numbers i1 and i2</p></li>
+<li><p><strong>cnl_j1</strong> (<em>array</em>) – shared neighbor of i1 and i2</p></li>
+<li><p><strong>nl_index_i1_j1</strong> (<em>array</em>) – index in the neighbor list of pair i1, j1</p></li>
+<li><p><strong>nl_index_i2_j1</strong> (<em>array</em>) – index in the neighbor list of pair i2, j1</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>Accumulate random numbers for pairs with common neighbors:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">matscipy</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">ase.lattice.cubic</span> <span class="k">import</span> <span class="n">FaceCenteredCubic</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">matscipy.neighbours</span> <span class="k">import</span> <span class="n">neighbour_list</span><span class="p">,</span> <span class="n">find_common_neighbours</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cutoff</span> <span class="o">=</span> <span class="mf">6.5</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">atoms</span> <span class="o">=</span> <span class="n">FaceCenteredCubic</span><span class="p">(</span><span class="s1">&#39;Cu&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">nat</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">atoms</span><span class="o">.</span><span class="n">numbers</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">nat</span><span class="p">)</span>
+<span class="go">256</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">i_n</span><span class="p">,</span> <span class="n">j_n</span><span class="p">,</span> <span class="n">dr_nc</span><span class="p">,</span> <span class="n">abs_dr_n</span> <span class="o">=</span> <span class="n">neighbour_list</span><span class="p">(</span><span class="s1">&#39;ijDd&#39;</span><span class="p">,</span> <span class="n">atoms</span><span class="p">,</span> <span class="n">cutoff</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">i_n</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="go">(22016,)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cnl_i1_i2</span><span class="p">,</span> <span class="n">cnl_j1</span><span class="p">,</span> <span class="n">nl_index_i1_j1</span><span class="p">,</span> <span class="n">nl_index_i2_j1</span> <span class="o">=</span> <span class="n">find_common_neighbours</span><span class="p">(</span><span class="n">i_n</span><span class="p">,</span> <span class="n">j_n</span><span class="p">,</span> <span class="n">nat</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">cnl_i1_i2</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="go">(1893376, 2)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">unique_pairs_i1_i2</span><span class="p">,</span> <span class="n">bincount_bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">cnl_i1_i2</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">return_inverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">unique_pairs_i1_i2</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="go">(65536, 2)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tmp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">cnl_i1_i2</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">my_sum</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">bincount</span><span class="p">(</span><span class="n">bincount_bins</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="n">tmp</span><span class="p">,</span> <span class="n">minlength</span><span class="o">=</span><span class="n">unique_pairs_i1_i2</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">my_sum</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="go">(65536,)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
 <dt id="matscipy.neighbours.find_indices_of_reversed_pairs">
 <code class="sig-prename descclassname">matscipy.neighbours.</code><code class="sig-name descname">find_indices_of_reversed_pairs</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">i_n</span></em>, <em class="sig-param"><span class="n">j_n</span></em>, <em class="sig-param"><span class="n">abs_dr_n</span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.neighbours.find_indices_of_reversed_pairs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Find neighbor list indices where reversed pairs are stored</p>
