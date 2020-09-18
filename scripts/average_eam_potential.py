@@ -27,7 +27,9 @@ from matscipy.calculators.eam import io, average_atom
 @click.argument("input_table", type=click.Path(exists=True, readable=True))
 @click.argument("output_table", type=click.Path(exists=False, writable=True))
 @click.argument("concentrations", nargs=-1)
-def average(input_table, output_table, concentrations):
+@click.option('--kind',
+              type=click.Choice(['eam/alloy', 'eam/fs'], case_sensitive=True))
+def average(input_table, output_table, concentrations, kind):
     """Create Average-atom potential for an Embedded Atom Method potential
 
     Read an EAM potential from INPUT_TABLE, create the Average-atom
@@ -39,9 +41,9 @@ def average(input_table, output_table, concentrations):
     the elements, in the order in which the appear in the input table.
 
     """
-    source, parameters, F, f, rep = io.read_eam(input_table)
+    source, parameters, F, f, rep = io.read_eam(input_table, kind=kind)
     (new_parameters, new_F, new_f, new_rep) = average_atom.average_potential(
-        np.array(concentrations, dtype=float), parameters, F, f, rep
+        np.array(concentrations, dtype=float), parameters, F, f, rep, kind=kind
     )
     composition = " ".join(
         [str(c * 100.0) + f"% {e}," for c, e in zip(np.array(concentrations, dtype=float), parameters.symbols)]
@@ -55,7 +57,7 @@ def average(input_table, output_table, concentrations):
         new_f,
         new_rep,
         output_table,
-        kind="eam/alloy",
+        kind=kind,
     )
 
 
