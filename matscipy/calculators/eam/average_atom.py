@@ -36,35 +36,90 @@ def average_potential(
     crystal_structure="unknown",
     lattice_constant=1.0,
 ):
-    r"""Generate Average-atom potential
+    r"""Generate an Average-atom EAM potential
 
-    The Average-atom (A-atom) potential is a mean-field approximation
-    for random alloys, see Ref. `1`_. The purpose is to replace the true
-    elements by a single fictious element, the A-atom. A configuration
-    of A-atoms yields approximately the same potential energy as the
-    corresponding random alloy configuration. Other average material
-    properties, e.g. the elastic constants, are reproduced as well.
-    For a full derivation, see Ref. `1`. 
+    The Average-atom (A-atom) potential is a mean-field approximation for
+    random alloys, see Ref. `1`_. The purpose is to replace the true elements
+    by a single fictious element, the A-atom. A configuration of A-atoms
+    has approximately the same potential energy as the corresponding random
+    alloy configuration. Furthermore, the A-atom configuration has similar 
+    average material properties, e.g. similar elastic constants.
 
     The A-atom potential has standard EAM form, i.e. it can be tabulated
     just like any other EAM potential. The potential functions are simply
-    the concentration-weighted averages of the pure element functions:
+    the concentration-weighted averages of the pure element functions.
+
+    In the case of eam/alloy potentials, the new potential functions are 
 
     .. math::
         
+        \phi_{AX}\left(r_{\gamma\delta}\right) 
+            &= \sum_{Y}^{N_T} c_{Y}  
+            \phi_{YX}\left(r_{\gamma\delta}\right) \quad\text{(pair potential for $AX$-pairs)}, \\
         \phi_{AA}\left(r_{\gamma\delta}\right) 
-            &= \sum_{X}^{N_T}\sum_{Y}^{N_T} c_{X}c_{Y}  
-            \phi_{XY}\left(r_{\gamma\delta}\right) \quad\text{(pair potential)}, \\
+            &= \sum_{X}^{N_T} c_{X}  
+            \phi_{AX}\left(r_{\gamma\delta}\right) \quad\text{(pair potential for $AA$-pairs)}, \\
         U_{A}\left(\rho_\gamma\right)  
             &= \sum_{X}^{N_T}c_{X}U_{X}\left(\rho_\gamma\right) \quad\text{(embedding energy)}, \\
         g_A\left(r_{\gamma\delta}\right) 
             &= \sum_{X}^{N_T}c_X g_X\left(r_{\gamma\delta}\right)\quad\text{(electron density)},\;\text{and}\\
         m_A &= \sum_{X}^{N_T}c_X m_X\quad\text{(mass)}.
 
+    Mind that the pair functions are symmetric, i.e.
+    :math:`\phi_{XY}=\phi_{YX}`. In the case of eam/alloy potentials, there is
+    one electron density function for each element. Finnis-Sinclair (eam/fs,
+    Ref. `2`_) potentials, by contrast, have one electron density function
+    per *pair* of elements. The density contributions are not symmetric, i.e.
+    :math:`g_{XY}\neq{}g_{YX}`. The potential functions are
+
+    .. math::
+
+        \phi_{AX}\left(r_{\gamma\delta}\right) 
+            &= \sum_{Y}^{N_T} c_{Y}  
+            \phi_{YX}\left(r_{\gamma\delta}\right) \quad\text{(pair potential for $AX$-pairs)}, \\
+        \phi_{AA}\left(r_{\gamma\delta}\right) 
+            &= \sum_{X}^{N_T} c_{X}  
+            \phi_{AX}\left(r_{\gamma\delta}\right) \quad\text{(pair potential for $AA$-pairs)}, \\
+        U_{A}\left(\rho_\gamma\right)  
+            &= \sum_{X}^{N_T}c_{X}U_{X}\left(\rho_\gamma\right) \quad\text{(embedding energy)}, \\
+        g_{AX}\left(r_{\gamma\delta}\right) 
+            &= \sum_{Y}^{N_T}c_Y g_{YX}\left(r_{\gamma\delta}\right)\quad\text{(electron density by $A$ for $X$)},\\
+        g_{XA}\left(r_{\gamma\delta}\right) 
+            &= \sum_{Y}^{N_T}c_Y g_{XY}\left(r_{\gamma\delta}\right)\quad\text{(electron density by $X$ for $A$)},\\
+        g_{AA}\left(r_{\gamma\delta}\right) 
+            &= \sum_{X}^{N_T}c_X g_{XA} = \sum_{X}^{N_T}c_T g_{AX}\left(r_{\gamma\delta}\right)\quad\text{(electron density by $A$ for $A$)},\;\text{and}\\
+        m_A &= \sum_{X}^{N_T}c_X m_X\quad\text{(mass)}.
+
     .. note::
         
-        Currently, only eam/alloy-style potentials can be averaged.
-        The extension to eam/fs should be straightforward, however.
+        The derivation for eam/alloy and eam/fs potentials is mostly the same.
+        However, compared to eam/alloy potentials, eam/fs potentials require
+        one additional approximation, concerning the Taylor expansion of the
+        embedding energy about the configurational average of the electron
+        density,
+
+        .. math:: 
+            
+            U^X\left(\rho_\gamma\right)
+            \approx U^X\left(\left\langle\rho_\gamma\right\rangle\right)
+            +\frac{\partial U^X}{\partial \rho_\gamma}\bigg\vert_{\left\langle\rho_\gamma\right\rangle}
+            \left(\rho_\gamma- \left\langle\rho_\gamma\right\rangle\right) + \dots
+
+        In the case of eam/alloy potentials, the linear term vanishes when taking
+        the configurational average :math:`\left\langle\bullet\right\rangle` 
+        (on average, deviations from the average electron density are zero).
+        However, in the case of eam/fs potentials, the electron density has
+        a more complicated form, hence the linear term doesn't vanish 
+        upon averaging. Therefore, we need to assume that it is zero, i.e.
+        only the leading term of the Taylor series is retained 
+        :math:`U^X\left(\rho_\gamma\right)\approx U^X\left(\left\langle\rho_\gamma\right\rangle\right)`.
+
+    .. tip::
+
+        Before using A-atom potentials in production, verify that the potential
+        has similar average properties as the true random alloy, e.g. similar
+        average lattice parameter, elastic constants, etc.
+        
 
 
     Parameters
@@ -79,6 +134,8 @@ def average_potential(
         tabulated electron density functions
     rep : array_like
         tabulated pair potential energy functions
+    kind : string
+        "eam/alloy" or "eam/fs" are supported 
 
     Returns
     -------
@@ -125,6 +182,9 @@ def average_potential(
     .. [1] Varvenne, C., Luque, A., Nöhring, W. G. & Curtin, W. A. 
        Average-atom interatomic potential for random alloys. 
        Physical Review B 93, 104201 (2016).
+
+    .. [2] Finnis M. W. & Sinclair, J. E. A simple empirical N-body potential 
+       for transition metals. Philosophical Magazine A 50, 45 (1984).
 
     Notes
     -----
