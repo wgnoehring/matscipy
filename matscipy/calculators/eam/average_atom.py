@@ -179,13 +179,17 @@ def average_potential(
             axis=0,
         )
         # The electron density functions of Finnis-Sinclar potentials
-        # form an unsymmetric Nelements x Nelements x Nfunctionvalues
-        # matrix. The matrix is averaged in the same way the
-        # pair potentials are averaged, see comments below.
+        # form a Nelements x Nelements x Nfunctionvalues array. 
+        # In contrast to the array of pair potential functions,
+        # the Nfunctionvalues Nelements x Nelements matrices given by 
+        # the first two dimensions are not symmetric
         new_f[-1, :-1, :] = np.average(f, axis=0, weights=concentrations)
-        new_f[:-1, -1, :] = new_f[-1, :-1, :]
+        new_f[:-1, -1, :] = np.average(f, axis=1, weights=concentrations)
         column = new_f[:-1, -1, :]
         new_f[-1, -1, :] = np.average(column, axis=0, weights=concentrations)
+        # row and column averaging should yield the same result
+        #row = new_f[-1, :-1, :]
+        #print(np.linalg.norm(new_f[-1, -1, :] - np.average(row, axis=0, weights=concentrations)))
     else:
         raise NotImplementedError
     # Average the pair potential
