@@ -113,6 +113,7 @@ def average_potential(
         upon averaging. Therefore, we need to assume that it is zero, i.e.
         only the leading term of the Taylor series is retained 
         :math:`U^X\left(\rho_\gamma\right)\approx U^X\left(\left\langle\rho_\gamma\right\rangle\right)`.
+        See the page :ref:`eam_avg_atom` for a detailed derivation.
 
     .. tip::
 

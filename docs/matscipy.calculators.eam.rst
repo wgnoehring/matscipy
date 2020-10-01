@@ -37,3 +37,4 @@ matscipy.average_atoms.eam.average_atom module
     :members:
     :undoc-members:
     :show-inheritance:
+
